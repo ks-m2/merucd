@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment: 1
+  delivery_id: 1
+  user_id: 1
+
+two:
+  payment: 1
+  delivery_id: 1
+  user_id: 1
