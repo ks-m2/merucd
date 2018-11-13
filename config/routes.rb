@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :buys, only: [:index]
   resources :buys_products, only: [:create, :destroy]
   resources :admin_pages, only: [:index, :show]
-
+  resources :searches, only: [:index]
 
   get "/home/about" => "home#about"
 
