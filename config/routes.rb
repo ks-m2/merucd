@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'searches/search'
+  get 'admin_pages/index'
+  get 'admin_pages/show'
   devise_for :users
   resources :products
   resources :products_comments, only: [:create, :edit, :destroy]
@@ -8,9 +11,11 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :destroy, :update]
   resources :buys, only: [:index]
   resources :buys_products, only: [:create, :destroy]
-  resources :mails, only: [:create, :new]
-  get "/home/about" => "home#about"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :admin_pages, only: [:index, :show]
 
+
+  get "/home/about" => "home#about"
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htmlß
   root to: 'products#index'
 end
