@@ -1,0 +1,2 @@
+module BuysProductsHelper
+end
