@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'homes/about'
+  get 'mails/new'
+  get 'mails/create'
+  get 'talks/create'
+  get 'talks/destroy'
+  get 'cart_products/create'
+  get 'cart_products/update'
+  get 'cart_products/destroy'
+  get 'product_comments/create'
+  get 'product_comments/edit'
+  get 'product_comments/destroy'
+  get 'buy_products/create'
+  get 'buy_products/destroy'
   devise_for :users
   resources :products
   resources :products_comments, only: [:create, :edit, :destroy]
