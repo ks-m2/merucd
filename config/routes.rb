@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   resources :buys, only: [:index]
   resources :buys_products, only: [:create, :destroy]
   resources :mails, only: [:create, :new]
+  resources :admins, only: [:index, :show]
+  get "/searches" => "searches#search"
   get "/home/about" => "home#about"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'products#index'
