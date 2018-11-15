@@ -1,18 +1,53 @@
-<div class="product_new_a_box">
+<div class="product_new_big_box">
 
-</div>
-<div class="product_new_b_box">
+<div class="product_new_middle_box">
+<%= form_for(@product) do |f| %>
+	<h1>アーティスト名</h1>
+	<%= f.text_field :artist %>
+	<h1>CD名</h1>
+	<%= f.text_field :album %>
+   	<h1>画像</h1>
+  	<%= f.attachment_field :image %>
+    <h1>レーベル</h1>
+	<%= f.text_field :label %>
+	<h1>ジャンル</h1>
+	<%= f.select :genre,[["J-POP","J-POP"],["洋楽","洋楽"],["K-POP","K-POP"],["アニメ","アニメ"],["HIP-HOP","HIP-HOP"],["レゲエ","レゲエ"],["ロック","ロック"],["演歌","演歌"],["エレクトロニック","エレクトロニック"],["クラシック","クラシック"],["メタル","メタル"],["その他","その他"]],:prompt => "選択してください" %>
+	<h1>状態</h1>
+	<%= f.select :status,[["新品","新品"],["未使用に近い","未使用に近い"],["目立った傷、汚れなし","目立った傷汚れなし"],["傷、汚れあり","傷汚れあり"],["状態が悪い","状態が悪い"]],:prompt => "選択してください" %>
+	<h1> CDの説明</h1>
+	<%= f.text_area :introduction, cols:70, rows:10 %>
+	<h1>数量(枚)</h1>
+	<%= f.text_field :count,size:5 %><br>
+	
+	<%= f.submit '投稿' ,:class=>"product_new_btn" %>
+	<% end %>
+ </div>
 
-</div>
-<div class="product_new_c_box">
 
-</div>
-<div class="product_new_d_box">
 
-</div>
-<div class="product_new_e_box">
 
-</div>
-<div class="product_new_f_box">
+<div class="product_new_artist">
+ </div>
+ <div class="product_new_cd">
+
+ </div>
+ <div class="product_new_image">
+
+ </div>
+ <div class="product_new_label">
+
+ </div>
+ <div class="product_new_genre">
+
+ </div>
+ <div class="product_new_status">
+
+ </div>
+ <div class="product_new_songs">
+
+ </div>
+ <div class="product_new_introduction">
+
+ </div>
 
 </div>
