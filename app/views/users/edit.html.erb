@@ -1,2 +1,74 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="users_edit_mypage">
+	<%= form_for(@user) do |f| %>
+	<% if @user.errors.any? %>
+	<h3><%= @user.errors.count %>件のエラーがあります</h3>
+	<% @user.errors.full_messages.each do |message| %>
+	<%= message %>
+	<% end %>
+	<% end %>
+	<div class="users_edit_left">
+		<h1>マイページ編集画面</h1>
+		<div class="users_edit_accountimage">
+			<div>
+				<h4>プロフィール画像</h4>
+				<%= f.attachment_field : %>
+			</div>
+			<div>
+				<h4>プロフィールコメント</h4>
+				<%= f.text_area :profile, :size => "80x20" %>
+			</div>
+
+
+		</div>
+	</div>
+	<div class="users_edit_right">
+		<div class="users_edit_account">
+			
+			<div>
+				<h4>名前(漢字)</h4>
+				<%= f.text_field :name, class: "name"%>
+			</div>
+			<div>
+				<h4>名前(カナ)</h4>
+				<%= f.text_field :name_kana, class: "name_kana"%>
+			</div>
+			<div>
+				<h4>メールアドレス</h4>
+				<%= f.email_field :email%>
+			</div>
+			<div>
+				<h4>パスワード</h4>
+				<%= f.password_field :password%>
+			</div>
+			<div>
+				<h4>パスワード確認</h4>
+				<%= f.password_field :password_confirmation%>
+			</div>
+			<div>
+				<h4>郵便番号</h4>
+				<%= f.text_field :portal%>
+			</div>
+			<div>
+				<h4>都道府県</h4>
+				<%= f.text_field :state%>
+			</div>
+			<div>
+				<h4>市区町村</h4>
+				<%= f.text_field :street%>
+			</div>
+			<div>
+				<h4>番地</h4>
+				<%= f.text_field :adress%>
+			</div>
+			<div>
+				<h4>電話番号</h4>
+				<%= f.text_field :tel%>
+			</div>
+			<div>
+				<%= f.submit '保存' %>
+			</div>
+			<% end %>
+			<%=link_to"戻る", :back %>
+		</div>
+	</div>
+</div>
