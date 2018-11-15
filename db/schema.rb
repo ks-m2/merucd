@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_102139) do
+ActiveRecord::Schema.define(version: 2018_11_15_033836) do
 
   create_table "buy_products", force: :cascade do |t|
     t.integer "count"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_102139) do
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "admin"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
