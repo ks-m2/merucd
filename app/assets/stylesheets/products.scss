@@ -1,8 +1,67 @@
+
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+.product_new_big_box{
+	width: 60%;
+	height: 800px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.product_new_middle_box{
+	width: 60%;
+	height: 800px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding-left: 30px;
+	overflow: hidden;
+
+}
+
+.product_new_btn{
+	width:400px;
+	height:200px;
+}
+
+/*.product_new_artist{
+	width:800px;
+	height:40px;
+	background-color: red;
+	margin:0px auto;
+	margin-top: 30px;
+}
+.product_new_cd{
+	width:800px;
+	height:40px;
+	background-color: pink;
+	margin:30px auto;
+
+}
+.product_new_image{
+
+}
+.product_new_label{
+
+}
+.product_new_genre{
+
+}
+.product_new_status{
+}
+.product_new_songs{
+}
+
+.product_new_introduction{
+}*/
+
+
 
 .product_index_content {
 	background-color: red;
