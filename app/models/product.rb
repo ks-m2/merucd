@@ -5,4 +5,5 @@ class Product < ApplicationRecord
 	has_many :prices
 	has_many :cart_products
 	has_many :buy_products
+	attachment :image
 end

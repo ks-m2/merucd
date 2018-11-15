@@ -1,29 +1,105 @@
 <html>
 
-<meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
 
 <!-- 新着アイテム-->
 <div class="product_index_content">
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-	<div class="product_index_disc_box">
-		<div class="product_index_disc_box_">
-			
-		</div>
+	<div class="product_index_disc_box clearfix">
+        <% @products.each do |product| %>
+			<div class="product_index_disc_box_image">サムネイル
+				<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+			</div>
+			<h2 class="product_index_disc_box_album">アルバム名
+				<%=link_to product.album, product_show_path %>
+			</h2>
+			<h3 class="product_index_disc_box_price">￥...
+				<%=link_to product.price, :price %>
+			</h3>
+        <% end %>
 	</div>
-		
+	<div class="product_index_disc_box clearfix">
+		<div class="product_index_disc_box_image"></div>
+		<h2 class="product_index_disc_box_album"></h2>
+		<h3 class="product_index_disc_box_price"></h3>
+	</div>
+	<div class="product_index_disc_box clearfix">
+		<div class="product_index_disc_box_image"></div>
+		<h2 class="product_index_disc_box_album"></h2>
+		<h3 class="product_index_disc_box_price"></h3>
+	</div>
 </div>
 
-</div>
 <!-- J-POP -->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">J-POP</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">J-POP</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 <!-- 洋楽 -->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">洋楽</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">洋楽</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 <!-- K-POP-->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">K-POP</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">K-POP</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 
-<p>Find me in app/views/products/index.html.erb</p>
-</html>>
+</html>
