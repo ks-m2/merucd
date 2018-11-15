@@ -16,8 +16,7 @@
 	<%= f.text_field :label %>
 	<h2>ジャンル</h2>
 	<%= f.select :genre,Product.genres.keys.to_a, {} %><br>
-	<h1>ジャンル</h1>
-	<%= f.select :genre,[["J-POP","J-POP"],["洋楽","洋楽"],["K-POP","K-POP"],["アニメ","アニメ"],["HIP-HOP","HIP-HOP"],["レゲエ","レゲエ"],["ロック","ロック"],["演歌","演歌"],["エレクトロニック","エレクトロニック"],["クラシック","クラシック"],["メタル","メタル"],["その他","その他"]],:prompt => "選択してください" %>
+
 	<h2>状態</h2>
 	<%= f.select :status,Product.statuses.keys.to_a, {} %>
 	<h1> CDの説明</h1>
