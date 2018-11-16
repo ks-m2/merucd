@@ -1,28 +1,27 @@
 <div class="users_show_mypage">
 	<div class="users_show_left">
 		<div class="users_show_account">
-			
-			<table>
-				<thead>
-					<tr>
-						<th><h2><%= @user.name %></h2> </th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th><%= @user.profile %></th>
-					</tr>
-					<tr>
-						<th><%= link_to "購入履歴", buys_path%></th>
-					</tr>
-					<tr>
-						<th><%=link_to"編集", edit_user_path(@user.id) %></th>
-					</tr>
-					<tr>
-						<th>退会</th>
-					</tr>
-				</tbody>
-			</table>
+			<div>
+				<h2>マイアカウント</h2>
+			</div>
+			<div>
+				<%= attachment_image_tag @user, :image, :fill, 200, 200, format: 'jpeg' %>
+			</div>
+			<div>
+				<h3><%= @user.name %></h3>
+			</div>
+			<div>
+				<h3><%= @user.profile %></h3>
+			</div>
+			<div>
+				<%= link_to "購入履歴", buys_path%>
+			</div>
+			<div>
+				<%= link_to "編集", edit_user_path(@user.id) %>
+			</div>
+			<div>
+				<%= link_to "退会" %>
+			</div>
 		</div>
 	</div>
 	<div class="users_show_center">
@@ -59,4 +58,4 @@
 			</table>
 		</div>
 	</div>
-</div>
+</div> 

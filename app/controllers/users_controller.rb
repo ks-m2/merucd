@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-  	
+  	@products = Product.all
 
   end
 
@@ -23,5 +23,5 @@ class UsersController < ApplicationController
 end
 private
 def user_params
-	params.require(:user).permit(:name, :name_kana, :email, :password,:password_confirmation,:portal,:state,:street,:adress,:tel,:profile)
+	params.require(:user).permit(:name, :name_kana, :email, :password,:password_confirmation,:portal,:state,:street,:adress,:tel,:profile,:image)
 end
