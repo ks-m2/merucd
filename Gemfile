@@ -66,3 +66,5 @@ gem 'refile-mini_magick'
 gem 'ransack'
 gem 'rails_admin'
 gem 'enum_help'
+gem 'cancan'
+

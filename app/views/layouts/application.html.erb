@@ -9,6 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
 <!-- ここからヘッダー -->
     <header>
               <h1 class="products_index_header_title">meruCD</h1>
@@ -41,8 +45,10 @@
       </nav>
     </header>
 
+
     <%= yield %>
 <!-- ここからフッター -->
     <footer></footer>
   </body>
 </html>
+
