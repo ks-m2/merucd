@@ -1,19 +1,174 @@
+
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.product_index_content {
+.product_new_big_box{
+	width: 60%;
+	height: 800px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.product_new_middle_box{
+	width: 60%;
+	height: 800px;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding-left: 30px;
+	overflow: hidden;
+
+}
+
+.product_new_btn{
+	width:400px;
+	height:200px;
+}
+
+.product_show_head{
+	width:100%;
+	height:50px;
 	background-color: red;
-	width: 100%;
-	height: 400px;
-	margin: 10px;
+}
+
+/*.product_new_artist{
+	width:800px;
+	height:40px;
+	background-color: red;
+	margin:0px auto;
+	margin-top: 30px;
+}
+.product_new_cd{
+	width:800px;
+	height:40px;
+	background-color: pink;
+	margin:30px auto;
+
+}
+.product_new_image{
+
+}
+.product_new_label{
+
+}
+.product_new_genre{
+
+}
+.product_new_status{
+}
+.product_new_songs{
+}
+
+.product_new_introduction{
+}*/
+
+
+.clearfix::after {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+
+/*ここからindexの新着アイテム（３つ並んでるとこ）*/
+
+.product_index_content {
+	background-color: rgb(150, 200, 240);
+	width: 1300px;
+	height: 500px;
+	margin-top: 50px;
+	margin: 0 auto;
+	padding: 0 45px;
 }
 
 .product_index_content_headtitle {
 	background-color: pink;
-	width: 90%;
+	width: 1200px;
 	height: 50px;
-	margin: 10px;
+	text-align: center;
+}
+
+.product_index_disc_box {
+	background-color: rgb(150, 150, 250);
+	width: 400px;
+	height: 450px;
+	float: left;
+	display: inline-block;
+}
+
+
+.product_index_disc_box_image {
+	background-color: rgb(200, 150, 250);
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+.product_index_disc_box_album {
+	background-color: rgb(180, 240, 250);
+	width: 300px;
+	height: 30px;
+	margin: 0 auto;
+
+}
+
+.product_index_disc_box_price {
+	background-color: rgb(200, 200, 250);
+	width: 300px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+/*ここからindexのジャンル別(４つ並んでるとこ)*/
+
+.product_index_content2 {
+	background-color: rgb(150, 200, 240);
+	width: 1300px;
+	height: 450px;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 0 45px;
+}
+
+.product_index_content_headtitle2 {
+	background-color: pink;
+	width: 1200px;
+	height: 50px;
+	text-align: center;
+}
+
+.product_index_disc_box2 {
+	background-color: rgb(150, 150, 250);
+	width: 300px;
+	height: 400px;
+	float: left;
+}
+
+
+.product_index_disc_box_image2 {
+	background-color: rgb(200, 150, 250);
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	margin-top: 35px;
+}
+
+.product_index_disc_box_album2 {
+	background-color: rgb(180, 240, 250);
+	width: 250px;
+	height: 30px;
+	margin: 0 auto;
+
+}
+
+.product_index_disc_box_price2 {
+	background-color: rgb(200, 200, 250);
+	width: 250px;
+	height: 30px;
+	margin: 0 auto;
 }

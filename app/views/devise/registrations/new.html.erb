@@ -1,0 +1,65 @@
+<div class="new">
+
+<h2>新規登録画面</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :漢字 %><br />
+    <%= f.text_field :name ,autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :漢字（カナ） %><br />
+    <%= f.text_field :name_kana  %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード（確認） %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :郵便番号 %><br />
+    <%= f.text_field :portal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :都道府県 %><br />
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :市区町村 %><br />
+    <%= f.text_field :street  %>
+  </div>
+
+    <div class="field">
+    <%= f.label :番地 %><br />
+    <%= f.text_field :adress  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :電話番号 %><br />
+    <%= f.text_field :tel %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>

@@ -8,11 +8,47 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+<!-- ここからヘッダー -->
+    <header>
+              <h1 class="products_index_header_title">meruCD</h1>
+      <nav class="products_index_header">
+
+        <ul class="products_index_header_itembox">
+            <li　class="products_index_header_item">
+            <!-- 検索機能実装予定 -->
+            </li>
+            <!-- ここはログイン時のみ -->
+          <% if user_signed_in? %>
+            <li class="products_index_header_item">
+              <%= link_to @user.name, user_path(current_user.id),class: 'products_index_header_username' %>
+            </li>
+            <li class="products_index_header_item">
+              <%= link_to "カートへ", carts_path(current_user.id), class: 'products_index_header_cart' %>
+            </li>
+            <li class="products_index_header_item">
+              <%= link_to "ログアウト", destroy_user_session_path, class: 'products_index_header_logout', method: :delete  %>
+            </li>
+            <!-- ここ以下がログアウト時のみ -->
+          <% else %>
+            <li class="products_index_header_item">
+              <%= link_to "新規登録", new_user_registration_path,class: 'products_index_header_login' %>
+            </li>
+            <li class="products_index_header_item">
+              <%= link_to " ログイン", new_user_session_path,class: 'products_index_header_signin' %>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+
     <%= yield %>
+<!-- ここからフッター -->
+    <footer></footer>
   </body>
 </html>
 
