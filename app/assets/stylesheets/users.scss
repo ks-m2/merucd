@@ -1,3 +1,54 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.users_show_mypage, .users_edit_mypage{
+	width: auto;
+	height: auto;
+	background-color:#FF9872; 
+}
+.users_show_left{
+	background-color: #99FF99;
+	width: 480px;
+	height: 1000px;
+	float: left;
+}
+.users_show_center{
+	background-color: #00FFFF;
+	width: 480px;
+	height: 1000px;
+	float: left;
+}
+.users_show_right{
+	background-color: #FFFF66;
+	width: 480px;
+	height: 1000px;
+	display: inline-block;
+}
+.users_edit_left{
+	background-color: #99FF99;
+	width: 40%;
+	height: 1000px;
+	float: left;
+}
+.users_edit_right{
+	background-color: #FFFF66;
+	width: 60%;
+	height: 1000px;
+	display: inline-block;
+}
+.users_show_account, .users_show_products,.users_show_chats{
+	text-align: center;
+}
+.users_edit_accountimage, .users_edit_account{
+	text-align: center;
+}
