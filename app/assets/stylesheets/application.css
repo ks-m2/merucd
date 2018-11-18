@@ -20,13 +20,12 @@ body {
 }
 
 /*ここからヘッダー*/
-
 header {
 	background-color: rgb(200, 250, 220);
 	width: 100%;
 	height: 70px;
 	margin: 0 auto;
-	position: absolute;
+	/*position: absolute;*/
 }
 
 footer {
@@ -34,7 +33,6 @@ footer {
 	width: 100%;
 	height: 60px;
 }
-
 
 
 .products_index_header {

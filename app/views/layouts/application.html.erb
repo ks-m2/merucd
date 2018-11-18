@@ -25,7 +25,7 @@
             <!-- ここはログイン時のみ -->
           <% if user_signed_in? %>
             <li class="products_index_header_item">
-              <%= link_to @user.name, user_path(current_user.id),class: 'products_index_header_username' %>
+              <%= link_to current_user.name, user_path(current_user.id),class: 'products_index_header_username' %>
             </li>
             <li class="products_index_header_item">
               <%= link_to "カートへ", carts_path(current_user.id), class: 'products_index_header_cart' %>

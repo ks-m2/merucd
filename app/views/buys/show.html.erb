@@ -1,6 +1,6 @@
+<% @buys.each do |buy| %>
 
 <!-- 購入履歴画面（箱） -->
-
 <!--　購入履歴の1つの箱全体 -->
 <div class="buys_show_box">
 
@@ -15,9 +15,25 @@
 				<td class="buys_show_small_box1_td1">お届け先</td>
 			</tr>
 			<tr>
-				<td class="buys_show_small_box1_td2"></td>
-				<td class="buys_show_small_box1_td2">!!!!!!!!!!!!!</td>
-				<td class="buys_show_small_box1_td2">!!!!!!!!!!!!!</td>
+				<td class="buys_show_small_box1_td2">
+					<%= buy.created_at.to_s(:days_jp) %>
+				</td>
+				<td class="buys_show_small_box1_td2">
+					<%= buy.buy_products.inject(0) { |m, buy_product| m + buy_product.price}  %>
+				</td>
+				<td class="buys_show_small_box1_td2">
+					<!-- 届け先の住所と名前 -->
+					<div class="buys_show_small_box1_td2_text">
+						<%= buy.delivery.name %>
+					</div>
+					<!-- 届け先の住所の吹き出し -->
+					<div class="buys_show_small_box1_td2_ballon">
+						<%= buy.delivery.portal %><br>
+						<%= "#{buy.delivery.state}" + "#{buy.delivery.street}" + "#{buy.delivery.address}" %><br>
+						<%= buy.delivery.name %><br>
+						<%= buy.delivery.tel %>
+					</div>
+				</td>
 			</tr>
 		</table>
 
@@ -40,36 +56,46 @@
 	<!-- 箱の中身（1回の注文で注文した商品全てが入る） -->
 	<div class="buys_show_small_box2">
 
+
+
+		<% buy.buy_products.each do |buy_product| %>
 		<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る） -->
 		<div class="buys_show_product_line">
 
 			<!-- 商品の画像 -->
 			<div class="buys_show_product_line_image">
+				<%= attachment_image_tag buy_product.product, :image, :fill, 200, 200, fallback: "no_image.jpg" %>
 			</div>
 
 			<table border=3>
 				<tr>
 					<td class="buys_show_product_line_td1">アーティスト名</td>
-					<td class="buys_show_product_line_td2">!!!!!!!!!!!!!!!!!!!!!!!!!!</td>
+					<td class="buys_show_product_line_td2"><%= buy_product.product.artist %></td>
 				</tr>
 				<tr>
 					<td class="buys_show_product_line_td1">CD名</td>
-					<td class="buys_show_product_line_td2">!!!!!!!!!!!!!!!!!!!!!!!!!!</td>
+					<td class="buys_show_product_line_td2"><%= buy_product.product.album%></td>
 				</tr>
 				<tr>
 					<td class="buys_show_product_line_td1">注文数</td>
-					<td class="buys_show_product_line_td2">!!!!!!!!!!!!!!!!!!!!!!!!!!</td>
+					<td class="buys_show_product_line_td2"><%= buy_product.count%></td>
 				</tr>
 				<tr>
-					<td class="buys_show_product_line_td1">値段</td>
-					<td class="buys_show_product_line_td2">!!!!!!!!!!!!!!!!!!!!!!!!!!</td>
+					<td class="buys_show_product_line_td1">合計金額</td>
+					<td class="buys_show_product_line_td2"><%= buy_product.price %></td>
 				</tr>
 			</table>
 
 		</div>
+		<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る）fin -->
+		<% end %>
+
+
 
 	</div>
 	<!-- 箱の中身（1回の注文で注文した商品全てが入る）fin -->
 
 </div>
 <!-- 購入履歴の1つの箱全体fin -->
+
+<% end %>

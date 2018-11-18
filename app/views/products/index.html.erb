@@ -10,10 +10,10 @@
 				<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
 			</div>
 			<h2 class="product_index_disc_box_album">アルバム名
-				<%=link_to product.album, product_show_path %>
+				<%=link_to product.album, product_path(product.id) %>
 			</h2>
 			<h3 class="product_index_disc_box_price">￥...
-				<%=link_to product.price, :price %>
+				<%= product.price %>
 			</h3>
         <% end %>
 	</div>
