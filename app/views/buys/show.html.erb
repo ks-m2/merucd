@@ -58,36 +58,47 @@
 
 
 
-		<% buy.buy_products.each do |buy_product| %>
-		<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る） -->
-		<div class="buys_show_product_line">
+		<% buy.buy_products.each_with_index do |buy_product, index| %>
 
-			<!-- 商品の画像 -->
-			<div class="buys_show_product_line_image">
-				<%= attachment_image_tag buy_product.product, :image, :fill, 200, 200, fallback: "no_image.jpg" %>
-			</div>
 
-			<table border=3>
-				<tr>
-					<td class="buys_show_product_line_td1">アーティスト名</td>
-					<td class="buys_show_product_line_td2"><%= buy_product.product.artist %></td>
-				</tr>
-				<tr>
-					<td class="buys_show_product_line_td1">CD名</td>
-					<td class="buys_show_product_line_td2"><%= buy_product.product.album%></td>
-				</tr>
-				<tr>
-					<td class="buys_show_product_line_td1">注文数</td>
-					<td class="buys_show_product_line_td2"><%= buy_product.count%></td>
-				</tr>
-				<tr>
-					<td class="buys_show_product_line_td1">合計金額</td>
-					<td class="buys_show_product_line_td2"><%= buy_product.price %></td>
-				</tr>
-			</table>
+				<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る） -->
+				<div class="buys_show_product_line">
 
-		</div>
-		<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る）fin -->
+					<!-- 商品の画像 -->
+					<div class="buys_show_product_line_image">
+						<%= attachment_image_tag buy_product.product, :image, :fill, 200, 200, fallback: "no_image.jpg" %>
+					</div>
+
+					<table border=3>
+						<tr>
+							<td class="buys_show_product_line_td1">アーティスト名</td>
+							<td class="buys_show_product_line_td2"><%= link_to buy_product.product.artist, product_path(buy_product.product.id) %></td>
+						</tr>
+						<tr>
+							<td class="buys_show_product_line_td1">CD名</td>
+							<td class="buys_show_product_line_td2"><%= link_to buy_product.product.album, product_path(buy_product.product.id) %></td>
+						</tr>
+						<tr>
+							<td class="buys_show_product_line_td1">注文数</td>
+							<td class="buys_show_product_line_td2"><%= buy_product.count%></td>
+						</tr>
+						<tr>
+							<td class="buys_show_product_line_td1">合計金額</td>
+							<td class="buys_show_product_line_td2"><%= buy_product.price %></td>
+						</tr>
+					</table>
+
+				</div>
+				<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る）fin -->
+
+			<% if index == buy.buy_products.size - 1 %>
+
+				<!-- 箱の中身の商品の1列（1つの商品の情報全てが入る） -->
+				<div class="buys_show_product_line_fin">
+
+			<% end %>
+
+
 		<% end %>
 
 
