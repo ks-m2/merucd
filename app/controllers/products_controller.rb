@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       @product.errors.full_messages
-      render "products/new"
+      render "mails/new"
     end
   end
 
