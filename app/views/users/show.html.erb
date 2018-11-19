@@ -1,2 +1,62 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="users_show_mypage">
+	<div class="users_show_left">
+		<div class="users_show_account">
+			
+			<table>
+				<thead>
+					<tr>
+						<th><h2><%= @user.name %></h2> </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th><%= @user.profile %></th>
+					</tr>
+					<tr>
+						<th><%= link_to "購入履歴", buys_path%></th>
+					</tr>
+					<tr>
+						<th><%=link_to"編集", edit_user_path(@user.id) %></th>
+					</tr>
+					<tr>
+						<th>退会</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="users_show_center">
+		<div class="users_show_products">
+			<h2>出品CD一覧</h2>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="users_show_right">
+		<div class="users_show_chats">
+			<h2>MELCD Chat</h2>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

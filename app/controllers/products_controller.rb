@@ -18,9 +18,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    product.save
-    redirect_to products_path
+    @product = Product.new(product_params)
+    @product.user_id = current_user.id
+    if @product.save
+      redirect_to products_path
+    else
+      @product.errors.full_messages
+      render "products/new"
+    end
   end
 
   def update
