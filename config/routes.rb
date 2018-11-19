@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :buys_products, only: [:create, :destroy]
   resources :mails, only: [:create, :new]
   resources :admins, only: [:index, :show]
-  get "/searches" => "searches#search"
-  get "/home/about" => "home#about"
+  get 'search' => 'searches#search', as: "search"
+  get "/homes/about" => "homes#about"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all
     @product = Product.new
@@ -27,9 +28,9 @@ class ProductsController < ApplicationController
 
   def destroy
   end
-end
 
-private
+  private
   def product_params
     params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count)
   end
+end
