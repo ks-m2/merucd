@@ -7,18 +7,18 @@
 
   <div class="field">
     <%= f.label :漢字 %><br />
-    <%= f.text_field :name ,autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name ,autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :漢字（カナ） %><br />
-    <%= f.text_field :name_kana ,autofocus: true, autocomplete: "name_kana" %>
+    <%= f.text_field :name_kana  %>
   </div>
 
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
@@ -26,37 +26,37 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード（確認） %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="field">
     <%= f.label :郵便番号 %><br />
-    <%= f.text_field :portal ,autofocus: true, autocomplete: "portal" %>
+    <%= f.text_field :portal %>
   </div>
 
   <div class="field">
     <%= f.label :都道府県 %><br />
-    <%= f.text_field :state ,autofocus: true, autocomplete: "state" %>
+    <%= f.text_field :state %>
   </div>
 
   <div class="field">
     <%= f.label :市区町村 %><br />
-    <%= f.text_field :street ,autofocus: true, autocomplete: "street" %>
+    <%= f.text_field :street  %>
   </div>
 
     <div class="field">
     <%= f.label :番地 %><br />
-    <%= f.text_field :adress ,autofocus: true, autocomplete: "adress" %>
+    <%= f.text_field :adress  %>
   </div>
 
   <div class="field">
     <%= f.label :電話番号 %><br />
-    <%= f.text_field :tel ,autofocus: true, autocomplete: "tel" %>
+    <%= f.text_field :tel %>
   </div>
 
   <div class="actions">

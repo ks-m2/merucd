@@ -1,18 +1,61 @@
-<div class="product_new_a_box">
+<% @product.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
 
-</div>
-<div class="product_new_b_box">
+<div class="product_new_big_box">
 
-</div>
-<div class="product_new_c_box">
+<div class="product_new_middle_box">
+<%= form_for(@product) do |f| %>
+	<h1>アーティスト名</h1>
+	<%= f.text_field :artist %>
+	<h1>CD/ALBUM名</h1>
+	<%= f.text_field :album %>
+   	<h1>画像</h1>
+  	<%= f.attachment_field :image %>
+    <h1>レーベル</h1>
+	<%= f.text_field :label %>
+	<h2>ジャンル</h2>
+	<%= f.select :genre,Product.genres.keys.to_a, {} %><br>
 
-</div>
-<div class="product_new_d_box">
+	<h2>状態</h2>
+	<%= f.select :status,Product.statuses.keys.to_a, {} %>
+	<h1> CDの説明</h1>
+	<%= f.text_area :introduction, cols:70, rows:10 %>
+	<h1>数量</h1>
+	<%= f.text_field :count,size:5 %><span>枚</span><br>
+	<h1>値段</h1>
+	<%= f.text_field :price %><span>円/枚</span><br>
 
-</div>
-<div class="product_new_e_box">
+	<%= f.submit '出品する' ,:class=>"product_new_btn" %>
+	<% end %>
+ </div>
 
-</div>
-<div class="product_new_f_box">
+
+
+
+
+<div class="product_new_artist">
+ </div>
+ <div class="product_new_cd">
+
+ </div>
+ <div class="product_new_image">
+
+ </div>
+ <div class="product_new_label">
+
+ </div>
+ <div class="product_new_genre">
+
+ </div>
+ <div class="product_new_status">
+
+ </div>
+ <div class="product_new_songs">
+
+ </div>
+ <div class="product_new_introduction">
+
+ </div>
 
 </div>
