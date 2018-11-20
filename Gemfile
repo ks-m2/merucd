@@ -68,3 +68,4 @@ gem 'rails_admin'
 gem 'enum_help'
 gem 'kaminari'
 gem "pry-rails"
+gem 'i18n_generators'

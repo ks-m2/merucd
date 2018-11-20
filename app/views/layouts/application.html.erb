@@ -22,7 +22,7 @@
                   <%= f.condition_fields do |c| %>
 <!-- ここで検索するカラムを指定できる。しかし、カラムを任意のものに絞り込むのは無理そう -->
                     <%= c.attribute_fields do |a| %>
-                      <%= a.attribute_select associations: [:album] %>
+                      <%= a.attribute_select associations: [] %>
                     <% end %>
  <!-- ここで曖昧検索の仕方を指定している。これはc.hidden_field :p, value:を使って絞り込むことが可能 -->
                     <%= c.hidden_field :p, value: "cont" %>

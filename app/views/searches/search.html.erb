@@ -2,7 +2,7 @@
 	<h1 class="product_index_content_headtitle2">検索結果一覧</h1>
 
 
-     <% @products.each do |product| %>
+     <% @result.each do |product| %>
 		<div class="product_index_disc_box2 ">
 			<div class="product_index_disc_box_image2">サムネイル
 				<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
