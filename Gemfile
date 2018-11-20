@@ -69,11 +69,10 @@ gem 'enum_help'
 
 gem 'kaminari'
 gem "pry-rails"
-<<<<<<< HEAD
+
 gem 'i18n_generators'
-=======
+
 
 gem 'cancan'
 
 
->>>>>>> 3e7ff7d0eed086171787e1ec9d05eca66e2d7aac
