@@ -1,32 +1,22 @@
-<html>
 
 
 <!-- 新着アイテム-->
 <div class="product_index_content">
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-	<div class="product_index_disc_box clearfix">
         <% @products.each do |product| %>
-			<div class="product_index_disc_box_image">サムネイル
-				<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+        	<div class="product_index_disc_box clearfix">
+				<div class="product_index_disc_box_image">サムネイル
+					<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+				</div>
+				<h2 class="product_index_disc_box_album">アルバム名
+					<%=link_to product.album, product_path(product.id) %>
+				</h2>
+				<h3 class="product_index_disc_box_price">￥...
+				<!-- ここにnewprice引用予定 -->
+				</h3>
 			</div>
-			<h2 class="product_index_disc_box_album">アルバム名
-				<%=link_to product.album, product_path(product.id) %>
-			</h2>
-			<h3 class="product_index_disc_box_price">￥...
-				<%= product.price %>
-			</h3>
+
         <% end %>
-	</div>
-	<div class="product_index_disc_box clearfix">
-		<div class="product_index_disc_box_image"></div>
-		<h2 class="product_index_disc_box_album"></h2>
-		<h3 class="product_index_disc_box_price"></h3>
-	</div>
-	<div class="product_index_disc_box clearfix">
-		<div class="product_index_disc_box_image"></div>
-		<h2 class="product_index_disc_box_album"></h2>
-		<h3 class="product_index_disc_box_price"></h3>
-	</div>
 </div>
 
  <%=link_to"Log out",destroy_user_session_path, method: :delete %>
@@ -105,4 +95,3 @@
 	</div>
 </div>
 
-</html>

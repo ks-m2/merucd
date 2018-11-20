@@ -79,8 +79,8 @@
 .product_index_content {
 	background-color: rgb(150, 200, 240);
 	width: 1300px;
-	height: 500px;
-	margin-top: 50px;
+	height: 900px;
+	margin-top: 300px;
 	margin: 0 auto;
 	padding: 0 45px;
 }
@@ -95,7 +95,7 @@
 .product_index_disc_box {
 	background-color: rgb(150, 150, 250);
 	width: 400px;
-	height: 450px;
+	height: auto;
 	float: left;
 	display: inline-block;
 }
@@ -129,7 +129,7 @@
 .product_index_content2 {
 	background-color: rgb(150, 200, 240);
 	width: 1300px;
-	height: 450px;
+	height: 600px;
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 0 45px;
@@ -145,7 +145,7 @@
 .product_index_disc_box2 {
 	background-color: rgb(150, 150, 250);
 	width: 300px;
-	height: 400px;
+	height: 500px;
 	float: left;
 }
 
@@ -172,3 +172,13 @@
 	height: 30px;
 	margin: 0 auto;
 }
+
+
+/*アドバンストモードの検索カラムを指定できないので、不要なものを非表示にするためのコード*/
+
+$is: 1,2,3,4,5,9,10,11,12;/*$isに何番目を指定するかいれる*/
+/*つまり１,2,5,8,10,11,12番目のカラムを消そうとしてる*/
+
+@each $i in $is {
+	option:nth-of-type(#{$i}) { display: none }
+}/*&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する*/
