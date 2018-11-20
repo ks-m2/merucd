@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @talk = Talk.new
+    @product = Product.find(params[:id])
 
   end
 
@@ -19,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to current_user
   end
 end
 private

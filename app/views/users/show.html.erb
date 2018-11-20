@@ -49,8 +49,8 @@
 				</table>
 
 				</div>
-				<%= link_to"編集" %>
-					<%= link_to "削除" %>
+				<p><%= link_to "編集", edit_product_path(product.id)%></p>
+				<p><%= link_to "削除",product_path(product.id), method: :delete,"data-confirm" => "本当に削除しますか?"  %></p>
 			</div>
 			<% end %>
 		</div>
