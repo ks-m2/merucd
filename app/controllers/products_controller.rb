@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
-  def index
-    @product = Product.all
 
+
+  def index
+    @products = Product.all
+    @product = Product.new
+    @users = User.all
+    @user = current_user
   end
 
   def show
@@ -24,7 +28,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       @product.errors.full_messages
-      render "products/new"
+      render "mails/new"
     end
 
   end
@@ -38,8 +42,9 @@ class ProductsController < ApplicationController
   def destroy
   end
 
-private
+  private
   def product_params
+
     params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price)
   end
 

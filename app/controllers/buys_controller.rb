@@ -1,4 +1,6 @@
 class BuysController < ApplicationController
-  def index
+  def show
+  	@buys = Buy.where(user_id: params[:id]).order("created_at DESC")
   end
 end
+

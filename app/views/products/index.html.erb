@@ -1,28 +1,99 @@
-<html>
 
-<meta charset="UTF-8">
-<link rel="stylesheet" href="style.css">
 
 <!-- 新着アイテム-->
 <div class="product_index_content">
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-	<div class="product_index_disc_box">
-		<div class="product_index_disc_box_">
-			
-		</div>
-	</div>
-		
+        <% @products.each do |product| %>
+        	<div class="product_index_disc_box clearfix">
+				<div class="product_index_disc_box_image">サムネイル
+					<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+				</div>
+				<h2 class="product_index_disc_box_album">アルバム名
+					<%=link_to product.album, product_path(product.id) %>
+				</h2>
+				<h3 class="product_index_disc_box_price">￥...
+				<!-- ここにnewprice引用予定 -->
+				</h3>
+			</div>
+
+        <% end %>
+</div>
 </div>
 
-</div>
 <!-- J-POP -->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">J-POP</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">J-POP</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 <!-- 洋楽 -->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">洋楽</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">洋楽</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 <!-- K-POP-->
-<div class="product_index_content">
-	<h1 class="product_index_content_headtitle">K-POP</h1></div>
+<div class="product_index_content2">
+	<h1 class="product_index_content_headtitle2">K-POP</h1>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+	<div class="product_index_disc_box2 clearfix">
+		<div class="product_index_disc_box_image2"></div>
+		<h2 class="product_index_disc_box_album2"></h2>
+		<h3 class="product_index_disc_box_price2"></h3>
+	</div>
+</div>
 
+<<<<<<< HEAD
  <%=link_to"Log out",destroy_user_session_path, method: :delete %>
+=======
+>>>>>>> 5673c395b1870f4edf6fa18dfcf57c87f5805af7

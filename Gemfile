@@ -66,4 +66,12 @@ gem 'refile-mini_magick'
 gem 'ransack'
 gem 'rails_admin'
 gem 'enum_help'
+
 gem 'rails-i18n'
+
+gem 'kaminari'
+gem "pry-rails"
+
+gem 'cancan'
+
+

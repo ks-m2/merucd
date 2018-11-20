@@ -1,3 +1,196 @@
-// Place all the styles related to the buys controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* -------------------------------------------------------buys_show 購入履歴---------------------------------- */
+
+/*<!-- 購入履歴画面（箱） -->*/
+.buys_show_box {
+	background-color: white;
+	width: 80%;
+	margin: 2% auto;
+	border: 1px solid #555;
+	border-radius: 10px;
+	box-shadow: 0px 0px 8px 3px #999999;
+}
+
+/*<!-- 箱のふた（注文日、合計金額、お届け先が入る） -->*/
+.buys_show_small_box1 {
+	height: 100px;
+	border-bottom: 1px solid#555;
+}
+
+/*注文日、合計金額、お届け先の左側テーブル*/
+.buys_show_small_box1_table1 {
+/*	background-color: orange;*/
+	margin-left: 5%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*注文日、合計金額、お届け先のテーブル上の行*/
+.buys_show_small_box1_td1 {
+	width: 180px;
+	height: 47px;
+	vertical-align: bottom;
+	color: #555;
+	font-size: 13px;
+}
+
+/*注文日、合計金額、お届け先のテーブル下の行*/
+.buys_show_small_box1_td2 {
+	width: 180px;
+	height: 47px;
+	vertical-align: top;
+	color: #555;
+	font-size: 13px;
+}
+
+/*お届け先*/
+.buys_show_small_box1_td2_text{
+	position: relative;
+	cursor: zoom-in;
+}
+
+/*お届け先の吹き出し*/
+.buys_show_small_box1_td2_ballon {
+	display: none;
+	position: absolute;
+	top: 185px;
+	left: 550px;
+	border: solid 1px #555;
+	border-radius: 10px;
+	background-color: white;
+	color: #222222;
+	padding: 1px 30px;
+}
+
+/*吹き出しの白三角の部分*/
+.buys_show_small_box1_td2_ballon:before {
+	content: "";
+	position: absolute;
+	top: -23px;
+	left: 10px;
+	border: 12px solid transparent;
+	border-bottom: 12px solid white;
+	z-index: 2;
+}
+
+/*吹き出しの灰色三角の部分*/
+.buys_show_small_box1_td2_ballon:after {
+	content: "";
+	position: absolute;
+	top: -24px;
+	left: 10px;
+	border: 12px solid transparent;
+	border-bottom: 12px solid #555;
+	z-index: 1;
+}
+
+/*文字にカーソルを持ってくと吹き出しが表示されるように設定*/
+.buys_show_small_box1_td2_text:hover + .buys_show_small_box1_td2_ballon {
+	display: block;
+}
+
+
+/*右側のテーブル*/
+.buys_show_small_box1_table2 {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20%;
+/*	background-color: orange;*/
+}
+
+
+
+
+
+
+/*<!-- 箱の中身（1回の注文で注文した商品全てが入る） -->*/
+.buys_show_small_box2 {
+/*	background-color: blue;*/
+	overflow: hidden;
+	padding: 5% 0%;
+}
+
+/*<!-- 箱の中身の商品1つ -->*/
+.buys_show_product_line {
+	height: 240px;
+/*	background-color: red;*/
+	width: 80%;
+	margin: 0 auto;
+	border-top: 1px solid #949494;
+	overflow: hidden;
+}
+
+/*中身の商品1つの最後だけ*/
+.buys_show_product_line_fin {
+	height: 0px;
+/*	background-color: red;*/
+	width: 80%;
+	margin: 0 auto;
+	border-top: 1px solid #949494;
+	border-bottom: 1px solid #949494;
+	overflow: hidden;
+}
+
+
+/*　商品の画像　*/
+.buys_show_product_line_image {
+	height: 200px;
+/*	background-color: yellow;*/
+	width: 200px;
+	margin: 20px 0px 20px 80px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*商品の情報の表*/
+.buys_show_product_line table {
+/*	background-color: purple;*/
+	margin: 20px 0px 20px 40px;
+	display: inline-block;
+	vertical-align: top;
+	color: #555;
+}
+
+/*商品の情報の表の線*/
+.buys_show_product_line table {
+	border: 0px solid #949494;
+	border-collapse: collapse;
+}
+
+/*商品の情報の表の線*/
+.buys_show_product_line td {
+	border: solid 1px #949494;
+}
+
+/*商品の情報の表のタイトル部分*/
+.buys_show_product_line_td1 {
+	width: 140px;
+	height: 50px;
+	font-size: 13px;
+}
+
+/*商品の情報の表の内容の部分*/
+.buys_show_product_line_td2 {
+	width: 350px;
+	font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
