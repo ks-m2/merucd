@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-  	@products = Product.all
+    @talk = Talk.new
 
   end
 
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	if @user.update(user_params)
-  		redirect_to user_path(@user.id), notce: "保存しました"
+  		redirect_to user_path(current_user), notce: "保存しました"
   	else
   		render :edit
   	end
