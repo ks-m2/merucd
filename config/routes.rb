@@ -20,6 +20,5 @@ Rails.application.routes.draw do
 
   get "/searches" => "searches#search"
   get "/home/about" => "home#about"
-
   root to: 'products#index'
 end
