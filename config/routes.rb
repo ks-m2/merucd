@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :buys_products, only: [:create, :destroy]
   resources :mails, only: [:create, :new]
   get "/searches" => "searches#search"
-  get "/home/about" => "home#about"
+  get "/home/about" => "homes#about"
   root to: 'products#index'
 end
