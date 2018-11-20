@@ -7,7 +7,7 @@
 #   )
 # end
 
-Refile.secret_key = 'c62b583bf3b6919735a31b0e4949af8fb8a8af000644c47cf0203548a679ded14937d27b67375b83023769bb91c349ce986c0e4e569bb76a7d2545cbe84d21b7'
+Refile.secret_key = 'e7b59430b5f3e1fc14efca4893c8da9908903f9d6b2488a1f4edd39bce1aef1f7e04fbf3eab5c814d40785fed2df9832b41cf2aef38b9b802d782a9bc83ef318'
 
 
 Time::DATE_FORMATS[:days_jp] = "%Y年%m月%d日"

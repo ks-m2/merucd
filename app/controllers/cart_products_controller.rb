@@ -1,5 +1,6 @@
 class CartProductsController < ApplicationController
   def create
+  	
   end
 
   def update
