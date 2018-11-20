@@ -9,12 +9,20 @@
   box-sizing: border-box;
 }
 
+
+/*-------------------newの大箱とα*/
+
+
 .product_new_big_box{
 	width: 60%;
 	height: 800px;
 	margin: 0 auto;
 	overflow: hidden;
 }
+.p{
+	text-align: center;
+}
+
 .product_new_middle_box{
 	width: 60%;
 	height: 800px;
@@ -29,43 +37,287 @@
 	width:400px;
 	height:200px;
 }
+/*---------------------------------------------------------------詳細ページ*/
+.product_show_big_box{
+	width:80%;
+	margin :0 auto;
+	background-color: yellow;
 
-.product_show_head{
+}
+#ppp{
+	text-align: center;
+}
+
+
+.product_show_artist{
 	width:100%;
-	height:50px;
+	margin: 0 auto;
 	background-color: red;
+	text-align: center
+}
+.product_show_album{
+	width:100%;
+	margin: 0 auto;
+	background-color: red;
+	text-align: center
 }
 
-/*.product_new_artist{
-	width:800px;
-	height:40px;
-	background-color: red;
-	margin:0px auto;
-	margin-top: 30px;
+/*--------------------------*/
+.product_show_image_name{
+	width: 100%;
+	height: 400px;
+	background-color: green;
+	margin-top: 10px;
 }
-.product_new_cd{
-	width:800px;
-	height:40px;
+
+.product_show_image{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	margin-right:10%;
+	background-color: blue;
+	vertical-align: top;
+}
+
+.product_show_name{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	/*margin-right:10%*/
+	background-color: blue;
+	vertical-align: top;
+}
+
+.product_show_margin{
+	width: 80%;
+	height: 400px;
+	margin :0 auto;
+
 	background-color: pink;
-	margin:30px auto;
+}
+/*----------------------------*/
 
-}
-.product_new_image{
 
-}
-.product_new_label{
 
-}
-.product_new_genre{
-
-}
-.product_new_status{
-}
-.product_new_songs{
+.product_show_song_index{
+	width: 100%;
+	height: 400px;
+	background-color: green;
+	margin-top: 10px;
 }
 
-.product_new_introduction{
-}*/
+.product_show_song{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	margin-right:10%;
+	background-color: blue;
+	vertical-align: top;
+
+}
+
+
+.product_show_introduction{
+
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+/*	margin-right:10%;*/
+	background-color: blue;
+	vertical-align: top;
+}
+
+.product_show_scroll{
+	width: 300px;
+	height:350px;
+	background-color: orange;
+	overflow-x: scroll;
+	word-wrap: break-word;
+}
+
+/*---------------------------*/
+
+
+.product_show_comment_cart{
+	width: 100%;
+	height: 400px;
+	background-color: green;
+	margin-top: 10px;
+}
+
+.product_show_comment{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	margin-right:10%;
+	background-color: blue;
+	vertical-align: top;
+
+}
+
+
+.product_show_cart{
+
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	/*margin-right:10%;*/
+	background-color: blue;
+	vertical-align: top;
+
+}
+
+.bbtn{
+	display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+/*-------------------------------------------編集ページ---*/
+
+
+
+
+
+
+.product_edit_big_box{
+	width:80%;
+	margin :0 auto;
+	background-color: yellow;
+
+}
+#ooo{
+	text-align: center;
+}
+
+
+.product_edit_artist{
+	width:100%;
+	margin: 0 auto;
+	background-color: red;
+	text-align: center
+}
+.product_edit_album{
+	width:100%;
+	margin: 0 auto;
+	background-color: red;
+	text-align: center
+}
+
+/*-------------------------*/
+
+.product_edit_image_name{
+	width: 100%;
+	height: 400px;
+	background-color: green;
+	margin-top: 10px;
+}
+
+.product_edit_image{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	margin-right:10%;
+	background-color: blue;
+	vertical-align: top;
+}
+
+.product_edit_label{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	/*margin-right:10%*/
+	background-color: blue;
+	vertical-align: top;
+}
+
+.product_edit_margin{
+	width: 80%;
+	height: 400px;
+	margin :0 auto;
+
+	background-color: pink;
+}
+/*----------------------------*/
+
+
+
+.product_edit_song_index{
+	width: 100%;
+	height: 400px;
+	background-color: green;
+	margin-top: 10px;
+}
+
+.product_edit_song{
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+	margin-right:10%;
+	background-color: blue;
+	vertical-align: top;
+
+}
+
+
+.product_edit_introduction{
+
+	width: 300px;
+	height: 400px;
+	display: inline-block;
+	margin-left: 10%;
+/*	margin-right:10%;*/
+	background-color: blue;
+	vertical-align: top;
+
+}
+
+
+.btn{
+
+	width:200px;
+ 	height:100px;
+ 	line-height:100px;
+	text-align:center;
+	display:inline-block;
+	background:#9b4dca;
+ 	color:#fff;
+ 	border-radius:5px;
+ 	text-decoration:none;
+ 	float: right;
+}
+
+/*---------------------------*/
+
+
+table{
+	width: 300px;
+	height: 350px;
+	background-color: silver;
+	overflow: scroll;
+	table-layout: fixed;
+}
+
+.product_show_table{
+	width: 300px;
+	height:350px;
+	background-color: orange;
+	overflow: scroll;
+}
+
 
 
 

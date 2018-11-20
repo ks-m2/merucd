@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      product:
+    attributes:
+      product:
+        artist: アーティスト名
+        album: アルバム名、曲名
+        image_id: ジャケット画像
+        label: レーベル名
+        genre: ジャンル
+        status: 商品の状態
+        introduction: 商品の説明
+        count: 個数
+        price: 値段
+

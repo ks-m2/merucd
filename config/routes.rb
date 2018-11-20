@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :products
-  resources :products_comments, only: [:create, :edit, :destroy]
+  resources :product_comments, only: [:create, :edit, :destroy]
   resources :carts, only: [:show, :index]
   resources :carts_products, only: [:create, :update, :destroy]
   resources :talks, only: [:create, :destroy]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_13_102139) do
+ActiveRecord::Schema.define(version: 2018_11_18_064917) do
 
   create_table "buy_products", force: :cascade do |t|
     t.integer "count"
@@ -71,13 +71,6 @@ ActiveRecord::Schema.define(version: 2018_11_13_102139) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "prices", force: :cascade do |t|
-    t.integer "price"
-    t.integer "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "product_comments", force: :cascade do |t|
     t.integer "user_id"
     t.string "content"
@@ -98,6 +91,8 @@ ActiveRecord::Schema.define(version: 2018_11_13_102139) do
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
+    t.integer "new_price"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -133,7 +128,6 @@ ActiveRecord::Schema.define(version: 2018_11_13_102139) do
     t.string "last_sign_in_ip"
     t.string "name"
     t.string "name_kana"
-    t.string "portal"
     t.string "state"
     t.string "street"
     t.string "adress"
@@ -145,6 +139,7 @@ ActiveRecord::Schema.define(version: 2018_11_13_102139) do
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "postal"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
