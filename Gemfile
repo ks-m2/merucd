@@ -67,11 +67,10 @@ gem 'ransack'
 gem 'rails_admin'
 gem 'enum_help'
 
+gem 'rails-i18n'
+
 gem 'kaminari'
 gem "pry-rails"
-
-gem 'i18n_generators'
-
 
 gem 'cancan'
 

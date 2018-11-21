@@ -8,7 +8,7 @@
 <%= form_for(@product) do |f| %>
 	<h1>アーティスト名</h1>
 	<%= f.text_field :artist %>
-	<h1>CD名</h1>
+	<h1>CD/ALBUM名</h1>
 	<%= f.text_field :album %>
    	<h1>画像</h1>
   	<%= f.attachment_field :image %>
@@ -16,16 +16,16 @@
 	<%= f.text_field :label %>
 	<h2>ジャンル</h2>
 	<%= f.select :genre,Product.genres.keys.to_a, {} %><br>
-	<h1>ジャンル</h1>
-	<%= f.select :genre,[["J-POP","J-POP"],["洋楽","洋楽"],["K-POP","K-POP"],["アニメ","アニメ"],["HIP-HOP","HIP-HOP"],["レゲエ","レゲエ"],["ロック","ロック"],["演歌","演歌"],["エレクトロニック","エレクトロニック"],["クラシック","クラシック"],["メタル","メタル"],["その他","その他"]],:prompt => "選択してください" %>
 	<h2>状態</h2>
 	<%= f.select :status,Product.statuses.keys.to_a, {} %>
 	<h1> CDの説明</h1>
 	<%= f.text_area :introduction, cols:70, rows:10 %>
 	<h1>数量</h1>
 	<%= f.text_field :count,size:5 %><span>枚</span><br>
-	
-	<%= f.submit '投稿' ,:class=>"product_new_btn" %>
+	<h1>値段</h1>
+	<%= f.text_field :price %><span>円/枚</span><br>
+
+	<%= f.submit '出品する' ,:class=>"product_new_btn" %>
 	<% end %>
  </div>
 
