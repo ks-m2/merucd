@@ -1,3 +1,49 @@
+
+
+.cart_index_cd{
+	margin-top: 30px;
+	padding: 20px 0 20px 0;
+	border-top: groove 3px rgb(230,230,250);
+	border-bottom: groove 3px rgb(230,230,250);
+}
+
+.cart_index_cd_img{
+	width: 300px;
+	height: 300px;
+	margin: 0 10px 0 100px;
+	background-color: rgb(250,230,230);
+	float:left;
+}
+
+.cart_index_cd_detail{
+	border-style: groove;
+	float:left;
+	margin-right: 10px;
+	height: 300px;
+	width: 450px
+}
+
+.cart_index_cd_price{
+	border-style: inset;
+}
+
+
+
+.cart_index_cd_price_total{
+	border-style: inset;
+	position: relative;
+	top: -330px;
+	left: 1100px;
+}
+
+/*fixme 今は位置固定にしてるけど本当は追従ボタンにしたい*/
+/*..cart_index_cd_price_total{*/
+  /*position: -webkit-sticky;*/
+  /*position: sticky; #これでできるらしいけどうまくいかない*/
+  /*top: 10px;*/
+  /*right: -1000px;*/
+/*}*/
+
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -9,7 +55,7 @@
 }
 .clearfix::after{
 	content:"";
-	display: box;
+	display: block;
 	clear:both;
 }
 /*------carts_showの全体------*/
@@ -80,3 +126,4 @@ input[type="submit"]{
 	width: 100px;
 	height: 100px;
 }
+

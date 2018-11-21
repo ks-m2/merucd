@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
-    @product = Product.new
+    @product = Product.all
     @users = User.all
     @user = current_user
   end
