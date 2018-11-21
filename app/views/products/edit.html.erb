@@ -18,10 +18,13 @@
 				</div>
 				<div class="product_edit_label">
 					<table border="1">
-						<caption></caption>
+						<form>
 							<thead>
 								<tr>
-									<td>レーベル</td><td><%= @product.label %></td>
+									<td>レーベル</td><td><%= f.text_field :label %></td>
+								</tr>
+								<tr>
+									<td>値段</td><td><%= f.text_field :new_price %></td>
 								</tr>
 								<tr>
 									<td>ジャンル</td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
@@ -30,7 +33,7 @@
 									<td>状態</td><td><%= f.select :status,Product.statuses.keys.to_a, {} %></td>
 								</tr>
 							</thead>
-						<tbody></tbody>
+						</form>
 					</table>
 				</div>
 			</div>

@@ -25,6 +25,16 @@
 							<td>在庫数</td><td><%= @product.count %></td>
 						</tr>
 						<tr>
+							<td>値段</td>
+
+							<td><% if @product.new_price == nil %>
+									 <%= @product.price %>
+								<% else %>
+									 <%= @product.new_price %>
+								<% end %>
+							</td>
+						</tr>
+						<tr>
 							<td>レーベル</td><td><%= @product.label %></td>
 						</tr>
 						<tr>
@@ -86,9 +96,14 @@
 					<%= f.submit "送信する" %>
 					<% end %>
 				</div>
-			<div class="product_show_cart">
+				<div class="product_show_cart">
 				 <%= link_to "カートに入れる" , products_path, class: "bbtn" %>
-				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
+
+				 <% if @product.user.id == current_user.id %>
+
+					<%= link_to "編集する", edit_product_path(@product.id)%>
+					<%= link_to "削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+				<% end %>
 			</div>
 		</div>
 	</div>
