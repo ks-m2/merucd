@@ -17,8 +17,14 @@ class CartProductsController < ApplicationController
 
 
   def destroy
-    @cart_product.destroy
+    cart_product =  CartProduct.find(params[:id])
+    cart_product.destroy
     redirect_to update
+  end
+
+  private
+  def cart_set
+    params.require(:cart_product).permit(:count)
   end
 
  end
