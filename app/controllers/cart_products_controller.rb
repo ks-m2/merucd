@@ -6,6 +6,7 @@ class CartProductsController < ApplicationController
   	else
   	@cart = Cart.new(user_id: current_user.id)
   	@cart.save
+
   end
 
   def update
