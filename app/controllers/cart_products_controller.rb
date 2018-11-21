@@ -10,6 +10,7 @@ class CartProductsController < ApplicationController
   end
 
   def update
+
   	@cart_product = CartProduct.new(cart_set)
   	@cart_product.cart_id = current_user.id
 	  @cart_product.product_id = params[:id]
@@ -18,6 +19,7 @@ class CartProductsController < ApplicationController
 
 
   def destroy
+
     cart_product =  CartProduct.find(params[:id])
     cart_product.destroy
     redirect_to update
@@ -29,3 +31,4 @@ class CartProductsController < ApplicationController
   end
 
  end
+

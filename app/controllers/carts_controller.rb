@@ -5,8 +5,10 @@ class CartsController < ApplicationController
   end
 
   def show
-	@cart_product =	CartProduct.all
-  
+
+  	@cart = Cart.find(params[:id])
+  	@user = User.find(params[:id])
+  	@delivery = Delivery.find(params[:id])
   end
 
 end
