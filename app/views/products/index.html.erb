@@ -3,12 +3,12 @@
 <!-- 新着アイテム-->
 <div class="product_index_content">
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-        <% @products.each do |product| %>
+        <% @product.each do |product| %>
         	<div class="product_index_disc_box clearfix">
-				<div class="product_index_disc_box_image">サムネイル
-					<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+				<div class="product_index_disc_box_image">
+					<%= attachment_image_tag product, :image, :fill, 300, 300 %>
 				</div>
-				<h2 class="product_index_disc_box_album">アルバム名
+				<h2 class="product_index_disc_box_album">
 					<%=link_to product.album, product_path(product.id) %>
 				</h2>
 				<h3 class="product_index_disc_box_price">￥...
