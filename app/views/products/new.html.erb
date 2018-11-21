@@ -16,7 +16,6 @@
 	<%= f.text_field :label %>
 	<h2>ジャンル</h2>
 	<%= f.select :genre,Product.genres.keys.to_a, {} %><br>
-
 	<h2>状態</h2>
 	<%= f.select :status,Product.statuses.keys.to_a, {} %>
 	<h1> CDの説明</h1>
