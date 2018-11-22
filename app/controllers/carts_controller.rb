@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
   def index
-	@cart_product =	CartProduct.all
+	@cart_products =	CartProduct.all
   end
 
   def show
