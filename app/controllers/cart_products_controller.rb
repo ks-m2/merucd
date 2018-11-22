@@ -1,4 +1,5 @@
 class CartProductsController < ApplicationController
+
  before_action :cart_create, only: [:update]
 
   def cart_create
@@ -6,6 +7,7 @@ class CartProductsController < ApplicationController
   	else
   	@cart = Cart.new(user_id: current_user.id)
   	@cart.save
+
   end
 
   end
@@ -36,5 +38,9 @@ class CartProductsController < ApplicationController
     params.require(:cart_product).permit(:count)
   end
 
+ 
+
+
  end
+
 

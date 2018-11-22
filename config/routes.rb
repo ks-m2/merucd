@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :talks, only: [:update, :destroy]
   resources :users, only: [:show, :edit, :destroy, :update]
   resources :buys, only: [:show]
-  resources :buys_products, only: [:create, :destroy]
+  resources :buys_products, only: [:update, :destroy]
   resources :mails, only: [:create, :new]
 
   resources :admins, only: [:index, :show]
