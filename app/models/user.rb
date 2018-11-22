@@ -14,6 +14,7 @@ class User < ApplicationRecord
    has_many :buys
 
    attachment :image
-   validates :name,:name_kana, {presence: true}
+   validates :name,:name_kana, :email, :password,:password_confirmation,:postal,:state,:street,:adress,:tel,{presence: true}
    validates :profile, presence: true, length: {maximum: 200}
+
 end

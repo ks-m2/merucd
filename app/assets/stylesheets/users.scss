@@ -38,13 +38,13 @@
 }
 .users_show_profile_comment{
 	width: auto;
-	height: 100px;
+	height: 150px;
 	background-color: #fff;
 	margin: 30px;
 	text-align: left;
 	border-radius: 10px;
 	border: solid 3px #6091d3;
-	
+	overflow: scroll;
 }
 
 /*------users_show　中央------*/

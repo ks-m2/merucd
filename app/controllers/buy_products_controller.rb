@@ -1,8 +1,19 @@
 class BuyProductsController < ApplicationController
-	before_action :buy_user,only:[:create]
-  def create
-  	@buyproduct = BuyProduct.find(params[:id])
-  	
+	before_action :buy_user,only:[:update]
+  def update
+    @buyproduct = BuyProduct.new
+    @buy = Buy.find_by(user_id:params[:id])
+    @buyproduct.buy_id = @buy.id
+    @product = Product.find_by(user_id:params[:id])
+    @buyproduct.product.id = @product.id
+    @cartproduct = CartProduct.find_by()
+    @buyproduct.count = 
+    @buyproduct.price = 
+    @buyproduct.save
+# ---途中です---
+
+
+
   end
 
   def destroy

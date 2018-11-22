@@ -1,6 +1,7 @@
 class CartProductsController < ApplicationController
+  before_action :user_cart,only:[:update]
   def create
-  	
+    
   end
 
   def update
@@ -19,6 +20,12 @@ class CartProductsController < ApplicationController
   private
   def aaa
   	params.require(:cart_product).permit(:count)
+  end
+  def user_cart
+    if Cart.where.(user_id:current_user.id).exists?
+    else
+    @cart.new(user_id:current_user.id)
+    @cart.save
   end
 end
 
