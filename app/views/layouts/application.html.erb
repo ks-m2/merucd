@@ -23,7 +23,7 @@
             <li　class="products_index_header_item">
             <!-- 検索機能-->
               <div class="products_index_search">
-                <%= search_form_for @q, url: search_path do |f|%>
+                <%= search_form_for @q, html: {class:'products_index_column'}, url: search_path do |f|%>
                   <%= f.condition_fields do |c| %>
 <!-- ここで検索するカラムを指定できる。しかし、カラムを任意のものに絞り込むのは無理そう -->
                     <%= c.attribute_fields do |a| %>

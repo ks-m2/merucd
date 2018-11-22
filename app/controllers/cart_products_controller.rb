@@ -1,31 +1,46 @@
 class CartProductsController < ApplicationController
-  before_action :user_cart,only:[:update]
-  def create
-    
+
+ before_action :cart_create, only: [:update]
+
+  def cart_create
+  	if @cart = Cart.where(user_id: current_user.id).exists?
+  	else
+  	@cart = Cart.new(user_id: current_user.id)
+  	@cart.save
+
+  end
+
   end
 
   def update
-  	@cartpro = CartProduct.new(aaa)
-  	@cartpro.product_id = params[:id]
 
-  	@cart = Cart.find_by(user_id: current_user.id)
-
-  	@cartpro.cart_id = @cart.id
-  	@cartpro.save
+  	@cart_product = CartProduct.new(cart_set)
+  	@cart_product.cart_id = current_user.id
+	  @cart_product.product_id = params[:id]
+  	@cart_product.save
+        redirect_to carts_path
+        
+        # ここ作業中
+        # binding.pry
+    # @cart_product.user_id = current_user.id
   end
+
 
   def destroy
-    
+
+    cart_product =  CartProduct.find(params[:id])
+    cart_product.destroy
+    redirect_to update
   end
+
   private
-  def aaa
-  	params.require(:cart_product).permit(:count)
+  def cart_set
+    params.require(:cart_product).permit(:count)
   end
-  def user_cart
-    if Cart.where.(user_id:current_user.id).exists?
-    else
-    @cart.new(user_id:current_user.id)
-    @cart.save
-  end
-end
+
+ 
+
+
+ end
+
 

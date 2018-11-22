@@ -15,7 +15,7 @@
 				<h1><%= attachment_image_tag @product, :image ,:size => "300x300" %></h1>
 			</div>
 			<div class="product_show_name">
-				<table border="1">
+				<table class="product_show_table" border="1">
 					<caption></caption>
 					<thead>
 						<tr>
@@ -23,6 +23,16 @@
 						</tr>
 						<tr>
 							<td>在庫数</td><td><%= @product.count %></td>
+						</tr>
+						<tr>
+							<td>値段</td>
+
+							<td><% if @product.new_price == nil %>
+									 <%= @product.price %>
+								<% else %>
+									 <%= @product.new_price %>
+								<% end %>
+							</td>
 						</tr>
 						<tr>
 							<td>レーベル</td><td><%= @product.label %></td>
@@ -41,6 +51,13 @@
 			</div>
 		</div>
 	</div>
+							<!-- エラー実験 -->
+
+				<%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+				<%=f.text_field :count%>
+				<%=f.submit "送信" %>
+						<% end %>
+
 
 
 	<div class="product_show_song_index">
@@ -61,7 +78,7 @@
 		<div class="product_show_margin">
 			<div class="product_show_comment">
 				<div class="product_show_table">
-					<table border="1">
+					<table class="product_show_table" border="1">
 						<caption>chat space</caption>
 							<thead>
 							</thead>
@@ -86,9 +103,16 @@
 					<%= f.submit "送信する" %>
 					<% end %>
 				</div>
+
 			<div class="product_show_cart">
-				 <%= link_to "カートに入れる" , products_path, class: "bbtn" %>
+				 <%= link_to "カートに入れる" , cart_product_path(@product.id), method: :patch, class: "bbtn" %>
 				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
+
+				 <% if @product.user.id == current_user.id %>
+
+					<%= link_to "編集する", edit_product_path(@product.id)%>
+					<%= link_to "削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+				<% end %>
 			</div>
 		</div>
 	</div>

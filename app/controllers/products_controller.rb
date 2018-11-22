@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
-    @product = Product.new
+    @product = Product.all
     @users = User.all
     @user = current_user
   end
@@ -11,6 +10,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @product_comment = ProductComment.new
+    # エラー実験
+    @cart_product = CartProduct.new
+
   end
 
   def new
@@ -48,7 +50,7 @@ class ProductsController < ApplicationController
   private
   def product_params
 
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price)
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price)
   end
 
 end

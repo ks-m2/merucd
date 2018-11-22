@@ -1,2 +1,67 @@
-<h1>Carts#index</h1>
-<p>Find me in app/views/carts/index.html.erb</p>
+<div class="cart_index_cd clearfix">
+        <% @cart_products.each do |cart_product| %>
+	<div class="cart_index_cd_img clearfix">
+		<%= attachment_image_tag cart_product, :image, :fill, 300, 300 %>
+	</div>
+	<table rules="all" class="cart_index_cd_detail">
+		<tr>
+			<th>アーティスト</th>
+			<td width="300" align="center">
+				<%=link_to cart_product.product.artist, product_path(params[:id]) %>
+			</td>
+		</tr>
+		<tr>
+			<th>CD名</th>
+			<td align="center">
+				<%=link_to cart_product.alubum, product_path(params[:id]) %>
+			</td>
+		</tr>
+		<tr>
+			<th>在庫数</th>
+			<td align="center">
+				<%=cart_product.count %>
+			</td>
+		</tr>
+		<tr>
+			<th>出品者</th>
+			<td align="center">
+				<%=cart_product.product.user_id %>
+			</td>
+		</tr>
+
+	</table>
+
+	<table class="cart_index_cd_price">
+		<tr>
+			<th>単価</td><!-- あとでlinktoにさしかえ -->
+		</tr>
+		<tr>
+			<th>数量</th>
+			<td>プルダウン</td><!-- あとでlinktoにさしかえ -->
+		</tr>
+	</table>
+	<table class="cart_index_cd_price">
+		<tr>
+			<th>小計</td>
+			<td>￥・・・</td><!-- あとでlinktoにさしかえ -->
+		</tr>
+		<tr>
+			<th>
+				<%= link_to'削除', carts_product_path(cartproduct.id), method: :delete %>
+			</th><!-- あとでlinktoにさしかえ -->
+		</tr>
+
+	</table>
+			<% end %>
+</div>
+<div>
+	<table class="cart_index_cd_price_total">
+		<tr>
+			<th>合計点数</th>
+			<th>合計金額</th>
+		</tr>
+		<tr>
+			<th>レジに進む</th>
+		</tr>
+	</table>
+</div>
