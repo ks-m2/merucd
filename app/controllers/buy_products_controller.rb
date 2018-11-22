@@ -1,16 +1,30 @@
 class BuyProductsController < ApplicationController
 	before_action :buy_user,only:[:update]
   def update
+
     @buyproduct = BuyProduct.new
+    @cart = Cart.find_by(user_id:params[:id])
+    @cartproducts = CartProduct.where(cart_id: @cart.id)
     @buy = Buy.find_by(user_id:params[:id])
-    @buyproduct.buy_id = @buy.id
-    @product = Product.find_by(user_id:params[:id])
-    @buyproduct.product.id = @product.id
-    @cartproduct = CartProduct.find_by()
-    @buyproduct.count = 
-    @buyproduct.price =  
-    @buyproduct.save
-# ---途中です---
+
+    @cartproducts.each do |cartprodut|
+      @buyproduct.product_id = cartproduct.product_id
+
+
+      @buyproduct.buy_id = @buy.id
+
+      @buyproduct.count = cartproduct.count
+
+      if cartproduct.product.new_price == nil
+        @buyproduct.price = cartproduct.product.price
+      else
+        @buyproduct.price = cartroduct.product.new_price
+      end
+      @buyproduct.save
+
+
+      @cartproducts.destroy
+      redirect_to products_path
 
 
 

@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   end
 
   def show
-
+    
   	@user = User.find(params[:id])
   	@product = Product.find(params[:id])
   	@delivery = Delivery.find(params[:id])
