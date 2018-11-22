@@ -11,44 +11,115 @@
 	display: block;
 	clear: both;
 }
+/*------users_show、users_show_editの全体------*/
 .users_show_mypage, .users_edit_mypage{
-	width: auto;
-	height: auto;
-	background-color:#FF9872;
+
+	width: 100%;
+	height: 100%;
+	background-color:#FF9872; 
 }
+.users_show_account, .users_show_products,.users_show_chats{
+	text-align: center;
+	margin-top: 100px;
+}
+/*------users_show_editのみ全体------*/
+.users_edit_accountimage, .users_edit_account{
+	text-align: center;
+}
+/*------users_show　左------*/
 .users_show_left{
 	background-color: #99FF99;
-	width: 480px;
+	width: 30%;
 	height: 1000px;
 	float: left;
 }
+.users_show_image_cicle{
+	border-radius: 400px;
+	width: 100%;
+}
+.users_show_profile_comment{
+	width: auto;
+	height: 100px;
+	background-color: #fff;
+	margin: 30px;
+	text-align: left;
+	border-radius: 10px;
+	border: solid 3px #6091d3;
+	
+}
+
+/*------users_show　中央------*/
 .users_show_center{
 	background-color: #00FFFF;
-	width: 480px;
+	width: 35%;
 	height: 1000px;
 	float: left;
 }
+.users_show_shows{
+	background-color: #FFFF66;
+	height: 240px;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 5%;
+	border-top: 1px solid #949494;
+	overflow: hidden;
+	border-radius: 10px;
+	border: solid 3px #6091d3;
+}
+.users_show_image{
+	height: 75%;
+	background-color: red;
+	width: 40%;
+	margin: 30px 10px 0 10px;
+	display: inline-block;
+	vertical-align: top;
+	float: left;
+}
+.users_show_box{
+	height: 80%;
+	width: 55%;
+	margin: 30px;
+}
+/*------users_show　右------*/
 .users_show_right{
 	background-color: #FFFF66;
-	width: 480px;
+	width: 35%;
 	height: 1000px;
 	display: inline-block;
 }
+.users_show_chats_comments{
+	width: 90%;
+	height: 500px;
+	background-color: #fff;
+	border-radius: 10px;
+	border: solid 3px #6091d3;
+	margin: auto;
+	margin-bottom: 30px;
+	overflow: scroll;
+}
+/*------users_show_edit　左------*/
 .users_edit_left{
 	background-color: #99FF99;
 	width: 40%;
 	height: 1000px;
 	float: left;
+	padding-top: 100px;
 }
+/*------users_show_edit　右------*/
 .users_edit_right{
 	background-color: #FFFF66;
 	width: 60%;
 	height: 1000px;
 	display: inline-block;
+	padding-top: 100px;
 }
-.users_show_account, .users_show_products,.users_show_chats{
-	text-align: center;
+input[type="email"]{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
 }
-.users_edit_accountimage, .users_edit_account{
-	text-align: center;
+input[type="password"]{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
 }

@@ -13,4 +13,8 @@ class User < ApplicationRecord
    has_one :cart
    has_many :deliveries
    has_many :buys
+
+   attachment :image
+   validates :name,:name_kana, {presence: true}
+   validates :profile, presence: true, length: {maximum: 200}
 end
