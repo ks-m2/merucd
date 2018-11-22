@@ -6,7 +6,8 @@
         <% @product.each do |product| %>
         	<div class="product_index_disc_box clearfix">
 				<div class="product_index_disc_box_image">
-					<%= attachment_image_tag product, :image, :fill, 300, 300 %>
+					<%= attachment_image_tag product, :image ,:size => "300x300" %>
+
 				</div>
 				<h2 class="product_index_disc_box_album">
 					<%=link_to product.album, product_path(product.id) %>
@@ -93,5 +94,6 @@
 	</div>
 </div>
 
- <%=link_to"Log out",destroy_user_session_path, method: :delete %>
+
+
 

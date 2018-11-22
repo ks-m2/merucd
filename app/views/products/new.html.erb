@@ -15,7 +15,9 @@
     <h1>レーベル</h1>
 	<%= f.text_field :label %>
 	<h2>ジャンル</h2>
-	<%= f.select :genre,Product.genres.keys.to_a, {} %><br>
+
+	<%= f.select :genre, Product.genres.keys.to_a, {} %><br>
+
 	<h2>状態</h2>
 	<%= f.select :status,Product.statuses.keys.to_a, {} %>
 	<h1> CDの説明</h1>
@@ -29,32 +31,3 @@
 	<% end %>
  </div>
 
-
-
-
-
-<div class="product_new_artist">
- </div>
- <div class="product_new_cd">
-
- </div>
- <div class="product_new_image">
-
- </div>
- <div class="product_new_label">
-
- </div>
- <div class="product_new_genre">
-
- </div>
- <div class="product_new_status">
-
- </div>
- <div class="product_new_songs">
-
- </div>
- <div class="product_new_introduction">
-
- </div>
-
-</div>
