@@ -8,7 +8,7 @@ class BuyProductsController < ApplicationController
     @buyproduct.product.id = @product.id
     @cartproduct = CartProduct.find_by()
     @buyproduct.count = 
-    @buyproduct.price = 
+    @buyproduct.price =  
     @buyproduct.save
 # ---途中です---
 
