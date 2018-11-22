@@ -1,31 +1,31 @@
 <div class="cart_index_cd clearfix">
-        <% @cart_product.each do |cartproduct| %>
+        <% @cart_products.each do |cart_product| %>
 	<div class="cart_index_cd_img clearfix">
-		<%= attachment_image_tag @cart_product, :image, :fill, 300, 300 %>
+		<%= attachment_image_tag cart_product, :image, :fill, 300, 300 %>
 	</div>
 	<table rules="all" class="cart_index_cd_detail">
 		<tr>
 			<th>アーティスト</th>
 			<td width="300" align="center">
-				<%=link_to @cart_product.product.artist, product_path(params[:id]) %>
+				<%=link_to cart_product.product.artist, product_path(params[:id]) %>
 			</td>
 		</tr>
 		<tr>
 			<th>CD名</th>
 			<td align="center">
-				<%=link_to @cart_product.alubum, product_path(params[:id]) %>
+				<%=link_to cart_product.alubum, product_path(params[:id]) %>
 			</td>
 		</tr>
 		<tr>
 			<th>在庫数</th>
 			<td align="center">
-				<%=@cart_product.count %>
+				<%=cart_product.count %>
 			</td>
 		</tr>
 		<tr>
 			<th>出品者</th>
 			<td align="center">
-				<%=@cart_product.product.user_id %>
+				<%=cart_product.product.user_id %>
 			</td>
 		</tr>
 

@@ -51,6 +51,13 @@
 			</div>
 		</div>
 	</div>
+							<!-- エラー実験 -->
+
+				<%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+				<%=f.text_field :count%>
+				<%=f.submit "送信" %>
+						<% end %>
+
 
 
 	<div class="product_show_song_index">
@@ -96,8 +103,10 @@
 					<%= f.submit "送信する" %>
 					<% end %>
 				</div>
-				<div class="product_show_cart">
-				 <%= link_to "カートに入れる" , products_path, class: "bbtn" %>
+
+			<div class="product_show_cart">
+				 <%= link_to "カートに入れる" , cart_product_path(@product.id), method: :patch, class: "bbtn" %>
+				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
 
 				 <% if @product.user.id == current_user.id %>
 

@@ -1,11 +1,12 @@
 class CartProductsController < ApplicationController
- before_action :cart_create only: [:update]
+ before_action :cart_create, only: [:update]
 
   def cart_create
   	if @cart = Cart.where(user_id: current_user.id).exists?
   	else
   	@cart = Cart.new(user_id: current_user.id)
   	@cart.save
+  end
 
   end
 
@@ -15,6 +16,11 @@ class CartProductsController < ApplicationController
   	@cart_product.cart_id = current_user.id
 	  @cart_product.product_id = params[:id]
   	@cart_product.save
+        redirect_to carts_path
+        
+        # ここ作業中
+        # binding.pry
+    # @cart_product.user_id = current_user.id
   end
 
 
