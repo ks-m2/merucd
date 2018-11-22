@@ -15,21 +15,22 @@
 
 .product_new_big_box{
 	width: 60%;
-	height: 800px;
 	margin: 0 auto;
 	overflow: hidden;
+	background-color: blue;
 }
+
 .p{
 	text-align: center;
 }
 
 .product_new_middle_box{
 	width: 60%;
-	height: 800px;
 	margin: 0 auto;
 	margin-top: 20px;
 	padding-left: 30px;
 	overflow: hidden;
+	background-color: red;
 
 }
 
@@ -303,13 +304,22 @@
 /*---------------------------*/
 
 
-table{
+.product_show_table{
 	width: 300px;
 	height: 350px;
 	background-color: silver;
 	overflow: scroll;
 	table-layout: fixed;
 }
+
+.product_edit_table{
+	width: 300px;
+	height: 350px;
+	background-color: silver;
+	overflow: scroll;
+	table-layout: fixed;
+}
+
 
 .product_show_table{
 	width: 300px;
@@ -424,13 +434,3 @@ table{
 	height: 30px;
 	margin: 0 auto;
 }
-
-
-/*アドバンストモードの検索カラムを指定できないので、不要なものを非表示にするためのコード*/
-
-$is: 1,2,3,4,5,6,10,11,12,13;/*$isに何番目を指定するかいれる*/
-/*つまり１,2,5,8,10,11,12番目のカラムを消そうとしてる*/
-
-@each $i in $is {
-	option:nth-of-type(#{$i}) { display: none }
-}/*&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する*/

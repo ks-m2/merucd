@@ -15,3 +15,29 @@ ja:
         count: 個数
         price: 値段
 
+
+ja:
+  enums:
+    product:
+    genre:
+        j_pop: J-POP
+        world: 洋楽
+        k_pop: K-POP
+        anime: アニメ
+        hip_hop: HIP-HOP
+        reggae: レゲエ
+        rock: ロック
+        ballad: 演歌
+        electronic: エレクトロニック
+        classic: クラシック
+        metal: メタル
+
+ja:
+  activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        password: パスワード
+        email: メールアドレス
+        password_confirmation: パスワード確認
