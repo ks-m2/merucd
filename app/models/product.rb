@@ -3,6 +3,7 @@ class Product < ApplicationRecord
 	 	rock: 6, ballad: 7, electronuc: 8, classic: 9, metal: 10}
 	 # enum genre: {aaa: 0, abb: 1, ccc: 3}
 	 enum status: {新品: 0, 未使用に近い: 1, 目立った傷汚れなし: 2, 傷汚れあり: 3, 状態が悪い: 4}
+	 
 	 validates :artist, {presence:true}
 	 validates :album, {presence:true}
 	 validates :label, {presence:true}
