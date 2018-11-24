@@ -25,9 +25,6 @@ class BuyProductsController < ApplicationController
 
       @cartproducts.destroy
       redirect_to products_path
-
-
-
   end
 
   def destroy

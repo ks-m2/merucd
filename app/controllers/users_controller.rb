@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user! ,only: [:show,:edit]
-  def show
+  def show #---マイページ画面---#
   	@user = User.find(params[:id])
     @talk = Talk.new
-    
+    @p = Room.find_by(user_id: params[:id])  #---インスタンス変数@pにRoomモデルのuser_idをユーザのURLから探してきている---#
+    @talk1 = Talk.where(room_id: @p.id)
 
   end
 
   def edit
-  	@user = User.find_by(id: params[:id])
+  	@user = User.find_by(id: current_user.id) #---マイページ編集画面---#
   end
 
-  def update
+  def update #---マイページ編集画面の情報アップデート---#
   	@user = User.find(params[:id])
   	if @user.update(user_params)
          sign_in(@user, bypass: true) #---deviseではパスワードを変更するとログアウトする仕組みの為記入をしました---#

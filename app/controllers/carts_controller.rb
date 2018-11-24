@@ -10,8 +10,9 @@ class CartsController < ApplicationController
     
   	@user = User.find(params[:id])
   	@product = Product.find(params[:id])
-  	@delivery = Delivery.find(params[:id])
+  	@delivery = Delivery.new
   	@cartproducts = CartProduct.where(cart_id: params[:id])
+    
   end
 
 end

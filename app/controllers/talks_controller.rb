@@ -1,12 +1,15 @@
 class TalksController < ApplicationController
-  before_action :room_user, only:[:update]
-  def update
-  	@talk = Talk.new(tatsuki_special)
-  	@talk.user_id = current_user.id
-  	@room = Room.find_by(user_id:params[:id])
-  	@talk.room_id = @room.id
-  	@talk.save
-    redirect_to user_path(current_user)
+  before_action :room_user, only:[:create]
+  def create
+    @user = User.find(current_user.id)
+    @room = Room.find(params[:user_id])
+
+    @talk = current_user.talks.new(talks_params)
+    @talk.user_id = @user.id
+    @talk.room_id = @room.id
+
+    @talk.save
+    redirect_to user_path(@room.id)
   end
 
   def destroy
@@ -15,9 +18,9 @@ class TalksController < ApplicationController
     redirect_to user_path(current_user)
   end
 private
-def tatsuki_special
-	params.require(:talk).permit(:content)
-end
+  def talks_params
+  	params.require(:talk).permit(:content)
+  end
   def room_user
       if Room.where(user_id: current_user.id).exists?
       else
