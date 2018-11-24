@@ -12,7 +12,12 @@
 				<h2 class="product_index_disc_box_album">
 					<%=link_to product.album, product_path(product.id) %>
 				</h2>
-				<h3 class="product_index_disc_box_price">￥...
+				<h3 class="product_index_disc_box_price">
+					<% if product.new_price == nil %>
+						<%= product.price %><span>円</span>
+							<% else %>
+						<%= @product.new_price %><span>円</span>>
+					<% end %>
 				<!-- ここにnewprice引用予定 -->
 				</h3>
 			</div>
@@ -94,6 +99,92 @@
 	</div>
 </div>
 
+ <%= link_to image_tag('2605.png',:id => "funcBtn"), new_product_path %>
 
+
+<style type="text/css">
+
+/*---- 機能ボタン ----*/
+
+#funcBtn{
+position: fixed; bottom: 10px; right: 10px;
+display: block;
+width: 200px;
+height: 200px;
+
+/*画像リンクのため不要*/
+/*line-height: 60px;
+border-radius: 50% 50%;
+background: red;
+color: white;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+white-space: nowrap;*/
+
+/*最悪　記入不要　WebKitがクロームに対応するものらしいが動く*/
+/*-webkit-transition:
+opacity 0.2s ease-out 0s,
+bottom 0.2s ease-out 0s,
+right 0.2s ease-out 0s,
+-webkit-transform 0.2s ease-out 0s;*/
+
+/*firefox対応しないため不要*/
+/*-moz-transition:
+opacity 0.2s ease-out 0s,
+bottom 0.2s ease-out 0s,
+right 0.2s ease-out 0s,
+-moz-transform 0.2s ease-out 0s;*/
+transition:
+opacity 0.2s ease-out 0s,
+/*opacity 透明度を調整するもの ease-outは高速で動き出し、最後に減速します*/
+bottom 0.2s ease-out 0s,
+/*下に下がる速さ*/
+right 0.2s ease-out 0s,
+/*右に動く速さ*/
+transform 0.2s ease-out 0s;
+/*これがないとゆっくり動かない*/
+}
+#funcBtn.scroll{
+	/*スクロールした時にこのCSSが効く*/
+opacity: 0;
+bottom: -50px;
+right: 0px;
+/*移動方向*/
+/*-webkit-transform: rotate( 45deg );
+-moz-transform: rotate( 45deg );*/
+/*上に習い不要説ある*/
+transform: rotate( 45deg );
+}
+
+
+</style>
+
+<!---- スクリプト ---->
+<script type="text/javascript">
+
+/*---- グローバル変数 ----*/
+
+var tmr_funcBtn = null;
+
+// これがないと消えたまんまになる
+
+/*---- スクロール時に実行 ----*/
+
+window.onscroll = function(){
+var funcBtn = document.getElementById("funcBtn");
+funcBtn.className = "scroll";
+clearTimeout( tmr_funcBtn );
+tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<!-- https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13157245918 これの丸パクリです-->
 
 

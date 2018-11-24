@@ -14,11 +14,11 @@ class CartProductsController < ApplicationController
 
   def update
 
-  	@cart_product = CartProduct.new(cart_set)
+  	@cart_product = CartProduct.new(cart_params)
   	@cart_product.cart_id = current_user.id
 	  @cart_product.product_id = params[:id]
   	@cart_product.save
-        redirect_to carts_path
+    redirect_to carts_path
         
         # ここ作業中
         # binding.pry
@@ -34,7 +34,7 @@ class CartProductsController < ApplicationController
   end
 
   private
-  def cart_set
+  def cart_params
     params.require(:cart_product).permit(:count)
   end
 
