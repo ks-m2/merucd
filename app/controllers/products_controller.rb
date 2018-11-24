@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       @product.errors.full_messages
-      render "mails/new"
+      render "products/new"
     end
 
   end
@@ -45,7 +45,10 @@ class ProductsController < ApplicationController
   private
   def product_params
 
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price)
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,
+                                    discs_attributes: [:id, :number, :_destroy,
+                                    songs_attributes: [:id, :title, :_destroy]])
   end
+
 
 end
