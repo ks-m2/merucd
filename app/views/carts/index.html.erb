@@ -1,3 +1,4 @@
+
 <div class="cart_index_cd clearfix">
         <% @cart_products.each do |cart_product| %>
 	<div class="cart_index_cd_img clearfix">
@@ -47,6 +48,9 @@
 		</tr>
 		<tr>
 			<th>削除ボタン</th><!-- あとでlinktoにさしかえ -->
+			<th>
+				<%= link_to'削除', cart_product_path(cart_product.id), method: :delete %>
+
 		</tr>
 
 	</table>

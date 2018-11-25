@@ -3,7 +3,9 @@ class CartsController < ApplicationController
 	before_action :authenticate_user! ,only: [:show]
 
   def index
-	@cart_products = CartProduct.all
+
+	@cart_products =	CartProduct.all
+
   end
 
   def show
@@ -13,5 +15,6 @@ class CartsController < ApplicationController
   	@delivery = Delivery.find(params[:id])
   	@cartproducts = CartProduct.where(cart_id: params[:id])
   end
+
 
 end

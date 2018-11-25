@@ -20,6 +20,22 @@
 
 	<h2>状態</h2>
 	<%= f.select :status,Product.statuses.keys.to_a, {} %>
+
+	<h2>ディスク</h2>
+
+	<div>
+		<!-- f.fields_forは、cocoonをインストールすると使用できる？っぽいです -->
+		<!-- ほぼform_forと機能は同じです。 -->
+		<!-- 異なるのは、①上述の通りネストしたモデルの内容をparams回収ができる点、②下記のlink_to_add_associationのリンクが押されると表示できる点 -->
+		<%= f.fields_for :discs do |disc| %>
+			<!-- renderで部分テンプレートdiscs_fields.html.erbを呼び出している。上記②の通り下記のlink_to_add_associationを押すことで呼び出す。 -->
+			<%= render 'disc_fields', f: disc %>
+		<% end %>
+
+		<!-- 通常のlink_to のjquery版。これを押すと上記のrenderが呼び出される。 -->
+		<%= link_to_add_association 'ディスクを追加', f, :discs  %>
+	</div>
+
 	<h1> CDの説明</h1>
 	<%= f.text_area :introduction, cols:70, rows:10 %>
 	<h1>数量</h1>

@@ -1,99 +1,246 @@
-
+<!-- -----------------------------------------作佐部修正--------------------------------------- -->
 
 <!-- 新着アイテム-->
+
+<!-- 新着アイテム全体の箱 -->
 <div class="product_index_content">
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-        <% @product.each do |product| %>
-        	<div class="product_index_disc_box clearfix">
-				<div class="product_index_disc_box_image">
-					<%= attachment_image_tag product, :image ,:size => "300x300" %>
+        <% @products.first(3).each do |product| %>
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box">
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
 
 				</div>
-				<h2 class="product_index_disc_box_album">
-					<%=link_to product.album, product_path(product.id) %>
-				</h2>
-				<h3 class="product_index_disc_box_price">￥...
-				<!-- ここにnewprice引用予定 -->
-				</h3>
+				<!-- 商品名と値段の箱fin -->
 			</div>
+			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
 </div>
+<!-- 新着アイテム全体の箱fin -->
+
+
+<!-- j-popアイテム全体の箱 -->
+<div class="product_index_content_2">
+	<h1 class="product_index_content_headtitle">J-POP</h1>
+        <% @products.first(4).each do |product| %>
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
+<!-- j-popアイテム全体の箱fin -->
 
-<!-- J-POP -->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">J-POP</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
+
+
+<!-- 洋楽アイテム全体の箱 -->
+<div class="product_index_content_2">
+	<h1 class="product_index_content_headtitle">洋楽</h1>
+        <% @products.first(4).each do |product| %>
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
-<!-- 洋楽 -->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">洋楽</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
+<!-- 洋楽アイテム全体の箱fin -->
+
+
+<!-- K-POPアイテム全体の箱 -->
+<div class="product_index_content_3">
+	<h1 class="product_index_content_headtitle">K-POP</h1>
+        <% @products.first(4).each do |product| %>
+
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
+
+
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
-<!-- K-POP-->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">K-POP</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-</div>
+<!-- K-POPアイテム全体の箱fin -->
 
 
 
+ <%= link_to image_tag('2605.png',:id => "funcBtn"), new_product_path %>
 
+<style type="text/css">
+
+/*---- 機能ボタン ----*/
+
+#funcBtn{
+position: fixed; bottom: 10px; right: 10px;
+display: block;
+width: 200px;
+height: 200px;
+
+/*画像リンクのため不要*/
+/*line-height: 60px;
+border-radius: 50% 50%;
+background: red;
+color: white;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+white-space: nowrap;*/
+
+/*最悪　記入不要　WebKitがクロームに対応するものらしいが動く*/
+/*-webkit-transition:
+opacity 0.2s ease-out 0s,
+bottom 0.2s ease-out 0s,
+right 0.2s ease-out 0s,
+-webkit-transform 0.2s ease-out 0s;*/
+
+/*firefox対応しないため不要*/
+/*-moz-transition:
+opacity 0.2s ease-out 0s,
+bottom 0.2s ease-out 0s,
+right 0.2s ease-out 0s,
+-moz-transform 0.2s ease-out 0s;*/
+transition:
+opacity 0.2s ease-out 0s,
+/*opacity 透明度を調整するもの ease-outは高速で動き出し、最後に減速します*/
+bottom 0.2s ease-out 0s,
+/*下に下がる速さ*/
+right 0.2s ease-out 0s,
+/*右に動く速さ*/
+transform 0.2s ease-out 0s;
+/*これがないとゆっくり動かない*/
+}
+#funcBtn.scroll{
+	/*スクロールした時にこのCSSが効く*/
+opacity: 0;
+bottom: -50px;
+right: 0px;
+/*移動方向*/
+/*-webkit-transform: rotate( 45deg );
+-moz-transform: rotate( 45deg );*/
+/*上に習い不要説ある*/
+transform: rotate( 45deg );
+}
+
+
+</style>
+
+<!---- スクリプト ---->
+<script type="text/javascript">
+
+/*---- グローバル変数 ----*/
+
+var tmr_funcBtn = null;
+
+// これがないと消えたまんまになる
+
+/*---- スクロール時に実行 ----*/
+
+window.onscroll = function(){
+var funcBtn = document.getElementById("funcBtn");
+funcBtn.className = "scroll";
+clearTimeout( tmr_funcBtn );
+tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<!-- https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13157245918 これの丸パクリです-->
