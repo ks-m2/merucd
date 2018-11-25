@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @product = Product.all
+    @products = Product.all.order(created_at: "DESC")
     @users = User.all
     @user = current_user
   end
