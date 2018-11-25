@@ -1,13 +1,24 @@
+<%= @cart_product.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
 <div class="product_show_big_box">
   <h1 id="ppp">商品詳細画面</h1>
 	<div class="product_show_artist">
-		<h1>アーティスト名 <%= @product.artist %></h1>
+		<div class="product_show_artist_left">
+			<h1>アーティスト名：</h1>
+		</div>
+		<div class="product_show_artist_right">
+			<%= @product.artist %>
+		</div>
 	</div>
 	<div class="product_show_album">
-		<h1>CD名 <%= @product.album %></h1></h1>
+		<div class="product_show_alubm_left">
+			<h1>CD/ALBUM名：</h1>
+		</div>
+		<div class="product_show_album_right">
+			<%= @product.album %>
+		</div>
 	</div>
-	
-
 
 	<div class="product_show_image_name">
 		<div class="product_show_margin">
@@ -38,7 +49,7 @@
 							<td>レーベル</td><td><%= @product.label %></td>
 						</tr>
 						<tr>
-							<td>ジャンル </td><td><%= @product.genre %></td>
+							<td>ジャンル </td><td><%= @product.genre_i18n %></td>
 						</tr>
 						<tr>
 							<td>状態</td><td><%= @product.status %></td>
@@ -52,11 +63,6 @@
 		</div>
 	</div>
 							<!-- エラー実験 -->
-
-				<%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
-				<%=f.text_field :count%>
-				<%=f.submit "送信" %>
-						<% end %>
 
 
 
@@ -105,13 +111,17 @@
 				</div>
 
 			<div class="product_show_cart">
-				 <%= link_to "カートに入れる" , cart_product_path(@product.id), method: :patch, class: "bbtn" %>
+				<div class="product_show_secret">
+				<%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+				<%=f.number_field :count%>
+				<%=f.submit "カートに入れる" %>
+						<% end %>
 				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
 
 				 <% if @product.user.id == current_user.id %>
-
-					<%= link_to "編集する", edit_product_path(@product.id)%>
-					<%= link_to "削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+					<%= link_to "商品を編集する", edit_product_path(@product.id)%>
+					<%= link_to "商品を削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+				</div>
 				<% end %>
 			</div>
 		</div>
