@@ -5,7 +5,6 @@ class ProductCommentsController < ApplicationController
     content.product_id = product.id
     content.save
     redirect_to product_path(product.id)
-    
   end
 
   def edit

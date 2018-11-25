@@ -1,2 +1,72 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+
+<div class="carts_show_carts">
+	<div class="carts_show_left">
+		<h2>購入画面</h2>
+
+		<% @cartproducts.each do |cartproduct| %>
+		<div class="carts_show_buys">
+			<div class="carts_show_buys_image">
+				<%= link_to product_path(@product) do %>
+				<%= attachment_image_tag @product, :image, :fill, 20, 20, format: 'jpeg' ,fallback: 'no_image.jpg', class: "carts_show_buys_image" %>
+				<% end %>
+			</div>
+			<table class="carts_show_buys_box">
+				<tr>
+					<td>アーティスト名</td>
+					<td><%= cartproduct.product.artist %></td>
+				</tr>
+				<tr>
+					<td>CD名</td>
+					<td><%= cartproduct.product.album %></td>
+				</tr>
+				<tr>
+					<td>出品数</td>
+					<td><%= cartproduct.product.count %></td>
+				</tr>
+				<tr>
+					<td>値段</td>
+					<td><%= cartproduct.product.price %></td>
+				</tr>
+			</table>
+		</div>
+		<% end %>
+
+
+
+	</div>
+	<div class="carts_show_right">
+		<h2>支払い方法</h2>
+		<div class="carts_show_send">
+			<h2>送り先</h2>
+			<%= form_for(@user) do |f| %>
+			<div>
+			</div>
+			<div>
+				<h4>郵便番号</h4>
+				<%= f.text_field :postal ,placeholder:"郵便番号",class: "carts_show_portal" %>
+			</div>
+			<div>
+				<h4>都道府県</h4>
+				<%= f.text_field :state ,placeholder:"都道府県", class: "carts_show_sate" %>
+			</div>
+			<div>
+				<h4>市区町村</h4>
+				<%= f.text_field :street ,placeholder:"市区町村",class: "carts_show_street" %>
+			</div>
+			<div>
+				<h4>番地以降</h4>
+				<%= f.text_field :adress ,placeholder:"番地以降", class: "carts_show_adress" %>
+			</div>
+			<div>
+				<h4>電話番号</h4>
+				<%= f.text_field :tel ,placeholder:"電話番号"%>
+			</div>
+			<div>
+			</div>
+			<% end %>
+			<h2>合計金額:</h2>
+			<%= link_to "購入する"  %>
+		</div>
+
+	</div>
+</div>

@@ -2,15 +2,18 @@ class ProductsController < ApplicationController
 
 
   def index
-    @products = Product.all
-    @product = Product.new
+    @products = Product.all.order(created_at: "DESC")
     @users = User.all
     @user = current_user
+
+
   end
 
   def show
     @product = Product.find(params[:id])
     @product_comment = ProductComment.new
+    # エラー実験
+    @cart_product = CartProduct.new
   end
 
   def new
@@ -40,12 +43,15 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 
   private
   def product_params
 
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price
                                     discs_attributes: [:id, :number, :_destroy,
                                     songs_attributes: [:id, :title, :_destroy]])
   end

@@ -1,3 +1,129 @@
+
+
+.cart_index_cd{
+	margin-top: 30px;
+	padding: 20px 0 20px 0;
+	border-top: groove 3px rgb(230,230,250);
+	border-bottom: groove 3px rgb(230,230,250);
+}
+
+.cart_index_cd_img{
+	width: 300px;
+	height: 300px;
+	margin: 0 10px 0 100px;
+	background-color:red;
+	float:left;
+}
+
+.cart_index_cd_detail{
+	border-style: groove;
+	float:left;
+	margin-right: 10px;
+	height: 300px;
+	width: 450px;
+	background-color:green;
+}
+
+.cart_index_cd_price{
+	border-style: inset;
+}
+
+
+
+.cart_index_cd_price_total{
+	border-style: inset;
+	position: relative;
+	top: -330px;
+	left: 1100px;
+}
+
+/*fixme 今は位置固定にしてるけど本当は追従ボタンにしたい*/
+/*..cart_index_cd_price_total{*/
+  /*position: -webkit-sticky;*/
+  /*position: sticky; #これでできるらしいけどうまくいかない*/
+  /*top: 10px;*/
+  /*right: -1000px;*/
+/*}*/
+
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+}
+.clearfix::after{
+	content:"";
+	display: block;
+	clear:both;
+}
+/*------carts_showの全体------*/
+.carts_show_carts{
+	background-color: #FF9872;
+	width:80%;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+/*------carts_showの左------*/
+.carts_show_left{
+	background-color: #99FF99;
+	width: 60%;
+	height: 1000px;
+	float: left;
+}
+.carts_show_buys {
+	height: 240px;
+	background-color: #FFF;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 5%;
+	border-top: 1px solid #949494;
+	overflow: hidden;
+	border-radius: 10px;
+	border: solid 3px #6091d3;
+}
+.carts_show_buys_image{
+	height: 100%;
+	background-color: yellow;
+	vertical-align: top;
+	display: inline-block;
+
+}
+.carts_show_buys_box{
+	display: inline-block;
+	margin-top: 30px;
+	text-align: center;
+	border-radius: 10px;
+	border: solid 3px #6091d3;
+	height: 70%;
+	width: 50%;
+	padding: 20px 40px;
+}
+.carts_show_buys_box tr{
+	padding-top: 3%;
+}
+/*------carts_showの右------*/
+.carts_show_right{
+	background-color: #FFFF66;
+	width: 40%;
+	height: 1000px;
+	display: inline-block;
+}
+.carts_show_send{
+	text-align: center;
+}
+.cart_show_portal{
+	
+}
+input[type="text"]{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
+}
+input[type="submit"]{
+	width: 100px;
+	height: 100px;
+}
+

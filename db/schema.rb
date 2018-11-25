@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_11_20_040329) do
+
 
   create_table "buy_products", force: :cascade do |t|
     t.integer "count"

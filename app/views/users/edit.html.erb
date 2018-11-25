@@ -1,21 +1,25 @@
 <div class="users_edit_mypage">
 	<%= form_for(@user) do |f| %>
-	<% if @user.errors.any? %>
-	<h3><%= @user.errors.count %>件のエラーがあります</h3>
-	<% @user.errors.full_messages.each do |message| %>
-	<%= message %>
-	<% end %>
-	<% end %>
 	<div class="users_edit_left">
+		<div class="users_edit_errors">
+		<% if @user.errors.any? %>
+		<h3><%= @user.errors.count %>件のエラーがあります</h3>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+		<% end %>
+	</div>
 		<h1>マイページ編集画面</h1>
 		<div class="users_edit_accountimage">
 			<div>
 				<h4>プロフィール画像</h4>
-				
+				<%= f.attachment_field :image %>
 			</div>
 			<div>
 				<h4>プロフィールコメント</h4>
-				<%= f.text_area :profile, :size => "80x20" %>
+				<%= f.text_area :profile, :size => "80x20",placeholder:"200文字以内" %>
 			</div>
 
 
@@ -23,52 +27,51 @@
 	</div>
 	<div class="users_edit_right">
 		<div class="users_edit_account">
-			
 			<div>
-				<h4>名前(漢字)</h4>
-				<%= f.text_field :name, class: "name"%>
+				<h4>氏名(漢字)</h4>
+				<%= f.text_field :name, placeholder:"漢字",:size => "30" ,class: "name"%>
 			</div>
 			<div>
 				<h4>名前(カナ)</h4>
-				<%= f.text_field :name_kana, class: "name_kana"%>
+				<%= f.text_field :name_kana, placeholder:"カタカナ",class: "name_kana"%>
 			</div>
 			<div>
 				<h4>メールアドレス</h4>
-				<%= f.email_field :email%>
+				<%= f.email_field :email ,placeholder:"メールアドレス"%>
 			</div>
 			<div>
 				<h4>パスワード</h4>
-				<%= f.password_field :password%>
+				<%= f.password_field :password ,placeholder:"パスワード(6文字以上)"%>
 			</div>
 			<div>
 				<h4>パスワード確認</h4>
-				<%= f.password_field :password_confirmation%>
+				<%= f.password_field :password_confirmation ,placeholder:"パスワード確認(6文字以上)"%>
 			</div>
 			<div>
 				<h4>郵便番号</h4>
-				<%= f.text_field :portal%>
+				<%= f.text_field :postal ,placeholder:"郵便番号"%>
 			</div>
 			<div>
 				<h4>都道府県</h4>
-				<%= f.text_field :state%>
+				<%= f.text_field :state ,placeholder:"都道府県"%>
 			</div>
 			<div>
 				<h4>市区町村</h4>
-				<%= f.text_field :street%>
+				<%= f.text_field :street ,placeholder:"市区町村"%>
 			</div>
 			<div>
-				<h4>番地</h4>
-				<%= f.text_field :adress%>
+				<h4>番地以降</h4>
+				<%= f.text_field :adress ,placeholder:"番地以降"%>
 			</div>
 			<div>
 				<h4>電話番号</h4>
-				<%= f.text_field :tel%>
+				<%= f.text_field :tel ,placeholder:"電話番号"%>
 			</div>
 			<div>
 				<%= f.submit '保存' %>
 			</div>
-			<% end %>
-			<%=link_to"戻る", :back %>
+		<% end %>
+			<%=link_to"戻る", user_path(@user) %>
 		</div>
 	</div>
 </div>
