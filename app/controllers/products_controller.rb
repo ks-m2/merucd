@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
     @product = Product.all
     @users = User.all
     @user = current_user
+
+
   end
 
   def show
