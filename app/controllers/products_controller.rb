@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    @product = Product.all
+    @products = Product.all.order(created_at: "DESC")
     @users = User.all
     @user = current_user
 
@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
     @product_comment = ProductComment.new
     # エラー実験
     @cart_product = CartProduct.new
-
   end
 
   def new
