@@ -51,7 +51,6 @@
 						<td>値段</td>
 						<td><%= product.price %>円/枚</td>
 					</table>
-				
 				<% if @user == current_user %>
 				<span><%= link_to "編集", edit_product_path(product.id)%></span>
 				<span><%= link_to "削除", product_path(product.id), method: :delete,"data-confirm" => "本当に削除しますか?"  %></span>

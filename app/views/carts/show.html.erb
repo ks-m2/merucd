@@ -7,9 +7,8 @@
 		<div class="carts_show_buys">
 			<div class="carts_show_buys_image">
 				<%= link_to product_path(@product) do %>
-				<%= attachment_image_tag @product, :image, :fill, 100, 100, format: 'jpeg' ,fallback: 'no_image.jpg', class: "carts_show_buys_image" %>
+				<%= attachment_image_tag cartproduct.product, :image, :fill, 100, 100, format: 'jpeg' ,fallback: 'no_image.jpg', class: "carts_show_buys_image" %>
 				<!-- ---ボヤけて他ので100,100にしました--- -->
-
 				<% end %>
 			</div>
 			<table class="carts_show_buys_box">

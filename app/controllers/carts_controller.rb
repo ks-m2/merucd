@@ -7,12 +7,14 @@ class CartsController < ApplicationController
   end
 
   def show
-    
   	@user = User.find(params[:id])
   	@product = Product.find(params[:id])
   	@delivery = Delivery.new
-  	@cartproducts = CartProduct.where(cart_id: params[:id])
-    
+
+    @a = Cart.find_by(user_id: params[:id])
+    @b = Product.find_by(user_id: @a.id)
+  	@cartproducts = CartProduct.where(cart_id: @b.id)
+
   end
 
 end
