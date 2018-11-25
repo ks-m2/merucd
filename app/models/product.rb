@@ -15,13 +15,12 @@ class Product < ApplicationRecord
 	 validates :price, {presence:true}
 
 	belongs_to :user
-	has_many :product_comments
+	has_many :product_comments, :dependent => :destroy
 
- 	has_many :discs, inverse_of: :product
+ 	has_many :discs, inverse_of: :product, :dependent => :destroy
 	accepts_nested_attributes_for :discs, allow_destroy: true
 
-	has_many :prices
-	has_many :cart_products
-	has_many :buy_products
+	has_many :cart_products, :dependent => :destroy
+	has_many :buy_products, :dependent => :destroy
 	attachment :image
 end

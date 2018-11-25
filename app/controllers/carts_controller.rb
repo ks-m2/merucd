@@ -4,7 +4,9 @@ class CartsController < ApplicationController
 
   def index
 
-	@cart_products =	CartProduct.all
+	@cart_products = CartProduct.all
+	# @cart = Cart.find_by(user_id: current_user.id)
+	# @cart_products.cart_id = @cart.id
 
   end
 

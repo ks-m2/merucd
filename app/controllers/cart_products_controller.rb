@@ -20,7 +20,7 @@ class CartProductsController < ApplicationController
   	@cart_product.cart_id = @cart.id
 	  @cart_product.product_id = params[:id]
   	if @cart_product.save
-      redirect_to carts_path
+      redirect_to products_path
     else 
       @cart_product.errors.full_messages
       @product = Product.find(params[:id])
