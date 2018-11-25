@@ -1,4 +1,4 @@
-/*<!-- -----------------------------------------作佐部修正--------------------------------------- -->*/
+<!-- -----------------------------------------作佐部修正--------------------------------------- -->
 
 <!-- 新着アイテム-->
 
@@ -39,83 +39,116 @@
 <!-- 新着アイテム全体の箱fin -->
 
 
-<!-- -----------------------------------------作佐部修正ここまで--------------------------------------- -->
+<!-- j-popアイテム全体の箱 -->
+<div class="product_index_content_2">
+	<h1 class="product_index_content_headtitle">J-POP</h1>
+        <% @products.first(4).each do |product| %>
 
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
 
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image2.jpg", class:"product_index_middle_box1" %>
 
-<!-- J-POP -->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">J-POP</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
-<!-- 洋楽 -->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">洋楽</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
+<!-- j-popアイテム全体の箱fin -->
+
+
+
+<!-- 洋楽アイテム全体の箱 -->
+<div class="product_index_content_2">
+	<h1 class="product_index_content_headtitle">洋楽</h1>
+        <% @products.first(4).each do |product| %>
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image2.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
-<!-- K-POP-->
-<div class="product_index_content2">
-	<h1 class="product_index_content_headtitle2">K-POP</h1>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
-	<div class="product_index_disc_box2 clearfix">
-		<div class="product_index_disc_box_image2"></div>
-		<h2 class="product_index_disc_box_album2"></h2>
-		<h3 class="product_index_disc_box_price2"></h3>
-	</div>
+<!-- 洋楽アイテム全体の箱fin -->
+
+
+<!-- K-POPアイテム全体の箱 -->
+<div class="product_index_content_3">
+	<h1 class="product_index_content_headtitle">K-POP</h1>
+        <% @products.first(4).each do |product| %>
+
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
+
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image2.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
+			</div>
+			<!-- 画像と商品名と値段の箱fin -->
+
+        <% end %>
 </div>
-
-
-
-
+<!-- K-POPアイテム全体の箱fin -->

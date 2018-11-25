@@ -346,7 +346,8 @@
 /*-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）*/
 .product_index_content {
 	width: 90%;
-	margin: 5% auto;
+	margin: 0% auto;
+	margin-top: 5%;
 	text-align: center;
 }
 
@@ -382,25 +383,53 @@
 	border-top: 0px;
 }
 
+/*商品名の行の高さ*/
 .product_index_small_box_album {
 	line-height: 50px;
 }
 
-.product_index_small_box_price {
-}
-
+/*新しい値段の取り消し線について*/
 .product_index_small_box_line {
 	text-decoration: line-through;
 	color: red;
 }
 
+/*古い値段の文字の色*/
 .product_index_small_box_old_price {
 	color: black;
 }
 
+/*新しい値段の文字の色*/
 .product_index_small_box_new_price {
 	color: red;
 }
+
+
+
+/*----------------ここから2段目以降の箱について*/
+
+.product_index_content_2 {
+	width: 100%;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.product_index_middle_box_2 {
+	background-color: white;
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 1% 0.5%;
+}
+
+
+.product_index_content_3 {
+	width: 100%;
+	text-align: center;
+	margin: 5% 0;
+}
+
+
 
 
 /*<!-- -----------------------------------------作佐部修正ここまで--------------------------------------- -->*/
