@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// jqueryとcocoonをインストールしたため必要な記述
+//= require jquery
+//= require cocoon

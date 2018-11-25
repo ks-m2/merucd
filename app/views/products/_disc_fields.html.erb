@@ -1,0 +1,12 @@
+<div class="products_new_disc_form">
+
+	<h4>ディスクの曲名</h4>
+	<div class="nested-fields">
+			<%= f.fields_for :songs do |f| %>
+				<%= render 'song_fields', f: song %>
+			<% end %>
+
+			<%= link_to_add_association '曲名を追加する', f, :songs %>
+
+	</div>
+</div>

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, {presence:true}
+
    has_many :mails
    has_many :products
    has_one :room
@@ -16,5 +16,12 @@ class User < ApplicationRecord
 
    attachment :image
    validates :name,:name_kana, :email, :password,:password_confirmation,:postal,:state,:street,:adress,:tel,{presence: true}
+
+
+   validates :tel, length:{minimum:10}
+   validates :tel, length:{maximum:11}
+   validates :postal, length:{is:7}
+   validates :password,length:{minimum:6}
+
 
 end

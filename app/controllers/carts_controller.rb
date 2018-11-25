@@ -3,7 +3,9 @@ class CartsController < ApplicationController
 	before_action :authenticate_user! ,only: [:show]
 
   def index
+
 	@cart_products =	CartProduct.all
+
   end
 
   def show
@@ -16,5 +18,6 @@ class CartsController < ApplicationController
   	@cartproducts = CartProduct.where(cart_id: @b.id)
 
   end
+
 
 end

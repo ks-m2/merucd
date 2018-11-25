@@ -2,9 +2,11 @@ class ProductsController < ApplicationController
 
 
   def index
-    @product = Product.all
+    @products = Product.all.order(created_at: "DESC")
     @users = User.all
     @user = current_user
+
+
   end
 
   def show
@@ -12,7 +14,6 @@ class ProductsController < ApplicationController
     @product_comment = ProductComment.new
     # エラー実験
     @cart_product = CartProduct.new
-
   end
 
   def new
@@ -30,7 +31,7 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       @product.errors.full_messages
-      render "mails/new"
+      render "products/new"
     end
 
   end
@@ -50,7 +51,10 @@ class ProductsController < ApplicationController
   private
   def product_params
 
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price)
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price
+                                    discs_attributes: [:id, :number, :_destroy,
+                                    songs_attributes: [:id, :title, :_destroy]])
   end
+
 
 end
