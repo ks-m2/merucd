@@ -24,6 +24,7 @@
 	margin-top: 20px;
 	padding-left: 30px;
 	overflow: hidden;
+  
 	background-color: red;
 
 }
@@ -32,6 +33,15 @@
 	width:400px;
 	height:200px;
 }
+
+/*cocoonで作成できるディスクの箱*/
+.products_new_disc_form {
+	background-color: white;
+	width: 95%;
+	margin: 2% 0%;
+	border: 1px solid #999999;
+}
+
 /*---------------------------------------------------------------詳細ページ*/
 .product_show_big_box{
 	width:80%;

@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+
 	 enum genre: {j_pop: 0, world: 1, k_pop: 2, anime: 3, hip_hop: 4, reggae: 5,
 	 	rock: 6, ballad: 7, electronuc: 8, classic: 9, metal: 10}
 	 # enum genre: {aaa: 0, abb: 1, ccc: 3}
@@ -13,10 +14,12 @@ class Product < ApplicationRecord
 	 validates :count, {presence:true}
 	 validates :price, {presence:true}
 
-
 	belongs_to :user
 	has_many :product_comments
-	has_many :discs
+
+ 	has_many :discs, inverse_of: :product
+	accepts_nested_attributes_for :discs, allow_destroy: true
+
 	has_many :prices
 	has_many :cart_products
 	has_many :buy_products
