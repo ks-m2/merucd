@@ -14,6 +14,7 @@ class CartProductsController < ApplicationController
 
   def update
 
+
   	@cart_product = CartProduct.new(cart_params)
     @cart = Cart.find_by(user_id: current_user.id)
   	@cart_product.cart_id = @cart.id
@@ -26,9 +27,7 @@ class CartProductsController < ApplicationController
       @product_comment = ProductComment.new
       render "products/show"
     end
-        # ここ作業中
-        # binding.pry
-    # @cart_product.user_id = current_user.id
+
   end
 
 
