@@ -37,7 +37,6 @@
 						</tr>
 						<tr>
 							<td>値段</td>
-
 							<td><% if @product.new_price == nil %>
 									 <%= @product.price %>
 								<% else %>
@@ -70,6 +69,11 @@
 		<div class="product_show_margin">
 			<div class="product_show_song">
 				<h1>曲目</h1>
+				<% @product.discs.each do |disc| %>
+					<% disc.songs.each do |song| %>
+						<%= song.title %>
+					<% end %>
+				<% end %>
 			</div>
 			<div class="product_show_introduction">
 				<div class="product_show_scroll">

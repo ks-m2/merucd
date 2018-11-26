@@ -31,5 +31,6 @@ class User < ApplicationRecord
    validates :tel, length:{maximum:11}
    validates :postal, length:{is:7}
    validates :password,length:{minimum:6}
+   
 
 end
