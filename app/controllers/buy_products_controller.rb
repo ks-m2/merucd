@@ -3,9 +3,9 @@ class BuyProductsController < ApplicationController
   def update
 
     @buyproduct = BuyProduct.new
-    @cart = Cart.find_by(user_id:params[:id])
-    @cartproducts = CartProduct.where(cart_id: @cart.id)
-    @buy = Buy.find_by(user_id:params[:id])
+    @cart = Cart.find_by(user_id:params[:id]) #---cartindexの購入画面へ進むのlinkによるパラメータの受け渡し　get---#
+    @cartproducts = CartProduct.where(cart_id: @cart.id) #---カートのユーザidが当てはまるものを複数取得---#
+    @buy = Buy.find_by(user_id:params[:id]) 
 
     @cartproducts.each do |cartprodut|
       @buyproduct.product_id = cartproduct.product_id
@@ -20,11 +20,18 @@ class BuyProductsController < ApplicationController
       else
         @buyproduct.price = cartroduct.product.new_price
       end
-      @buyproduct.save
+      @buyproduct.save   #---購入履歴のセーブ---#
 
+      @cartproducts.destroy #---カートの中身削除---#
+    end
+      # ---delivery--- #
+      @delivery = Delivery.new(delivery_params) #---配送先のセーブ---#
+      @user = User.find(params[:id])
+      @delibery.user_id = @user.id
+      @delivery.save
 
-      @cartproducts.destroy
       redirect_to products_path
+
   end
 
   def destroy
@@ -36,5 +43,7 @@ class BuyProductsController < ApplicationController
 			@buy = Buy.new(user_id: current_user.id)
 			@buy.save
 		end
+    def delivery_params
+      params.require(:delivery).permit(:name,:portal,:state,:street,:address,:tel)
 	end
 end

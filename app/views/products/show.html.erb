@@ -30,7 +30,9 @@
 					<caption></caption>
 					<thead>
 						<tr>
-							<td>出品者</td><td><%= @product.user.name%></td>
+							<td>出品者</td><td><%= link_to user_path(@product.user.id) do |f| %>
+								<%= @product.user.name%></td>
+								<% end %>
 						</tr>
 						<tr>
 							<td>在庫数</td><td><%= @product.count %></td>
@@ -97,9 +99,11 @@
 									<tr>
 										<td><%= product_comment.content %></td>
 									</tr>
+									<% if product_comment.user.id == current_user.id %>
 									<tr>
 										<td><%= link_to "削除", product_comment_path(product_comment.id) ,method: :delete %></span></td>
 									</tr>
+									<% end %>
 								<% end %>
 							</tbody>
 					</table>
