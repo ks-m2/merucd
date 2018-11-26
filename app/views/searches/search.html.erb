@@ -1,24 +1,41 @@
-<div class="product_index_content2 clearfix">
-	<h1 class="product_index_content_headtitle2">検索結果一覧</h1>
+<div class="product_index_content_2">
+	<h1 class="product_index_content_headtitle">検索結果一覧</h1>
+	<h3>
+	<%= page_entries_info @products %> 
+	<!-- ↑この記載で「全何件中何件」を表示させる（デフォルト英語） -->
+	</h3>
+        <% @result.first(4).each do |product| %>
 
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box_2">
 
-     <% @result.each do |product| %>
-		<div class="product_index_disc_box2 ">
-			<div class="product_index_disc_box_image2">サムネイル
-				<%= attachment_image_tag product, :image, :fill, 300, 300, format: 'jpeg' %>
+				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
+
+					<h2 class="product_index_small_box_album">
+						<%=link_to product.album, product_path(product.id) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
+						</h2>
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
+
+				</div>
+				<!-- 商品名と値段の箱fin -->
+
 			</div>
-			<h2 class="product_index_disc_box_album2">アルバム名
-				<%=link_to product.album, product_path(product.id) %>
-			</h2>
-			<h2  class="product_index_disc_box_price2">￥...
-				<!--fixme ここにnew price引用予定 -->
-			</h2 >
-		</div>
+			<!-- 画像と商品名と値段の箱fin -->
 
-	<% end %>
+        <% end %>
 </div>
-
-<div>
-<%= paginate @products, :param_name => 'page' %>
+<%= paginate @products %>
 
 </div>

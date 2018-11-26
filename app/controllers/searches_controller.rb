@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def search #わかりにくいけどapplicationのサーチとは同名の別アクション。本当は別名にしたいけどすることで支障でるかよくわからなくて怖いからこのままにしてる。
-    @products = Product.page(params[:page]).reverse_order
+    @products = Product.page(params[:page]).per(20).order('updated_at DESC')
     @users = User.all
     @user = current_user
     # ここ以下ransack（検索機能用）
