@@ -3,9 +3,8 @@ class CartsController < ApplicationController
 	before_action :authenticate_user! ,only: [:show]
 
   def index
-
-	@cart_products =	CartProduct.all
-
+	  @cart = Cart.find_by(user_id: current_user.id)
+    @cart_products = CartProduct.where(cart_id: @cart.id)
   end
 
   def show

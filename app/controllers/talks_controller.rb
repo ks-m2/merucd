@@ -1,11 +1,10 @@
 class TalksController < ApplicationController
   before_action :room_user, only:[:create]
   def create
-    @user = User.find(current_user.id)
     @room = Room.find(params[:user_id])
 
     @talk = current_user.talks.new(talks_params)
-    @talk.user_id = @user.id
+
     @talk.room_id = @room.id
 
     @talk.save

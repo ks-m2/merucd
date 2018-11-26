@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @product_comment = ProductComment.new
-    # エラー実験
     @cart_product = CartProduct.new
   end
 
@@ -51,7 +50,7 @@ class ProductsController < ApplicationController
   private
   def product_params
 
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price,
                                     discs_attributes: [:id, :number, :_destroy,
                                     songs_attributes: [:id, :title, :_destroy]])
   end

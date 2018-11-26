@@ -13,15 +13,13 @@ class CartProductsController < ApplicationController
   end
 
   def update
-
-
   	@cart_product = CartProduct.new(cart_params)
     @cart = Cart.find_by(user_id: current_user.id)
   	@cart_product.cart_id = @cart.id
 	  @cart_product.product_id = params[:id]
   	if @cart_product.save
-      redirect_to carts_path
-    else 
+      redirect_to products_path
+    else
       @cart_product.errors.full_messages
       @product = Product.find(params[:id])
       @product_comment = ProductComment.new
