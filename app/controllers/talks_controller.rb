@@ -12,8 +12,9 @@ class TalksController < ApplicationController
 
   def destroy
     talk =  Talk.find(params[:id])
+    room = Room.find(talk.room_id)
     talk.destroy
-    redirect_to user_path(current_user)
+    redirect_to user_path(room.user_id)
   end
 private
   def talks_params
