@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum deleted_at: {登録中: 0, 退会済み: 1}
+
+  def active_for_authentication?
+    super && self.deleted_at == "登録中"
+  end
+
+  def inactive_message
+    self.deleted_at == "登録中" ? super: :退会済みのユーザーです
+  end
 
    has_many :mails
    has_many :products
@@ -23,6 +32,5 @@ class User < ApplicationRecord
    validates :postal, length:{is:7}
    validates :password,length:{minimum:6}
    
-
 
 end
