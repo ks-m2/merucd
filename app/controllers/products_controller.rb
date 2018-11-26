@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product_comment = ProductComment.new
     @cart_product = CartProduct.new
+
   end
 
   def new
