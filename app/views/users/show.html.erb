@@ -1,3 +1,6 @@
+<% @user.errors.full_messages do |m| %>
+<%= m %>
+<% end %>
 <div class="users_show_mypage">
 	<div class="users_show_left">
 		<h2>マイアカウント</h2>
@@ -12,15 +15,15 @@
 				<p><%= @user.profile %></p>
 			</div>
 			<% if @user == current_user %>
-			<div>
-				<h2><%= link_to "購入履歴", buy_path(@user.id)%></h2>
-			</div>
-			<div>
-				<h2><%= link_to "編集", edit_user_path(@user.id) %></h2>
-			</div>
-			<div>
-				<h3><%= link_to "退会" %></h3>
-			</div>
+				<div>
+					<h2><%= link_to "購入履歴", buy_path(@user.id)%></h2>
+				</div>
+				<div>
+					<h2><%= link_to "編集", edit_user_path(@user.id) %></h2>
+				</div>
+				<div>
+					<h3><%= link_to "退会", user_path(@user.id), method: :delete, "data-confirm" => "本当に退会しますか？" %></h3>
+				</div>
 			<% end %>
 
 		</div>
