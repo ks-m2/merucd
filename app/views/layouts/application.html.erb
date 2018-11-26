@@ -45,7 +45,7 @@
               <%= link_to current_user.name, user_path(current_user.id),class: 'products_index_header_username' %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to "カートへ", carts_path(current_user.id), class: 'products_index_header_cart' %>
+              <%= link_to "カートへ", carts_path, class: 'products_index_header_cart' %>
             </li>
             <li class="products_index_header_item">
               <%= link_to "ログアウト", destroy_user_session_path, class: 'products_index_header_logout', method: :delete  %>
