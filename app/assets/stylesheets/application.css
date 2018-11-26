@@ -73,7 +73,6 @@ header {
 
 
 
-
 footer {
 	background-color: red;
 	width: 100%;
@@ -81,6 +80,7 @@ footer {
 }
 
 /*.products_index_footer {
+
     display: inline-block;
     list-style: none;
     line-height: 50px;
@@ -110,7 +110,7 @@ footer {
 	position: relative;
 	top: -32px;
 	right: -1200px;
-}*/
+}
 
 /*新規登録画面*/
 

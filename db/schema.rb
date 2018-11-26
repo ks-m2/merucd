@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_11_20_040329) do
-
+ActiveRecord::Schema.define(version: 2018_11_26_075626) do
 
   create_table "buy_products", force: :cascade do |t|
     t.integer "count"
@@ -137,7 +135,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_040329) do
     t.string "tel"
     t.text "image_id"
     t.text "profile"
-    t.datetime "deleted_at"
+    t.integer "deleted_at", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
