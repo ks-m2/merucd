@@ -21,7 +21,7 @@ class CartProductsController < ApplicationController
 	  @cart_product.product_id = params[:id]
   	if @cart_product.save
       redirect_to products_path
-    else 
+    else
       @cart_product.errors.full_messages
       @product = Product.find(params[:id])
       @product_comment = ProductComment.new
@@ -32,19 +32,16 @@ class CartProductsController < ApplicationController
 
 
   def destroy
-
     cart_product =  CartProduct.find(params[:id])
     cart_product.destroy
-    redirect_to update
+    redirect_to carts_path
   end
+
 
   private
-  def cart_params
+  def cart_params #---カートの中身を削除しようとすると、ここでエラーが起きるみたいです---#
     params.require(:cart_product).permit(:count)
   end
-
- 
-
 
  end
 
