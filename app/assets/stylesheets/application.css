@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require fancybox
  */
 
 
@@ -37,7 +38,7 @@ header {
 footer {
 	background-color: rgb(200, 250, 220);
 	width: 100%;
-	height: 60px;
+	height: 70px;
 	margin: 0 auto;
 }
 
@@ -82,8 +83,9 @@ footer {
 
 .products_index_footer {
     display: inline-block;
+    height: 60px;
     list-style: none;
-    line-height: 50px;
+    line-height: 60px;
 	position: absolute;
 }
 
