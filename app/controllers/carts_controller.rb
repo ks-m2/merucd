@@ -1,6 +1,17 @@
 class CartsController < ApplicationController
 
 	before_action :authenticate_user! ,only: [:show]
+  before_action :cart_create, only: [:index]
+
+  def cart_create
+    if @cart = Cart.where(user_id: current_user.id).exists?
+    else
+    @cart = Cart.new(user_id: current_user.id)
+    @cart.save
+
+  end
+
+  end
 
   def index
      @a = Cart.find_by(user_id: current_user)
@@ -17,7 +28,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @a = Cart.find_by(user_id: params[:id])
+    @a = Cart.find_by(user_id: current_user)
     @cartproducts = CartProduct.where(cart_id: @a.id)
   	# @product = Product.find(params[:id])
   	# @delivery = Delivery.new
