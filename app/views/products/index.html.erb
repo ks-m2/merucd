@@ -27,16 +27,47 @@ jQuery(function(){
 </div> -->
 <!-- ---------------------------ここまでトップビジュアルフェードインのための記述------------------------------- -->
 <!-- ---------------------------ここから画像拡大ための記述（実験中）------------------------------- -->
-<!-- <script src="assets/fancybox.js"></script>
+</head>
+
+<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div>
+
 <script>
 $(document).ready(function() {
   $("a.fancybox").fancybox();
 });
 </script>
-</head>
 
-<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div> -->
 <!-- ---------------------------ここまで画像拡大ための記述------------------------------- -->
+<!-- ---------------------------ここから画像表示スクロールための記述（検証中）------------------------------- -->
+<div id="entry_list_more">
+  <ul>
+    <li>～1件目の記事～</li>
+    <li>～2件目の記事～</li>
+    <li>～3件目の記事～</li>
+    <li>～4件目の記事～</li>
+    <li>～5件目の記事～</li>
+    <li>～6件目の記事～</li>
+    <li>～7件目の記事～</li>
+    <li>～8件目の記事～</li>
+    <li>～9件目の記事～</li>
+    <li>～10件目の記事～</li>
+    <li>～11件目の記事～</li>
+    <li>～12件目の記事～</li>
+    <li>～13件目の記事～</li>
+    <li>～14件目の記事～</li>
+    <li>～15件目の記事～</li>
+    <li>～16件目の記事～</li>
+    <li>～17件目の記事～</li>
+    <li>～18件目の記事～</li>
+    <li>～19件目の記事～</li>
+    <li>～20件目の記事～</li>
+  </ul>
+  
+</div>
+
+
+<!-- ---------------------------ここまで画像表示スクロールための記述------------------------------- -->
+
 
 <!-- 新着アイテム-->
 
@@ -44,15 +75,16 @@ $(document).ready(function() {
 <div class="product_index_content">
 
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
-        <% @products.first(3).each do |product| %>
-		<%=link_to product_path(product.id) do %>
-        	<!-- 画像と商品名と値段の箱 -->
-        	<div class="product_index_middle_box">
+        <% @products.each do |product| %>
+<%=link_to product_path(product.id) do %>
+	        	<!-- 画像と商品名と値段の箱 -->
+	        	<div class="product_index_middle_box">
 
-        		<%= attachment_image_tag product, :image ,:size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+					<span class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></span>
 				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
+
 
 						<h2 class="product_index_small_box_album">
 							<%= truncate(product.artist, length: 8 ) %> /
@@ -74,7 +106,55 @@ $(document).ready(function() {
 			<!-- 画像と商品名と値段の箱fin -->
         <% end %>
 		<% end %>
+		<div id="more_btn">もっと見る <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+  <div id="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 </div>
+
+<script>
+  //liの個数を取得しておく
+ 	var listContents = $(".product_index_middle_box").length;
+ 	console.log(listContents);
+
+	$(".product_index_middle_box").each(function(index){ //何番め以降を非表示にするために関数で指定が必要
+		//最初に表示させるアイテムの数
+		var Num = 3;
+
+		//最初はmoreボタン表示にし、
+		$(this).find('#more_btn').show();//thisに入ってるのは.product_index_middle_box
+		$(this).find('#close_btn').hide();
+		//10行目まで表示
+
+		if(index >= Num){//上で定義したNum = 3以降の画像を指定
+		$(this).hide();//隠す
+		}
+
+		//moreボタンがクリックされた時
+		$('#more_btn').click(function(){
+			//Numに+3ずつしていく = 3行ずつ追加する
+			Num +=3;
+			$(this).parent().find(".product_index_middle_box:lt("+Num+")").slideDown();
+			//:lt = ("")より前までを指定（.product_index_middle_boxの中で３＋３＝６より前までを指定）
+			//thisに入ってるのは#more_btn
+
+			//liの個数よりNumが多い時、
+			if(listContents <= Num){
+			Num = 3;//「閉じる」がクリックされた後、表示させるアイテムの数
+			gtNum = Num-1;
+			$('#more_btn').hide();
+			$('#close_btn').show();
+
+			//「閉じる」がクリックされたら、
+			$('#close_btn').click(function(){
+
+				$(this).parent().find(".product_index_middle_box:gt("+gtNum+")").slideUp();//11行目以降は非表示にし、
+				//thisに入ってるのは#close_btn
+				$(this).hide();//閉じるボタンを非表示
+				$('#more_btn').show();//moreボタン表示に
+		    });
+	    }
+	 });
+  });
+</script>
 <!-- 新着アイテム全体の箱fin -->
 
 
@@ -211,7 +291,13 @@ $(document).ready(function() {
 		<% end %>
 </div>
 <!-- K-POPアイテム全体の箱fin -->
-
+<!-- --------画像ポップアップここから------------------ -->
+<script>
+$(document).ready(function() {
+  $("span.fancybox").fancybox();
+});
+</script>
+<!-- --------画像ポップアップまで------------------ -->
 
 
  <%= link_to image_tag('2605.png',:id => "funcBtn"), new_product_path %>
