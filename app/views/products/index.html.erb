@@ -49,7 +49,13 @@ $(document).ready(function() {
 	        	<!-- 画像と商品名と値段の箱 -->
 	        	<div class="product_index_middle_box">
 
-					<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class: "product_index_middle_box1" %>
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box">
+
+        		<%= attachment_image_tag product, :image ,:size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
+				<!-- 商品名と値段の箱 -->
+				<div class="product_index_middle_box2">
 
 					<!-- 商品名と値段の箱 -->
 					<div class="product_index_middle_box2">
@@ -81,30 +87,33 @@ $(document).ready(function() {
 <!-- j-popアイテム全体の箱 -->
 <div class="product_index_content_2">
 	<h1 class="product_index_content_headtitle">J-POP</h1>
-        <% @products.first(4).each do |product| %>
-		<%=link_to  product_path(product.id) do %>
+
+        <% @jpops.first(4).each do |jpop| %>
+ 
+		<%=link_to  product_path(jpop.id) do %>
+ master
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
 
-				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<%= attachment_image_tag jpop, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
 
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-							<%= truncate(product.artist, length: 8 ) %> /
-							<%= truncate(product.album, length: 8 ) %>
+							<%= truncate(jpop.artist, length: 8 ) %> /
+							<%= truncate(jpop.album, length: 8 ) %>
 					</h2>
 
-					<% if product.new_price == nil %>
-						<h2>￥ <%= product.price %>
+					<% if jpop.new_price == nil %>
+						<h2>￥ <%= jpop.price %>
 						</h2>
 					<% else %>
 						<span class="product_index_small_box_line">
-						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						<h2 class="product_index_small_box_old_price">￥ <%= jpop.price %></h2>
 						</span>
-						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+						<h2 class="product_index_small_box_new_price">￥ <%= jpop.new_price %></h2>
 					<% end %>
 
 				</div>
@@ -123,30 +132,33 @@ $(document).ready(function() {
 <!-- 洋楽アイテム全体の箱 -->
 <div class="product_index_content_2">
 	<h1 class="product_index_content_headtitle">洋楽</h1>
-        <% @products.first(4).each do |product| %>
-		<%=link_to  product_path(product.id) do %>
+
+        <% @worlds.first(4).each do |world| %>
+      
+		<%=link_to  product_path(world.id) do %>
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
 
-				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<%= attachment_image_tag world, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
 
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-							<%= truncate(product.artist, length: 8 ) %> /
-							<%= truncate(product.album, length: 8 ) %>
+							<%= truncate(world.artist, length: 8 ) %> /
+							<%= truncate(world.album, length: 8 ) %>
+
 					</h2>
 
-					<% if product.new_price == nil %>
-						<h2>￥ <%= product.price %>
+					<% if world.new_price == nil %>
+						<h2>￥ <%= world.price %>
 						</h2>
 					<% else %>
 						<span class="product_index_small_box_line">
-						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						<h2 class="product_index_small_box_old_price">￥ <%= world.price %></h2>
 						</span>
-						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+						<h2 class="product_index_small_box_new_price">￥ <%= world.new_price %></h2>
 					<% end %>
 
 				</div>
@@ -164,32 +176,36 @@ $(document).ready(function() {
 <!-- K-POPアイテム全体の箱 -->
 <div class="product_index_content_3">
 	<h1 class="product_index_content_headtitle">K-POP</h1>
-        <% @products.first(4).each do |product| %>
-		<%=link_to  product_path(product.id) do %>
+
+        <% @kpops.first(4).each do |kpop| %>    
+		<%=link_to  product_path(kpop.id) do %>
+
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
 
 
 
-				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<%= attachment_image_tag kpop, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
 
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-							<%= truncate(product.artist, length: 8 ) %> /
-							<%= truncate(product.album, length: 8 ) %>
+
+							<%= truncate(kpop.artist, length: 8 ) %> /
+							<%= truncate(kpop.album, length: 8 ) %>
+
 					</h2>
 
-					<% if product.new_price == nil %>
-						<h2>￥ <%= product.price %>
+					<% if kpop.new_price == nil %>
+						<h2>￥ <%= kpop.price %>
 						</h2>
 					<% else %>
 						<span class="product_index_small_box_line">
-						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						<h2 class="product_index_small_box_old_price">￥ <%= kpop.price %></h2>
 						</span>
-						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+						<h2 class="product_index_small_box_new_price">￥ <%= kpop.new_price %></h2>
 					<% end %>
 
 				</div>
