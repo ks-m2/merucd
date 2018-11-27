@@ -5,27 +5,34 @@
 	padding: 20px 0 20px 0;
 	border-top: groove 3px rgb(230,230,250);
 	border-bottom: groove 3px rgb(230,230,250);
+	width: 70%;
 }
-
+.cart_index_cd_all{
+	height: 50%;
+}
+/*---カート画面のcss少しコメントアウトして、少し見やすくしてます---*/
 .cart_index_cd_img{
-	width: 300px;
+	/*width: 300px;
 	height: 300px;
 	margin: 0 10px 0 100px;
 	background-color:red;
-	float:left;
+	float:left;*/
+	display: inline-block;
 }
 
 .cart_index_cd_detail{
-	border-style: groove;
+	/*border-style: groove;
 	float:left;
 	margin-right: 10px;
 	height: 300px;
 	width: 450px;
-	background-color:green;
+	background-color:green;*/
+	display: inline-block;
 }
 
 .cart_index_cd_price{
-	border-style: inset;
+	/*border-style: inset;*/
+	display: inline-block;
 }
 
 
