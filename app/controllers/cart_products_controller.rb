@@ -7,7 +7,6 @@ class CartProductsController < ApplicationController
   	else
   	@cart = Cart.new(user_id: current_user.id)
   	@cart.save
-
   end
 
   end
@@ -16,21 +15,21 @@ class CartProductsController < ApplicationController
   	@cart_product = CartProduct.new(cart_params)
     @cart = Cart.find_by(user_id: current_user.id)
   	@cart_product.cart_id = @cart.id
-	  @cart_product.product_id = params[:id]
-  	if @cart_product.save
+    @cart_product.product_id = params[:id]
+    @product = Product.find(params[:id])
+  if @cart_product.save
       redirect_to products_path
-    else
-      @cart_product.errors.full_messages
-      @product = Product.find(params[:id])
-      @product_comment = ProductComment.new
-      render "products/show"
-    end
+  else
+    @cart_product.errors.full_messages
+    @product = Product.find(params[:id])
+    @product_comment = ProductComment.new
+    render "products/show"
+  end
 
   end
 
 
   def destroy
-
     cart_product =  CartProduct.find(params[:id])
     cart_product.destroy
     redirect_to update
@@ -41,9 +40,4 @@ class CartProductsController < ApplicationController
     params.require(:cart_product).permit(:count)
   end
 
- 
-
-
  end
-
-
