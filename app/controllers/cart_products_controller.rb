@@ -34,7 +34,7 @@ class CartProductsController < ApplicationController
   def destroy
     cart_product =  CartProduct.find(params[:id])
     cart_product.destroy
-    redirect_to update
+    redirect_to carts_path
   end
 
 
