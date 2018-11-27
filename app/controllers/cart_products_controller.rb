@@ -36,12 +36,12 @@ class CartProductsController < ApplicationController
     cart_product.destroy
     redirect_to update
   end
-  def cart_params
-    params.require(:cart_product).permit(:count)
-  end
+
 
   private
-  
+  def cart_params #---カートの中身を削除しようとすると、ここでエラーが起きるみたいです---#
+    params.require(:cart_product).permit(:count)
+  end
 
  end
 

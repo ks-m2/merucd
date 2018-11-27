@@ -3,25 +3,30 @@ class CartsController < ApplicationController
 	before_action :authenticate_user! ,only: [:show]
 
   def index
-  	@cart_products = CartProduct.all
-    @total_price = 0
-    @cart_products.each do |cartproduct|
-      @total_price += cartproduct.product.price
-      #---合計金額---http://rails.takayukikoyama.com/model%E9%96%A2%E9%80%A3/model-sum-total-price/---#
+     @a = Cart.find_by(user_id: current_user)
+    @cart_products = CartProduct.where(cart_id: @a.id)
 
+    @total_price = 0
+    @total_count = 0
+    @cart_products.each do |cartproduct|
+      @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
+
+      @total_count += cartproduct.count #---合計個数---#
     end
 
   end
 
   def show
-  	@user = User.find(params[:id])
-  	@product = Product.find(params[:id])
-  	@delivery = Delivery.new
-    @cartproducts = CartProduct.all
+    @a = Cart.find_by(user_id: params[:id])
+    @cartproducts = CartProduct.where(cart_id: @a.id)
+  	# @product = Product.find(params[:id])
+  	# @delivery = Delivery.new
     @buyproduct = BuyProduct.new
-   #  @a = Cart.find_by(user_id: params[:id])
-   #  @b = Product.find_by(user_id: @a.id)
-  	# @cartproducts = CartProduct.where(cart_id: @b.id)
+
+    @total_price = 0
+    @cartproducts.each do |cartproduct|
+      @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
+    end
 
   end
 

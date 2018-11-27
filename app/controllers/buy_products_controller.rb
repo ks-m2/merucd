@@ -5,7 +5,7 @@ class BuyProductsController < ApplicationController
     @buyproduct = BuyProduct.new
     @cart = Cart.find_by(user_id:params[:id]) #---cartindexの購入画面へ進むのlinkによるパラメータの受け渡し　get---#
     @cartproducts = CartProduct.where(cart_id: @cart.id) #---カートのユーザidが当てはまるものを複数取得---#
-    @buy = Buy.find_by(user_id:params[:id]) 
+    @buy = Buy.find_by(user_id:params[:id])
 
     @cartproducts.each do |cartprodut|
       @buyproduct.product_id = cartproduct.product_id

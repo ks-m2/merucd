@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<th>数量</th>
-				<td>プルダウン</td><!-- あとでlinktoにさしかえ -->
+				<td></td><!-- あとでlinktoにさしかえ -->
 			</tr>
 		</table>
 		<table class="cart_index_cd_price">
@@ -60,11 +60,12 @@
 		<table class="cart_index_cd_price_total">
 			<tr>
 				<th>合計点数</th>
+				<th><h2><%= @total_count %>枚</h2></th>
 				<th>合計金額</th>
-				<th> <h2>¥<%= @total_price %></h2></th>
+				<th><h2>¥<%= @total_price %></h2></th>
 			</tr>
 			<tr>
-				<th><%= link_to "レジに進む" %></th>
+				<th><%= link_to "レジに進む" ,cart_path(@a) %></th>
 			</tr>
 		</table>
 	</div>
