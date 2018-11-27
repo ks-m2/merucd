@@ -19,3 +19,4 @@
 // jqueryとcocoonをインストールしたため必要な記述
 //= require jquery
 //= require cocoon
+//= require fancybox

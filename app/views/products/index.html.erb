@@ -1,11 +1,53 @@
-<!-- -----------------------------------------作佐部修正--------------------------------------- -->
+<!-- ---------------------------ここからトップビジュアルフェードインのための記述------------------------------- -->
+<head>
+<script>
+jQuery(function(){
+	// 設定
+	var $width =640; // 横幅
+	var $height =300; // 高さ
+	var $interval = 3000; // 切り替わりの間隔（ミリ秒）
+	var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
+	$("#slide ul li").css({"position":"relative","overflow":"hidden","width":$width,"height":$height});
+	$("#slide ul li").hide().css({"position":"absolute","top":0,"left":0});
+	$("#slide ul li:first").addClass("active").show();
+	setInterval(function(){
+	var $active = $("#slide ul li.active");
+	var $next = $active.next("li").length?$active.next("li"):$("#slide ul li:first");
+	$active.fadeOut($fade_speed).removeClass("active");
+	$next.fadeIn($fade_speed).addClass("active");
+	},$interval);
+	});
+</script>
+<div id="slide">
+<ul>
+<li><a href=""><img src="assets/image1.jpg" alt="" width="640" height="300" /></a></li>
+<li><a href=""><img src="assets/image2.jpg" alt="" width="640" height="300" /></a></li>
+<li><a href=""><img src="assets/image3.jpg" alt="" width="640" height="300" /></a></li>
+</ul>
+</div>
+<!-- ---------------------------ここまでトップビジュアルフェードインのための記述------------------------------- -->
+<!-- ---------------------------ここから画像拡大ための記述（実験中）------------------------------- -->
+<script src="assets/fancybox.js"></script>
+<script>
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
+</script>
+</head>
+
+<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div>
+<!-- ---------------------------ここまで画像拡大ための記述------------------------------- -->
 
 <!-- 新着アイテム-->
 
 <!-- 新着アイテム全体の箱 -->
 <div class="product_index_content">
+
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
         <% @products.first(3).each do |product| %>
+		<%=link_to product_path(product.id) do %>
+	        	<!-- 画像と商品名と値段の箱 -->
+	        	<div class="product_index_middle_box">
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box">
@@ -15,26 +57,29 @@
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
 
-					<h2 class="product_index_small_box_album">
-						<%=link_to product.album, product_path(product.id) %>
-					</h2>
+					<!-- 商品名と値段の箱 -->
+					<div class="product_index_middle_box2">
 
-					<% if product.new_price == nil %>
-						<h2>￥ <%= product.price %>
+						<h2 class="product_index_small_box_album">
+							<%= truncate(product.artist, length: 8 ) %> /
+							<%= truncate(product.album, length: 8 ) %>
 						</h2>
-					<% else %>
-						<span class="product_index_small_box_line">
-						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
-						</span>
-						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
-					<% end %>
 
+						<% if product.new_price == nil %>
+							<h2>￥ <%= product.price %>
+							</h2>
+						<% else %>
+							<span class="product_index_small_box_line">
+							<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+							</span>
+							<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+						<% end %>
 				</div>
 				<!-- 商品名と値段の箱fin -->
 			</div>
 			<!-- 画像と商品名と値段の箱fin -->
-
         <% end %>
+		<% end %>
 </div>
 <!-- 新着アイテム全体の箱fin -->
 
@@ -42,7 +87,11 @@
 <!-- j-popアイテム全体の箱 -->
 <div class="product_index_content_2">
 	<h1 class="product_index_content_headtitle">J-POP</h1>
+
         <% @jpops.first(4).each do |jpop| %>
+ 
+		<%=link_to  product_path(jpop.id) do %>
+ master
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
@@ -53,7 +102,8 @@
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-						<%=link_to jpop.album, product_path(jpop.id) %>
+							<%= truncate(jpop.artist, length: 8 ) %> /
+							<%= truncate(jpop.album, length: 8 ) %>
 					</h2>
 
 					<% if jpop.new_price == nil %>
@@ -73,6 +123,7 @@
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
+		<% end %>
 </div>
 <!-- j-popアイテム全体の箱fin -->
 
@@ -81,7 +132,10 @@
 <!-- 洋楽アイテム全体の箱 -->
 <div class="product_index_content_2">
 	<h1 class="product_index_content_headtitle">洋楽</h1>
+
         <% @worlds.first(4).each do |world| %>
+      
+		<%=link_to  product_path(world.id) do %>
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
@@ -92,7 +146,9 @@
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-						<%=link_to world.album, product_path(world.id) %>
+							<%= truncate(world.artist, length: 8 ) %> /
+							<%= truncate(world.album, length: 8 ) %>
+
 					</h2>
 
 					<% if world.new_price == nil %>
@@ -112,6 +168,7 @@
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
+		<% end %>
 </div>
 <!-- 洋楽アイテム全体の箱fin -->
 
@@ -119,7 +176,9 @@
 <!-- K-POPアイテム全体の箱 -->
 <div class="product_index_content_3">
 	<h1 class="product_index_content_headtitle">K-POP</h1>
-        <% @kpops.first(4).each do |kpop| %>
+
+        <% @kpops.first(4).each do |kpop| %>    
+		<%=link_to  product_path(kpop.id) do %>
 
 
         	<!-- 画像と商品名と値段の箱 -->
@@ -133,7 +192,10 @@
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
-						<%=link_to kpop.album, product_path(kpop.id) %>
+
+							<%= truncate(kpop.artist, length: 8 ) %> /
+							<%= truncate(kpop.album, length: 8 ) %>
+
 					</h2>
 
 					<% if kpop.new_price == nil %>
@@ -153,6 +215,7 @@
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
+		<% end %>
 </div>
 <!-- K-POPアイテム全体の箱fin -->
 
