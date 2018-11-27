@@ -398,7 +398,7 @@
 /*-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）*/
 
 /*ここからトップビジュアルフェードインのための記述*/
-#slide {
+/*#slide {
 width:640px;
 height:300px;
 margin:0 auto;
@@ -408,15 +408,21 @@ position:relative;
 position:absolute;
 left:0;
 top:0;
-}
+}*/
 /*ここまでトップビジュアルフェードインのための記述*/
-.product_index_content {
+/*.product_index_content {
 	width: 90%;
 	margin: 0% auto;
 	margin-top: 5%;
 	text-align: center;
-}
+}*/
 
+.product_index_content {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 5%;
+	text-align: center;
+}
 
 /*新着アイテムの文字のとこ*/
 .product_index_content_headtitle {
