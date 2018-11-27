@@ -12,32 +12,31 @@ class CartProductsController < ApplicationController
 
 
   def update
+    # 保存エラーが起きてrenderで飛ばすとき用
+    @product = Product.find(params[:id])
+    @product_comment = ProductComment.new
+
     # カートに入れるボタンを押したユーザーのカート
     @cart = Cart.find_by(user_id: current_user.id)
-    # 現在カートに入れるボタンを押したユーザーのカート内の情報
-    @current_carts = CartProduct.where(cart_id: @cart.id)
-
     # カートプロダクトの空のインスタンス
     @cart_product = CartProduct.new(cart_params)
 
-    # 現在のカート内の情報をeachで回す
-    @current_carts.each do |current_cart|
-      # 現在のカートに同じ商品が入っていた場合
-      if current_cart.product_id == params[:id]
-        current_cart.count = current_cart.count + @cart_product.count
-        current_cart.save
-      # 現在のカートに同じ商品が入っていない場合
-      else
-        # 空のインスタンスにカート情報を入力
-        @cart_product.cart_id = @cart.id
-        @cart_product.product_id = params[:id]
-        if @cart_product.save
+    if CartProduct.where(product_id: params[:id]).exists?
+      @current_product = CartProduct.find_by(product_id: params[:id])
+      @current_product.count = @current_product.count + @cart_product.count
+        if @current_product.save
         else
+          render "product/show"
+        end
+    else
+      # 空のインスタンスにカート情報を入力
+      @cart_product.cart_id = @cart.id
+      @cart_product.product_id = @product.id
+      if @cart_product.save
+      else
           @cart_product.errors.full_messages
-          @product = Product.find(params[:id])
           @product_comment = ProductComment.new
           render "products/show"
-        end
       end
     end
     redirect_to products_path
