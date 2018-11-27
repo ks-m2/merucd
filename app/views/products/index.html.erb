@@ -1,72 +1,23 @@
-<!-- ---------------------------ここからトップビジュアルフェードインのための記述------------------------------- -->
-<!-- <head>
+<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="assets/image1.jpg" />
+    </li>
+    <li>
+      <img src="assets/image2.jpg" />
+    </li>
+    <li>
+      <img src="assets/image3.jpg" />
+    </li>
+  </ul>
+</div>
 <script>
-jQuery(function(){
-	// 設定
-	var $width =640; // 横幅
-	var $height =300; // 高さ
-	var $interval = 3000; // 切り替わりの間隔（ミリ秒）
-	var $fade_speed = 1000; // フェード処理の早さ（ミリ秒）
-	$("#slide ul li").css({"position":"relative","overflow":"hidden","width":$width,"height":$height});
-	$("#slide ul li").hide().css({"position":"absolute","top":0,"left":0});
-	$("#slide ul li:first").addClass("active").show();
-	setInterval(function(){
-	var $active = $("#slide ul li.active");
-	var $next = $active.next("li").length?$active.next("li"):$("#slide ul li:first");
-	$active.fadeOut($fade_speed).removeClass("active");
-	$next.fadeIn($fade_speed).addClass("active");
-	},$interval);
-	});
-</script>
-<div id="slide">
-<ul>
-<li><a href=""><img src="assets/image1.jpg" alt="" width="640" height="300" /></a></li>
-<li><a href=""><img src="assets/image2.jpg" alt="" width="640" height="300" /></a></li>
-<li><a href=""><img src="assets/image3.jpg" alt="" width="640" height="300" /></a></li>
-</ul>
-</div> -->
-<!-- ---------------------------ここまでトップビジュアルフェードインのための記述------------------------------- -->
-<!-- ---------------------------ここから画像拡大ための記述（実験中）------------------------------- -->
-</head>
-
-<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div>
-
-<script>
-$(document).ready(function() {
-  $("a.fancybox").fancybox();
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
 });
 </script>
-
-<!-- ---------------------------ここまで画像拡大ための記述------------------------------- -->
-<!-- ---------------------------ここから画像表示スクロールための記述（検証中）------------------------------- -->
-<div id="entry_list_more">
-  <ul>
-    <li>～1件目の記事～</li>
-    <li>～2件目の記事～</li>
-    <li>～3件目の記事～</li>
-    <li>～4件目の記事～</li>
-    <li>～5件目の記事～</li>
-    <li>～6件目の記事～</li>
-    <li>～7件目の記事～</li>
-    <li>～8件目の記事～</li>
-    <li>～9件目の記事～</li>
-    <li>～10件目の記事～</li>
-    <li>～11件目の記事～</li>
-    <li>～12件目の記事～</li>
-    <li>～13件目の記事～</li>
-    <li>～14件目の記事～</li>
-    <li>～15件目の記事～</li>
-    <li>～16件目の記事～</li>
-    <li>～17件目の記事～</li>
-    <li>～18件目の記事～</li>
-    <li>～19件目の記事～</li>
-    <li>～20件目の記事～</li>
-  </ul>
-  
-</div>
-
-
-<!-- ---------------------------ここまで画像表示スクロールための記述------------------------------- -->
 
 
 <!-- 新着アイテム-->
@@ -76,13 +27,13 @@ $(document).ready(function() {
 
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
         <% @products.each do |product| %>
-<%=link_to product_path(product.id) do %>
 	        	<!-- 画像と商品名と値段の箱 -->
 	        	<div class="product_index_middle_box">
 
-					<span class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></span>
+					<a class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
 				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
 				<!-- 商品名と値段の箱 -->
+				<%=link_to product_path(product.id) do %>
 				<div class="product_index_middle_box2">
 
 
@@ -164,14 +115,14 @@ $(document).ready(function() {
 
         <% @jpops.first(4).each do |jpop| %>
 
-		<%=link_to  product_path(jpop.id) do %>
-
         	<!-- 画像と商品名と値段の箱 -->
+        <div class="product_index_middle_box">
         	<div class="product_index_middle_box_2">
 
-				<%= attachment_image_tag jpop, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<a class="fancybox"><%= attachment_image_tag jpop, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
 
 				<!-- 商品名と値段の箱 -->
+				<%=link_to  product_path(jpop.id) do %>
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
@@ -193,6 +144,7 @@ $(document).ready(function() {
 				<!-- 商品名と値段の箱fin -->
 
 			</div>
+		</div>
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
@@ -207,15 +159,15 @@ $(document).ready(function() {
 	<h1 class="product_index_content_headtitle">洋楽</h1>
 
         <% @worlds.first(4).each do |world| %>
-      
-		<%=link_to  product_path(world.id) do %>
 
         	<!-- 画像と商品名と値段の箱 -->
+        <div class="product_index_middle_box">
         	<div class="product_index_middle_box_2">
 
-				<%= attachment_image_tag world, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<a class="fancybox"><%= attachment_image_tag world, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
 
 				<!-- 商品名と値段の箱 -->
+				<%=link_to  product_path(world.id) do %>
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
@@ -238,6 +190,7 @@ $(document).ready(function() {
 				<!-- 商品名と値段の箱fin -->
 
 			</div>
+		</div>
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
@@ -251,17 +204,15 @@ $(document).ready(function() {
 	<h1 class="product_index_content_headtitle">K-POP</h1>
 
         <% @kpops.first(4).each do |kpop| %>    
-		<%=link_to  product_path(kpop.id) do %>
-
 
         	<!-- 画像と商品名と値段の箱 -->
+        <div class="product_index_middle_box">
         	<div class="product_index_middle_box_2">
 
-
-
-				<%= attachment_image_tag kpop, :image, :size => "300x300", fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<a class="fancybox"><%= attachment_image_tag kpop, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
 
 				<!-- 商品名と値段の箱 -->
+				<%=link_to  product_path(kpop.id) do %>
 				<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
@@ -285,6 +236,7 @@ $(document).ready(function() {
 				<!-- 商品名と値段の箱fin -->
 
 			</div>
+		</div>
 			<!-- 画像と商品名と値段の箱fin -->
 
         <% end %>
@@ -294,7 +246,7 @@ $(document).ready(function() {
 <!-- --------画像ポップアップここから------------------ -->
 <script>
 $(document).ready(function() {
-  $("span.fancybox").fancybox();
+  $("a.fancybox").fancybox();
 });
 </script>
 <!-- --------画像ポップアップまで------------------ -->
