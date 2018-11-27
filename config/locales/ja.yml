@@ -1,37 +1,4 @@
 
-ja:
-  activerecord:
-    models:
-      product:
-    attributes:
-      product:
-        artist: アーティスト名
-        album: アルバム名、曲名
-        image_id: ジャケット画像
-        label: レーベル名
-        genre: ジャンル
-        status: 商品の状態
-        introduction: 商品の説明
-        count: 個数
-        price: 値段
-
-
-ja:
-  enums:
-    product:
-      genre:
-        j_pop: J-POP
-        world: 洋楽
-        k_pop: K-POP
-        anime: アニメ
-        hip_hop: HIP-HOP
-        reggae: レゲエ
-        rock: ロック
-        ballad: 演歌
-        electronic: エレクトロニック
-        classic: クラシック
-        metal: メタル
-
 
 
 ja:

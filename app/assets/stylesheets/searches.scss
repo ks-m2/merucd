@@ -1,16 +1,98 @@
-.clearfix::after {
-  content: "";
-  display: inline-block;
-  clear: both;
+.product_index_content {
+	width: 90%;
+	margin: 0% auto;
+	margin-top: 5%;
+	text-align: center;
+}
+
+/*新着アイテムの文字のとこ*/
+.product_index_content_headtitle {
+	width: 100%;
+	text-align: center;
+	text-decoration: underline;
+}
+
+/*商品画像、商品名、値段が入るbox*/
+.product_index_middle_box {
+	background-color: white;
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 1% 3%;
+}
+
+/*商品の画像の箱*/
+.product_index_middle_box1{
+	width: 300px;
+	height: 300px;
+	vertical-align: bottom;
+	border: 1px solid #999999;
+}
+
+/*商品の名前と値段の箱*/
+.product_index_middle_box2{
+	width: 300px;
+	height: 130px;
+	border: 1px solid #999999;
+	border-top: 0px;
+}
+
+/*商品名の行の高さ*/
+.product_index_small_box_album {
+	line-height: 50px;
+}
+
+/*新しい値段の取り消し線について*/
+.product_index_small_box_line {
+	text-decoration: line-through;
+	color: red;
+}
+
+/*古い値段の文字の色*/
+.product_index_small_box_old_price {
+	color: black;
+}
+
+/*新しい値段の文字の色*/
+.product_index_small_box_new_price {
+	color: red;
 }
 
 
-/*ここからindexのジャンル別(４つ並んでるとこ)*/
+
+/*----------------ここから2段目以降の箱について*/
+
+.product_index_content_2 {
+	width: 100%;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.product_index_middle_box_2 {
+	background-color: white;
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 1% 0.5%;
+}
+
+
+.product_index_content_3 {
+	width: 100%;
+	text-align: center;
+	margin: 5% 0;
+}
+
+
+
+
+/*<!-- -----------------------------------------作佐部修正ここまで--------------------------------------- -->*/
+
 
 .product_index_content2 {
 	background-color: rgb(150, 200, 240);
 	width: 1300px;
-	height: auto;
+	height: 600px;
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 0 45px;
@@ -26,7 +108,7 @@
 .product_index_disc_box2 {
 	background-color: rgb(150, 150, 250);
 	width: 300px;
-	height: 400px;
+	height: 500px;
 	float: left;
 }
 

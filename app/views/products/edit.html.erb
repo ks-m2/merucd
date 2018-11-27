@@ -34,7 +34,10 @@
 									<td>レーベル</td><td><%= f.text_area :label %></td>
 								</tr>
 								<tr>
-									<td>値段</td><td><%= f.text_area :new_price %></td>
+									<td>値段</td><td><%= f.number_field :new_price %></td>
+								</tr>
+								<tr>
+									<td>在庫数</td><td><%=f.number_field :count %></td>
 								</tr>
 								<tr>
 									<td>ジャンル</td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
@@ -53,6 +56,13 @@
 			<div class="product_edit_margin">
 				<div class="product_edit_song">
 					<h1>曲</h1>
+				<% @product.discs.each do |disc| %>
+					<% disc.songs.each do |song| %>
+						<%= song.title %>
+					<% end %>
+				<% end %>
+
+
 				</div>
 				<div class="product_edit_introduction">
 					<h2><%= f.text_area :introduction ,:size =>"47x30"%></h2>
