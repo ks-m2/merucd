@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   end
 
   def index
-     @a = Cart.find_by(user_id: current_user)
+    @a = Cart.find_by(user_id: current_user)
     @cart_products = CartProduct.where(cart_id: @a.id)
 
     @total_price = 0
@@ -24,7 +24,6 @@ class CartsController < ApplicationController
 
       @total_count += cartproduct.count #---合計個数---#
     end
-
   end
 
   def show

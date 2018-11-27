@@ -1,5 +1,5 @@
 <!-- ---------------------------ここからトップビジュアルフェードインのための記述------------------------------- -->
-<head>
+<!-- <head>
 <script>
 jQuery(function(){
 	// 設定
@@ -24,10 +24,10 @@ jQuery(function(){
 <li><a href=""><img src="assets/image2.jpg" alt="" width="640" height="300" /></a></li>
 <li><a href=""><img src="assets/image3.jpg" alt="" width="640" height="300" /></a></li>
 </ul>
-</div>
+</div> -->
 <!-- ---------------------------ここまでトップビジュアルフェードインのための記述------------------------------- -->
 <!-- ---------------------------ここから画像拡大ための記述（実験中）------------------------------- -->
-<script src="assets/fancybox.js"></script>
+<!-- <script src="assets/fancybox.js"></script>
 <script>
 $(document).ready(function() {
   $("a.fancybox").fancybox();
@@ -35,7 +35,7 @@ $(document).ready(function() {
 </script>
 </head>
 
-<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div>
+<div class="gallery"><a class="fancybox" href="assets/image3.jpg" target="_blank"><img src="assets/image3.jpg"></a></div> -->
 <!-- ---------------------------ここまで画像拡大ための記述------------------------------- -->
 
 <!-- 新着アイテム-->
@@ -46,9 +46,6 @@ $(document).ready(function() {
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
         <% @products.first(3).each do |product| %>
 		<%=link_to product_path(product.id) do %>
-	        	<!-- 画像と商品名と値段の箱 -->
-	        	<div class="product_index_middle_box">
-
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box">
 
@@ -56,9 +53,6 @@ $(document).ready(function() {
 				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
 				<!-- 商品名と値段の箱 -->
 				<div class="product_index_middle_box2">
-
-					<!-- 商品名と値段の箱 -->
-					<div class="product_index_middle_box2">
 
 						<h2 class="product_index_small_box_album">
 							<%= truncate(product.artist, length: 8 ) %> /
@@ -89,9 +83,8 @@ $(document).ready(function() {
 	<h1 class="product_index_content_headtitle">J-POP</h1>
 
         <% @jpops.first(4).each do |jpop| %>
- 
+
 		<%=link_to  product_path(jpop.id) do %>
- master
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">

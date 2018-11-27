@@ -13,8 +13,6 @@ class CartProductsController < ApplicationController
   end
 
   def update
-
-
   	@cart_product = CartProduct.new(cart_params)
     @cart = Cart.find_by(user_id: current_user.id)
   	@cart_product.cart_id = @cart.id
