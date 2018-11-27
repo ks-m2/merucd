@@ -30,17 +30,19 @@
 					<caption></caption>
 					<thead>
 						<tr>
-							<td>出品者</td><td><%= @product.user.name%></td>
+							<td>出品者</td><td><%= link_to user_path(@product.user.id) do |f| %>
+								<%= @product.user.name%></td>
+								<% end %>
 						</tr>
 						<tr>
-							<td>在庫数</td><td><%= @product.count %></td>
+							<td>在庫数</td><td><%= @product.count %>個</td>
 						</tr>
 						<tr>
 							<td>値段</td>
 							<td><% if @product.new_price == nil %>
-									 <%= @product.price %>
+									 <%= @product.price %>円
 								<% else %>
-									 <%= @product.new_price %>
+									 <%= @product.new_price %>円
 								<% end %>
 							</td>
 						</tr>
@@ -71,7 +73,7 @@
 				<h1>曲目</h1>
 				<% @product.discs.each do |disc| %>
 					<% disc.songs.each do |song| %>
-						<%= song.title %>
+						<%= song.title %><br>
 					<% end %>
 				<% end %>
 			</div>
@@ -101,9 +103,11 @@
 									<tr>
 										<td><%= product_comment.content %></td>
 									</tr>
+									<% if product_comment.user.id == current_user.id %>
 									<tr>
 										<td><%= link_to "削除", product_comment_path(product_comment.id) ,method: :delete %></span></td>
 									</tr>
+									<% end %>
 								<% end %>
 							</tbody>
 					</table>
@@ -122,11 +126,15 @@
 						<% end %>
 				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
 
-				 <% if @product.user.id == current_user.id %>
-					<%= link_to "商品を編集する", edit_product_path(@product.id)%>
-					<%= link_to "商品を削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
-				</div>
+				 <% if current_user != nil %>
+				 	<% if @product.user.id == current_user.id %>
+				 		<%= link_to "商品を編集する", edit_product_path(@product.id)%>
+						<%= link_to "商品を削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+					<% else %>
+					<% end %>
+				 <% else %>
 				<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
