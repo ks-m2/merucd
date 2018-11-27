@@ -5,7 +5,12 @@ class ProductsController < ApplicationController
     @products = Product.all.order(created_at: "DESC")
     @users = User.all
     @user = current_user
-
+    @jpops2 = Product.where(genre: 'J-POP')
+    @jpops = @jpops2.order(created_at: "DESC")
+    @kpops2 = Product.where(genre: 'K-POP',)
+    @kpops = @kpops2.order(created_at: "DESC")
+    @worlds2 = Product.where(genre: '洋楽')
+    @worlds = @worlds2.order(created_at: "DESC")
 
   end
 
@@ -13,6 +18,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product_comment = ProductComment.new
     @cart_product = CartProduct.new
+
   end
 
   def new

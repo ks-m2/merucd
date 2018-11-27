@@ -26,8 +26,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    
+    @user = User.find(params[:id])
+    @user.update_attribute(:deleted_at, 1)
+    redirect_to new_user_registration_path
   end
+
 
   private
   def user_params

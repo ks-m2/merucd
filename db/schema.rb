@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 2018_11_20_040329) do
+ActiveRecord::Schema.define(version: 2018_11_27_045445) do
 
 
   create_table "buy_products", force: :cascade do |t|
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2018_11_20_040329) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "number"
   end
 
   create_table "mails", force: :cascade do |t|
@@ -86,12 +85,12 @@ ActiveRecord::Schema.define(version: 2018_11_20_040329) do
     t.integer "user_id"
     t.integer "genre"
     t.integer "status"
-    t.text "image_id"
-    t.string "label"
-    t.string "artist"
-    t.string "album"
+    t.text "image_id", default: ""
+    t.string "label", default: ""
+    t.string "artist", default: ""
+    t.string "album", default: ""
     t.integer "count"
-    t.text "introduction"
+    t.text "introduction", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
@@ -137,13 +136,13 @@ ActiveRecord::Schema.define(version: 2018_11_20_040329) do
     t.string "tel"
     t.text "image_id"
     t.text "profile"
-    t.datetime "deleted_at"
+    t.integer "deleted_at", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.boolean "admin"
     t.string "postal"
+    t.boolean "admin"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

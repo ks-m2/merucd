@@ -35,15 +35,14 @@
 								<% end %>
 						</tr>
 						<tr>
-							<td>在庫数</td><td><%= @product.count %></td>
+							<td>在庫数</td><td><%= @product.count %>個</td>
 						</tr>
 						<tr>
 							<td>値段</td>
-
 							<td><% if @product.new_price == nil %>
-									 <%= @product.price %>
+									 <%= @product.price %>円
 								<% else %>
-									 <%= @product.new_price %>
+									 <%= @product.new_price %>円
 								<% end %>
 							</td>
 						</tr>
@@ -72,6 +71,11 @@
 		<div class="product_show_margin">
 			<div class="product_show_song">
 				<h1>曲目</h1>
+				<% @product.discs.each do |disc| %>
+					<% disc.songs.each do |song| %>
+						<%= song.title %><br>
+					<% end %>
+				<% end %>
 			</div>
 			<div class="product_show_introduction">
 				<div class="product_show_scroll">
