@@ -1,76 +1,58 @@
-<div class="product_edit_big_box">
-	<h1 id="ooo">商品編集画面</h1>
 
+
+<div class="product_edit_box">
+	<div class="product_edit_middle">
 		<%= form_for(@product) do |f|%>
-
-		<div class="product_edit_artist">
-			<div class="product_edit_artist_left">
-			<h1>アーティスト名：</h1>
+			<div class="product_edit_album">
+				<%= f.text_field :artist %>
 			</div>
-			<div class="product_edit_artist_right">
-			<%= f.text_field :artist %>
+			<div class="product_edit_image">
+				<%= attachment_image_tag @product, :image ,:size => "300x300" %>
 			</div>
-		</div>
-		<div class="product_edit_album">
-			<div class="product_edit_alubm_left">
-			<h1>CD/ALBUM名：</h1>
-			</div>
-			<div class="product_edit_album_right">
-			<%= f.text_field :album %>
-			</div>
-		</div>
-
-		<div class="product_edit_image_name">
-			<div class="product_edit_margin">
-				<div class="product_edit_image">
-					<h2><%= attachment_image_tag @product, :image ,:size => "300x300" %></h2>
-					<%= f.attachment_field :image %>
-				</div>
-				<div class="product_edit_label">
-					<table class="product_edit_table" border="1">
-						<form>
-							<thead>
-								<tr>
-									<td>レーベル</td><td><%= f.text_area :label %></td>
-								</tr>
-								<tr>
-									<td>値段</td><td><%= f.number_field :new_price %></td>
-								</tr>
-								<tr>
-									<td>在庫数</td><td><%=f.number_field :count %></td>
-								</tr>
-								<tr>
-									<td>ジャンル</td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
-								</tr>
-								<tr>
-									<td>状態</td><td><%= f.select :status,Product.statuses.keys.to_a, {} %></td>
-								</tr>
-							</thead>
-						</form>
+			<div class="product_edit_table2">
+					<table class="product_edit_table3" border="1">
+						<caption></caption>
+						<thead>
+							<tr>
+								<td>出品者</td><td><%= link_to user_path(@product.user.id) do |f| %>
+									<%= @product.user.name%></td>
+									<% end %>
+							</tr>
+							<tr>
+								<td>在庫数</td><td><%=f.number_field :count, class:"product_edit_number" %>個</td>
+							</tr>
+							<tr>
+								<td>レーベル</td><td><%= f.text_area :label %></td>
+							</tr>
+							<tr>
+								<td>ジャンル </td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
+							</tr>
+							<tr>
+								<td>状態</td><td><%= f.select :status,Product.statuses.keys.to_a, {} %></td>
+							</tr>
+						</thead>
 					</table>
-				</div>
-			</div>
-		</div>
 
-		<div class="product_edit_song_index">
-			<div class="product_edit_margin">
-				<div class="product_edit_song">
-					<h1>曲</h1>
-				<% @product.discs.each do |disc| %>
-					<% disc.songs.each do |song| %>
-						<%= song.title %>
+			</div>
+			<div class="product_edit_song">
+				<h1>曲目</h1>
+					<% @product.discs.each do |disc| %>
+						<% disc.songs.each do |song| %>
+							・<%= song.title %><br>
+						<% end %>
 					<% end %>
-				<% end %>
-
-
-				</div>
-				<div class="product_edit_introduction">
-					<h2><%= f.text_area :introduction ,:size =>"47x30"%></h2>
-				</div>
 			</div>
-		</div>
-
-		  <%= f.submit "変更を保存" , :class=>"btn"  %>
-
-	<% end %>
+			<div class="product_edit_price">
+				<% if @product.new_price == nil %>
+					¥<%= f.number_field :price %>円
+				<% else %>
+					¥<%= f.number_field :new_price  %>円
+				<% end %>
+			</div>
+			<div class="product_edit_introduction">
+				<%= f.text_area :introduction ,:size =>"47x30"%>
+			</div>
+		<% end %>
+	</div>
 </div>
+

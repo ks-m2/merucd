@@ -41,6 +41,6 @@ class CartProductsController < ApplicationController
     params.require(:cart_product).permit(:count)
   end
 
- end
+end
 
 
