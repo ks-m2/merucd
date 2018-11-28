@@ -121,11 +121,10 @@
 			<div class="product_show_cart">
 				<div class="product_show_secret">
 				<%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
-				<%=f.number_field :count%>
-				<%=f.submit "カートに入れる" %>
-						<% end %>
+					<%=f.select :count, @count_array %>
+					<%=f.submit "カートに入れる" %>
+				<% end %>
 				 <!-- カートプロダクトモデルに保存するリンク　一覧にリダイレクト -->
-
 				 <% if current_user != nil %>
 				 	<% if @product.user.id == current_user.id %>
 				 		<%= link_to "商品を編集する", edit_product_path(@product.id)%>
