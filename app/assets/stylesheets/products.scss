@@ -405,28 +405,13 @@ input#product_status{
 
 
 
-/*/＊<!-- -----------------------------------------作佐部修正--------------------------------------- -->＊/*/
-/*/＊-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）＊/*/
-
-/*/＊ここからトップビジュアルフェードインのための記述＊/*/
-/*#slide {
-width:640px;
-height:300px;
-margin:0 auto;
-position:relative;
+/*-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）*/
+.slides img{
+  background-size: contain;
+  width: auto;
+  height: 300px;
 }
-#slide img {
-position:absolute;
-left:0;
-top:0;
-}*/
-/*/＊ここまでトップビジュアルフェードインのための記述＊/*/
-/*.product_index_content {
-    width: 90%;
-    margin: 0% auto;
-    margin-top: 5%;
-    text-align: center;
-}*/
+
 
 
 
@@ -498,7 +483,12 @@ top:0;
 
 
 
-/*/＊----------------ここから2段目以降の箱について＊/*/
+
+/*----------------ここから2段目以降の箱について*/
+.product_index_content_2 a {
+	text-decoration: none;
+}
+
 
 .product_index_content_2 {
     width: 100%;

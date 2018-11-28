@@ -14,16 +14,14 @@
     <p class="alert"><%= alert %></p>
 
 <!-- ここからヘッダー -->
-
     <header>
-      <%= link_to "MeruCD", products_path, class: 'products_index_header_title' %>
       <nav class="products_index_header clearfix">
-
-        <ul class="products_index_header_itembox">
-            <li　class="products_index_header_item">
+      <a href="/"><img src="assets/logo3.png" alt="logo" class= "products_index_header_title"></a>
+      
             <!-- 検索機能-->
-              <div class="products_index_search">
-                <%= search_form_for @q, html: {class:'products_index_column'}, url: search_path do |f|%>
+            <div class="products_index_search">
+              <div class="products_index_search_box">
+                <%= search_form_for @q, html: {class: 'products_index_column'}, url: search_path do |f|%>
                   <%= f.condition_fields do |c| %>
 <!-- ここで検索するカラムを指定できる。しかし、カラムを任意のものに絞り込むのは無理そう -->
                     <%= c.attribute_fields do |a| %>
@@ -38,45 +36,45 @@
                   <%= f.submit '検索' %>
                 <% end %>
               </div>
-            </li>
+
+            <ul class="products_index_header_itembox">
             <!-- ここはログイン時のみ -->
           <% if user_signed_in? %>
             <li class="products_index_header_item">
-              <%= link_to current_user.name, user_path(current_user.id),class: 'products_index_header_username' %>
+              <%= link_to current_user.name, user_path(current_user.id), :style=>"color: #222222; text-decoration:none; font-size:14px "  %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to "カートへ", carts_path, class: 'products_index_header_cart' %>
+              <%= link_to "カートへ", carts_path, :style=>"color: #222222; text-decoration:none; font-size:14px"  %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to "ログアウト", destroy_user_session_path, class: 'products_index_header_logout', method: :delete  %>
+              <%= link_to "ログアウト", destroy_user_session_path, :style=>"color: #222222; text-decoration:none; font-size:14px", method: :delete  %>
             </li>
             <!-- ここ以下がログアウト時のみ -->
           <% else %>
             <li class="products_index_header_item">
-              <%= link_to "新規登録", new_user_registration_path,class: 'products_index_header_login' %>
+              <%= link_to "新規登録", new_user_registration_path,:style=>"color: #222222; text-decoration:none; font-size:14px" %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to " ログイン", new_user_session_path,class: 'products_index_header_signin' %>
+              <%= link_to " ログイン", new_user_session_path,:style=>"color: #222222; text-decoration:none; font-size:14px" %>
           <% end %>
+            </li>
         </ul>
+        </div>
       </nav>
     </header>
-
-
-
     <%= yield %>
 <!-- ここからフッター -->
     <footer>
       <nav class="products_index_footer">
         <ul class="products_index_footer_itembox">
             <li class="products_index_footer_item">
-              <%= link_to "お問い合わせ", new_mail_path,class: 'products_index_footer_mail' %>
+              <%= link_to "お問い合わせ", new_mail_path,:style=>"color:white; text-decoration:none;" %>
             </li>
             <li class="products_index_footer_item">
-              <%= link_to "このサイトについて", homes_about_path,class: 'products_index_footer_about' %>
+              <%= link_to "このサイトについて", homes_about_path,:style=>"color:white; text-decoration:none;" %>
             </li>
         </ul>
-              <span class="products_index_footer_c">ks-㎡</span>
+              <span class="products_index_footer_c">©︎ks-㎡</span>
       </nav>
     </footer>
   </body>

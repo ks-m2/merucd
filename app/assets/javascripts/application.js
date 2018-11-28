@@ -20,3 +20,4 @@
 //= require jquery
 //= require cocoon
 //= require fancybox
+//= require jquery.flexslider
