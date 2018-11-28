@@ -36,6 +36,7 @@
 
 /*/＊cocoonで作成できるディスクの箱＊/*/
 .products_new_disc_form {
+
     background-color: white;
     width: 95%;
     margin: 2% 0%;
@@ -92,6 +93,15 @@
 }*/
 /*---全てに反映されてしまうためコメントアウト---*/
 
+	
+
+/*---------------------------------------------------------------詳細ページ*/
+
+
+
+
+
+
 .product_show_price{
     width: 100%;
     height: 100px;
@@ -100,6 +110,7 @@
     font-size: 64px;
     font-weight: bold;
     text-align: center;
+
 
 
 }
@@ -111,6 +122,7 @@
     background-color: pink;
     display: inline-block;
 }
+
 .product_show_introduction{
     width: 100%;
     height: 100px;
@@ -136,6 +148,8 @@
     width: 100px;
     height: 100px;
     background-color: blue;
+
+
 
 }
 
@@ -213,10 +227,109 @@
 .product_edit_price_edit{
 	font-size: 80%;
 	width: 30%;
+
+
+.product_show_gocart{
+	width: 100%;
+	height: 100px;
+	background-color: pink;
+	display: inline-block;
+}
+.product_show_introduction{
+	width: 100%;
+	height: 100px;
+	background-color: orange;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	overflow: scroll;
+	word-break : break-all;
+
+}
+.product_show_chat{
+	width: 100%;
+	height: 250px;
+	background-color:brown;
+	display: inline-block;
+	overflow: scroll;
+	word-break : break-all;
+}
+
+
+.bottan{
+	width: 100px;
+	height: 100px;
+	background-color: blue;
+
+}
+
+
+/*-------------------------------------------編集ページ---*/
+
+
+.product_edit_box{
+	width: 80%;
+	padding-top: 50px;
+	margin: 0 auto;
+	background-color: gray;
+}
+.product_edit_album{
+	width: 100%;
+	height: 50px;
+	background-color: gold;
+	display: inline-block;
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
+.product_edit_middle{
+	width: 80%;
+	margin : 0 auto;
+	background-color: red;
+}
+
+.product_edit_image{
+	width: 50%;
+	height:300px;
+	background-color: blue;
+	display: inline-block;
+	vertical-align: top;
+
+}
+
+
+.product_edit_table2{
+	width: 49%;
+	height:300px;
+	background-color: green;
+	display: inline-block;
+	vertical-align: top;
+
+}
+
+.product_edit_table3{
+	width: 100%;
+}
+.table,th,td{
+	 border: 10px solid #bbb;
+}
+
+.product_edit_price{
+	width: 100%;
+	height: 100px;
+	background-color: purple;
+	display: inline-block;
+	font-size: 64px;
+	font-weight: bold;
+	text-align: center;
+
+
+
 }
 
 
 .product_edit_gocart{
+
     width: 100%;
     height: 100px;
     background-color: pink;
@@ -245,6 +358,8 @@
     display: inline-block;
     overflow: scroll;
     word-break : break-all;
+
+	
 }
 
 
@@ -269,6 +384,7 @@
 }
 
 .product_edit_number{
+
     width: 40px;
     height: 20px;
 }
@@ -286,6 +402,7 @@ textarea#product_label{
 input#product_status{
 	font-size: 100%;
 }
+
 
 
 /*/＊<!-- -----------------------------------------作佐部修正--------------------------------------- -->＊/*/
@@ -310,6 +427,14 @@ top:0;
     margin-top: 5%;
     text-align: center;
 }*/
+
+
+
+/*箱ごとリンクはった時についた下線を消す*/
+.product_index_content a {
+	text-decoration: none;
+}
+
 
 .product_index_content {
     width: 90%;

@@ -118,9 +118,17 @@ footer {
 
 .sign-in{
 
-	width: 100%;
+	width: 60%;
 	height: 100%;
 	text-align: center;
 	background-color: gray;
-
+	border: groove;
+	margin:0 auto;
+}
+.new_log_in{
+	width: 60%;
+	height: 100%;
+	text-align: center;
+	border:groove;
+	margin:0 auto;
 }

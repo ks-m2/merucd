@@ -19,6 +19,15 @@ class ProductsController < ApplicationController
     @product_comment = ProductComment.new
     @cart_product = CartProduct.new
 
+    # 在庫数をインスタンス変数に入れて、viewのselectフォームに渡します。
+    @count_array = []
+    @product.count.times do |quantitiy|
+      if quantitiy < @product.count
+        @count_array << [quantitiy+1,quantitiy+1]
+      else
+        break
+      end
+    end
   end
 
   def new
