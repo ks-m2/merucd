@@ -4,14 +4,15 @@
 	<% @user.errors.full_messages do |m| %>
 	<%= m %>
 	<% end %>
+
 	<div class="users_show_mypage">
 		<div class="users_show_left">
-			<h2>マイアカウント</h2>
+			<h1>マイアカウント</h1>
 			<div class="users_show_account">
 				<div>
 					<%= attachment_image_tag @user, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image_cicle" %>
 				</div>
-				<div>
+				<div class="users_show_name">
 					<h1><%= @user.name %></h1>
 				</div>
 				<div class="users_show_profile_comment">
@@ -36,52 +37,52 @@
 			<div class="users_show_products">
 				<% @user.products.each do |product|%>
 				<div class="users_show_shows">
-					<div class="users_show_shows_products">
-						<%= link_to product_path(product.id) do %>
-						<%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image" %>
-						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので100,100にしました--- -->
-						<% end %>
-						<table border="2", class="users_show_box">
-							<td>アーティスト名</td>
-							<td><%= product.artist %></td>
-						</tr>
-						<tr>
-							<td>CD名</td>
-							<td><%= product.album %></td>
-						</tr>
-						<tr>
-							<td>在庫数</td>
-							<td><%= product.count %>枚</td>
-						</tr>
-						<tr>
-							<td>値段</td>
-							<td><%= product.price %>円/枚</td>
-						</table>
+					<%= link_to product_path(product.id) do %>
+					<%= attachment_image_tag product, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image" %>
+						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので400,400にしました--- -->
+					<% end %>
+					<table border="2", class="users_show_box">
+						<td>アーティスト名</td>
+						<td><%= product.artist %></td>
+					</tr>
+					<tr>
+						<td>CD/ALBUM名</td>
+						<td><%= product.album %></td>
+					</tr>
+					<tr>
+						<td>在庫数</td>
+						<td><%= product.count %>枚</td>
+					</tr>
+					<tr>
+						<td>値段</td>
+						<td><%= product.price %>円/枚</td>
+					</table>
 					<% if @user == current_user %>
 					<span><%= link_to "編集", edit_product_path(product.id)%></span>
 					<span><%= link_to "削除", product_path(product.id), method: :delete,"data-confirm" => "本当に削除しますか?"  %></span>
 					<% end %>
-					</div>
 				</div>
 				<% end %>
 			</div>
 		</div>
-		<div class="users_show_right clerafix">
-			<h2>MELCD Chat</h2>
+		<div class="users_show_right">
+			<div class="users_show_chats_box">
+			<h1>MELCD Chat</h1>
 			<div class="users_show_chats">
-				<h1>投稿一覧</h1>
 				<div class="users_show_chats_table">
-					<table border="1" ,overflow-y:scroll>
 						<% @talk1.each do |talk| %>
-							<th width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_image_cicle" %></th>
-							<th width="150px"><%= talk.user.name %></th> <!-- ---link_toつける--- -->
-							<td width="250px"><%= talk.content %></td>
+						<div class="user_show_talks">
+							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_image_cicle" %></div>
+							<div class="user_show_talk_name" width="150px"><h5><%= talk.user.name  %></h5></div>
+							<div class="user_show_talk_content" width="200px"><%= talk.content %>
 							<% if talk.user_id == current_user.id %>
-								<td width="100px"><p><%= link_to "削除", talk_path(talk.id), method: :delete,"data-confirm" => "本当に削除しますか?"%></p></td>
+								<div class="user_show_talk_destroy">
+									<p><%= link_to "", talk_path(talk.id), method: :delete, class: "far fa-trash-alt my-gray", "data-confirm" => "本当に削除しますか?"%></p></div>
 							<% end %>
-						</tr>
+							</div>
+
+						</div>
 						<% end %>
-					</table>
 				</div>
 				<div class="users_show_chats_send">
 					<%= form_for(@talk,url: talks_path(user_id: @user.id)) do |f| %>
@@ -90,6 +91,7 @@
 					<% end %>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 <% end %>

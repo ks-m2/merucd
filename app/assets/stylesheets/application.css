@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require fancybox
+ *= require flexslider.css
  */
 
 body {
@@ -28,17 +29,16 @@ body {
 }
 
 header {
-	background-color: rgb(200, 250, 220);
+	background-color: white;
 	width: 100%;
-	height: 70px;
-	margin: 0 auto;
+	height: 100px;
+
 }
 
 footer {
-	background-color: rgb(200, 250, 220);
+	background-color: #212121;
 	width: 100%;
-	height: 70px;
-	margin: 0 auto;
+	height: 100px;
 }
 
 
@@ -46,39 +46,39 @@ footer {
     display: inline-block;
     list-style: none;
     line-height: 50px;
+    width: 100%;
 }
 
 .products_index_header_title {
-	background-color: rgb(150, 250, 170);
-	width: 150px;
-	height: 50px;
-	font-size: 26px;
+	width:  100px;
+	height: 100px;
+	vertical-align: top;
+	object-fit: fill;
+	text-decoration: none;
+	margin-left: 500px;
 	float: left;
 }
 
 .products_index_header_itembox {
-	background-color: rgb(130, 240, 150);
-	width: 800px;
-	height: 50px;
-	text-align: center;
-	margin-left: 300px;
+	height: 30px;
 }
 
 .products_index_header_item {
-	background-color: rgb(100, 230, 130);
 	width: 100px;
-	height: 50px;
+	height: 30px;
 	display: inline-block;
 }
 
 .products_index_search {
-	background-color: rgb(100, 230, 130);
-	width: 400px;
-	height: 50px;
-	float: left;
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 10px;
 }
 
-
+.products_index_search_box {
+	width: 100%;
+}
 
 .products_index_footer {
     display: inline-block;
@@ -89,16 +89,14 @@ footer {
 }
 
 .products_index_footer_itembox {
-	background-color: rgb(130, 240, 150);
 	width: 300px;
 	height: 50px;
 	text-align: center;
-	margin-left: 850px;
+	margin-left: 1000px;
 
 }
 
 .products_index_footer_item {
-	background-color: rgb(100, 230, 130);
 	width: 150px;
 	height: 50px;
 	display: inline-block;
@@ -110,7 +108,8 @@ footer {
 	height: 50px;
 	position: relative;
 	top: -32px;
-	right: -1200px;
+	right: -1300px;
+	color: white;
 }
 
 /*新規登録画面*/
@@ -118,9 +117,17 @@ footer {
 
 .sign-in{
 
-	width: 100%;
+	width: 60%;
 	height: 100%;
 	text-align: center;
 	background-color: gray;
-
+	border: groove;
+	margin:0 auto;
+}
+.new_log_in{
+	width: 60%;
+	height: 100%;
+	text-align: center;
+	border:groove;
+	margin:0 auto;
 }
