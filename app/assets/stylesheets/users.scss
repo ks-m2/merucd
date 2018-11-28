@@ -16,12 +16,14 @@
 
 	width: 100%;
 	height: 100%;
-	background-color:#FF9872;
+	font-family: serif
+	/*background-color:#FF9872;*/
 }
 
 .users_show_account, .users_show_products,.users_show_chats{
 	text-align: center;
 	height: 100%;
+	margin-top: 15%;
 }
 /*------users_show_editのみ全体------*/
 .users_edit_accountimage, .users_edit_account{
@@ -29,43 +31,44 @@
 }
 /*------users_show　左------*/
 .users_show_left{
-	background-color: #99FF99;
+	/*background-color: #99FF99;*/
 	width: 30%;
 	height: 1000px;
 	float: left;
 }
 .users_show_image_cicle{
 	border-radius: 400px;
-	width: 100%;
+	width: 70%;
+}
+.users_show_name{
+	text-decoration: underline;
 }
 .users_show_profile_comment{
 	width: auto;
-	height: 150px;
+	height: 300px;
 	background-color: #fff;
 	margin: 30px;
 	text-align: left;
 	border-radius: 10px;
-	border: solid 3px #6091d3;
+	border: 1px solid #999999;
 	overflow: scroll;
 }
 
 /*------users_show　中央------*/
 .users_show_center{
-	background-color: #00FFFF;
-	width: 35%;
+	background-color: #FFF;
+	width: 40%;
 	height: 1000px;
 	float: left;
 }
 .users_show_shows{
-	background-color: #FFFF66;
+	/*background-color: #FFFF66;*/
 	height: 240px;
 	width: 100%;
-	margin: 0 auto;
 	margin-top: 5%;
-	border-top: 1px solid #949494;
+	border-top: 1px solid;
 	overflow: hidden;
-	border-radius: 10px;
-	border: solid 3px #6091d3;
+	border-radius: 5px;
 }
 .users_show_shows_products{
 	height: 100%;
@@ -84,20 +87,52 @@
 }
 /*------users_show　右------*/
 .users_show_right{
-	background-color: #FFFF66;
-	width: 35%;
+	/*background-color: #FFFF66;*/
+	width: 25%;
 	height: 1000px;
 	display: inline-block;
 }
-.users_show_chats_comments{
+.users_show_chats_box{
 	width: 90%;
+	margin: 0 45px;
+}
+.user_show_talks{
+	width: 10%;
+	display: -webkit-box;
+}
+.user_show_talk_image,.user_show_talk_name,.user_show_talk_contents{
+	display: inline-block;
+}
+
+.user_show_talk_image{
+
+}
+.user_show_talk_name{
+
+}
+.user_show_talk_content{
+	background: #d7ebfe;
+	width: 200px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	border-radius: 12px;
+	text-align: left; 
+	padding: 10px;
+	word-break: break-word;
+}
+.user_show_talk_destroy{
+	text-align: right;
+}
+
+.users_show_chats_comments{
+	/*width: 90%;
 	height: 500px;
 	background-color: #fff;
 	border-radius: 10px;
 	border: solid 3px #6091d3;
 	margin: auto;
 	margin-bottom: 30px;
-	overflow: scroll;
+	overflow: scroll;*/
 }
 .users_show_chats_table{
 	overflow: scroll;
@@ -106,11 +141,11 @@
 	background-color: #fff
 }
 .users_show_chats_send{
-	margin: 10px 0 10px 70px;
+	margin: 20px
 }
 /*------users_show_edit　左------*/
 .users_edit_left{
-	background-color: #99FF99;
+	/*background-color: #99FF99;*/
 	width: 40%;
 	height: 1000px;
 	float: left;
@@ -118,26 +153,17 @@
 }
 /*------users_show_edit　右------*/
 .users_edit_right{
-	background-color: #FFFF66;
+	/*background-color: #FFFF66;*/
 	width: 60%;
 	height: 1000px;
 	display: inline-block;
 	padding-top: 100px;
 }
-input[type="email"]{
+.users_edit_account_edit{
 	width: 300px;
 	height: 40px;
 	font-size: 20px;
 }
-input[type="password"]{
-	width: 300px;
-	height: 40px;
-	font-size: 20px;
-}
-input[type="number"]{
-	width: 300px;
-	height: 40px;
-	font-size: 20px;
-}
+
 
 
