@@ -6,16 +6,14 @@ class CartsController < ApplicationController
   def cart_create
     if @cart = Cart.where(user_id: current_user.id).exists?
     else
-    @cart = Cart.new(user_id: current_user.id)
-    @cart.save
-
-  end
-
+      @cart = Cart.new(user_id: current_user.id)
+      @cart.save
+    end
   end
 
   def index
-    @a = Cart.find_by(user_id: current_user)
-    @cart_products = CartProduct.where(cart_id: @a.id)
+    @cart = Cart.find_by(user_id: current_user)
+    @cart_products = CartProduct.where(cart_id: @cart.id)
 
     @total_price = 0
     @total_count = 0
