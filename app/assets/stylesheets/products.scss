@@ -227,6 +227,7 @@
 .product_edit_price_edit{
 	font-size: 80%;
 	width: 30%;
+	border-radius: 7px solid #999999;
 }
 
 .product_show_gocart{
@@ -318,6 +319,12 @@
 	width: 100%;
 	text-align: center;
     font-size: 25px;
+}
+select#product_genre{
+	font-size: 20px;
+}
+select#product_status{
+	font-size: 20px;
 }
 /*.table,th,td{
 	 border: 10px solid #bbb;

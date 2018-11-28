@@ -39,6 +39,7 @@
 .users_show_image_cicle{
 	border-radius: 400px;
 	width: 70%;
+	border: 1px solid #999999;
 }
 .users_show_name{
 	text-decoration: underline;
@@ -67,8 +68,12 @@
 	width: 100%;
 	margin-top: 5%;
 	border-top: 1px solid;
+	border-bottom: 1px solid;
 	overflow: hidden;
-	border-radius: 5px;
+	
+}
+.users_show_shows_link{
+	text-decoration: none;
 }
 .users_show_shows_products{
 	height: 100%;
@@ -138,7 +143,9 @@
 	overflow: scroll;
 	height:650px;
 	width: 100%;
-	background-color: #fff
+	background-color: #fff;
+	border: 1px solid;
+	border-radius: 5px;
 }
 .users_show_chats_send{
 	margin: 20px
