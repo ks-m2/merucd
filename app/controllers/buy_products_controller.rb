@@ -38,12 +38,13 @@ class BuyProductsController < ApplicationController
   end
   private
   	def buy_user
-		if Buy.where(user_id: current_user.id).exists?
-		else
+		  if Buy.where(user_id: current_user.id).exists?
+		  else
 			@buy = Buy.new(user_id: current_user.id)
 			@buy.save
-		end
+		  end
     def delivery_params
       params.require(:delivery).permit(:name,:portal,:state,:street,:address,:tel)
-	end
+	   end
+    end
 end

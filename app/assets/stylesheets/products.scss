@@ -1,398 +1,408 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
-/*-------------------newの大箱とα*/
+/*/＊-------------------newの大箱とα＊/*/
 
 
 .product_new_big_box{
-	width: 60%;
-	margin: 0 auto;
-	overflow: hidden;
-	background-color: blue;
+    width: 60%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: blue;
 }
 
 .p{
-	text-align: center;
+    text-align: center;
 }
 
 .product_new_middle_box{
-	width: 60%;
-	margin: 0 auto;
-	margin-top: 20px;
-	padding-left: 30px;
-	overflow: hidden;
-  
-	background-color: red;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 30px;
+    overflow: hidden;
+
+    background-color: red;
 
 }
 
 .product_new_btn{
-	width:400px;
-	height:200px;
+    width:400px;
+    height:200px;
 }
 
-/*cocoonで作成できるディスクの箱*/
+/*/＊cocoonで作成できるディスクの箱＊/*/
 .products_new_disc_form {
-	background-color: white;
-	width: 95%;
-	margin: 2% 0%;
-	border: 1px solid #999999;
+
+    background-color: white;
+    width: 95%;
+    margin: 2% 0%;
+    border: 1px solid #999999;
 }
 
-/*---------------------------------------------------------------詳細ページ*/
-.product_show_big_box{
-	width:80%;
-	margin :0 auto;
-	background-color: yellow;
+/*/＊---------------------------------------------------------------詳細ページ＊/*/
 
+.product_show_box{
+    width: 80%;
+    padding-top: 50px;
+    margin: 0 auto;
+    background-color: gray;
 }
-#ppp{
-	text-align: center;
+.product_show_album{
+    width: 100%;
+    height: 50px;
+    background-color: gold;
+    display: inline-block;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
 }
-
-
-.product_show_artist{
-	width:100%;
-	background-color: red;
-}
-.product_show_artist_left{
-	width: 50%;
-	float: left;
-	background-color: orange;
-	text-align: right;
-}
-.product_show_artist_right{
-	width: 50%;
-	float: right;
-	background-color: brown;
-	text-align: left;
-	font-size: 32px;
-	font-weight: bold;
-}
-
-.product_show_alubm_left{
-	width: 50%;
-	float: left;
-	background-color: orange;
-	text-align: right;
-}
-.product_show_album_right{
-	width: 50%;
-	float: right;
-	background-color: brown;
-	text-align: left;
-	font-size: 32px;
-	font-weight: bold;
-}
-
-/*--------------------------*/
-.product_show_image_name{
-	width: 100%;
-	height: 400px;
-	background-color: green;
-	margin-top: 10px;
+.product_show_middle{
+    width: 80%;
+    margin : 0 auto;
+    background-color: red;
 }
 
 .product_show_image{
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	margin-right:10%;
-	background-color: blue;
-	vertical-align: top;
-}
-
-.product_show_name{
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	/*margin-right:10%*/
-	background-color: blue;
-	vertical-align: top;
-}
-
-.product_show_margin{
-	width: 80%;
-	height: 400px;
-	margin :0 auto;
-
-	background-color: pink;
-}
-/*----------------------------*/
-
-
-
-.product_show_song_index{
-	width: 100%;
-	height: 400px;
-	background-color: green;
-	margin-top: 10px;
-}
-
-.product_show_song{
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	margin-right:10%;
-	background-color: blue;
-	vertical-align: top;
+    width: 50%;
+    height:300px;
+    background-color: blue;
+    display: inline-block;
+    vertical-align: top;
 
 }
 
+
+.product_show_table2{
+    width: 49%;
+    height:300px;
+    background-color: green;
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.product_show_table3{
+    width: 100%;
+}
+/*.table,th,td{
+     border: 10px solid #bbb;
+}*/
+/*---全てに反映されてしまうためコメントアウト---*/
+
+	
+
+/*---------------------------------------------------------------詳細ページ*/
+
+
+
+
+
+
+.product_show_price{
+    width: 100%;
+    height: 100px;
+    background-color: purple;
+    display: inline-block;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+
+
+
+}
+
+
+.product_show_gocart{
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+    display: inline-block;
+}
 
 .product_show_introduction{
+    width: 100%;
+    height: 100px;
+    background-color: orange;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: scroll;
+    word-break : break-all;
 
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-/*	margin-right:10%;*/
-	background-color: blue;
-	vertical-align: top;
+}
+.product_show_chat{
+    width: 100%;
+    height: 250px;
+    background-color:brown;
+    display: inline-block;
+    overflow: scroll;
+    word-break : break-all;
 }
 
-.product_show_scroll{
-	width: 300px;
-	height:350px;
-	background-color: orange;
-	overflow-x: scroll;
-	word-wrap: break-word;
+
+.bottan{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+
+
 }
 
-/*---------------------------*/
+
+/*/＊-------------------------------------------編集ページ---＊/*/
 
 
-.product_show_comment_cart{
+.product_edit_box{
+    width: 80%;
+    padding-top: 50px;
+    margin: 0 auto;
+    /*background-color: gray;*/
+}
+.product_edit_album{
+    width: 100%;
+    height: 50px;
+    /*background-color: gold;*/
+    display: inline-block;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+.product_edit_album_name{
+	font-size: 35px;
+	text-align: center;
+	border: 1px solid #999999;
+}
+.product_edit_middle{
+    width: 80%;
+    margin : 0 auto;
+    background-color: #fff;
+    font-family: serif;
+}
+
+.product_edit_image{
+    width: 50%;
+    height:300px;
+    /*background-color: blue;*/
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+
+.product_edit_table2{
+    width: 49%;
+    height:300px;
+    /*background-color: green;*/
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.product_edit_table3{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+/*.table,th,td{
+     border: 10px solid #bbb;
+}*/
+/*---全てに反映されてしまうためコメントアウト---*/
+
+.product_edit_price{
+    width: 100%;
+    height: 100px;
+    background-color: gainsboro;
+    display: inline-block;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+.product_edit_price_edit{
+	font-size: 80%;
+	width: 30%;
+
+
+.product_show_gocart{
 	width: 100%;
-	height: 400px;
-	background-color: green;
-	margin-top: 10px;
+	height: 100px;
+	background-color: pink;
+	display: inline-block;
+}
+.product_show_introduction{
+	width: 100%;
+	height: 100px;
+	background-color: orange;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	overflow: scroll;
+	word-break : break-all;
+
+}
+.product_show_chat{
+	width: 100%;
+	height: 250px;
+	background-color:brown;
+	display: inline-block;
+	overflow: scroll;
+	word-break : break-all;
 }
 
-.product_show_comment{
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	margin-right:10%;
+
+.bottan{
+	width: 100px;
+	height: 100px;
 	background-color: blue;
-	vertical-align: top;
 
 }
 
-
-.product_show_cart{
-
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	/*margin-right:10%;*/
-	background-color: blue;
-	vertical-align: top;
-
-}
-
-.bbtn{
-	display: inline-block;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #67c5ff;
-    border: solid 2px #67c5ff;
-    border-radius: 3px;
-    transition: .4s;
-}
-
-.product_show_secret{
-	width:100%;
-	background-color: yellow;
-	margin-top: 312px;
-}
 
 /*-------------------------------------------編集ページ---*/
 
 
-
-
-
-
-.product_edit_big_box{
-	width:80%;
-	margin :5% auto;
-	background-color: yellow;
-
+.product_edit_box{
+	width: 80%;
+	padding-top: 50px;
+	margin: 0 auto;
+	background-color: gray;
 }
-#ooo{
-	text-align: center;
-}
-
-
-.product_edit_artist{
-	width:100%;
-	height: 48px;
-	background-color: red;
-}
-.product_edit_artist_left{
-	width: 50%;
-	float: left;
-	background-color: orange;
-	text-align: right;
-}
-.product_edit_artist_right{
-	width: 50%;
-	float: right;
-	background-color: brown;
-	text-align: left;
-	font-size: 32px;
-	font-weight: bold;
-}
-
-.product_edit_alubm_left{
-	width: 50%;
-	float: left;
-	background-color: orange;
-	text-align: right;
-}
-.product_edit_album_right{
-	width: 50%;
-	float: right;
-	background-color: brown;
-	text-align: left;
-	font-size: 32px;
-	font-weight: bold;
-}
-
-/*-------------------------*/
-
-.product_edit_image_name{
+.product_edit_album{
 	width: 100%;
-	height: 400px;
-	background-color: green;
-	margin-top: 10px;
+	height: 50px;
+	background-color: gold;
+	display: inline-block;
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
+.product_edit_middle{
+	width: 80%;
+	margin : 0 auto;
+	background-color: red;
 }
 
 .product_edit_image{
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	margin-right:10%;
+	width: 50%;
+	height:300px;
 	background-color: blue;
-	vertical-align: top;
-}
-
-.product_edit_label{
-	width: 300px;
-	height: 400px;
 	display: inline-block;
-	margin-left: 10%;
-	/*margin-right:10%*/
-	background-color: blue;
 	vertical-align: top;
+
 }
 
-.product_edit_margin{
-	width: 80%;
-	height: 400px;
-	margin :0 auto;
 
-	background-color: pink;
-}
-/*----------------------------*/
-
-
-
-.product_edit_song_index{
-	width: 100%;
-	height: 400px;
+.product_edit_table2{
+	width: 49%;
+	height:300px;
 	background-color: green;
-	margin-top: 10px;
-}
-
-.product_edit_song{
-	width: 300px;
-	height: 400px;
 	display: inline-block;
-	margin-left: 10%;
-	margin-right:10%;
-	background-color: blue;
 	vertical-align: top;
 
 }
 
+.product_edit_table3{
+	width: 100%;
+}
+.table,th,td{
+	 border: 10px solid #bbb;
+}
 
+.product_edit_price{
+	width: 100%;
+	height: 100px;
+	background-color: purple;
+	display: inline-block;
+	font-size: 64px;
+	font-weight: bold;
+	text-align: center;
+
+
+
+}
+
+
+.product_edit_gocart{
+
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+    display: inline-block;
+}
 .product_edit_introduction{
+    width: 100%;
+    height: 100px;
+    background-color: orange;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: scroll;
+    word-break : break-all;
+    border: 1px solid #999999;
 
-	width: 300px;
-	height: 400px;
-	display: inline-block;
-	margin-left: 10%;
-	background-color: blue;
-	vertical-align: top;
+}
+.product_edit_introduction_text{
+	width: 100%;
+	font-size: 20px;
+}
+.product_edit_chat{
+    width: 100%;
+    height: 250px;
+    background-color:brown;
+    display: inline-block;
+    overflow: scroll;
+    word-break : break-all;
 
+	
 }
 
 
-.btn{
-
-	width:200px;
- 	height:100px;
- 	line-height:100px;
-	text-align:center;
-	display:inline-block;
-	background:#9b4dca;
- 	color:#fff;
- 	border-radius:5px;
- 	text-decoration:none;
- 	margin-left: 80%;
-}
-
-/*---------------------------*/
-
-
-.product_show_table{
-	width: 300px;
-	height: 350px;
-	background-color: silver;
-	overflow: scroll;
-	table-layout: fixed;
-}
 
 .product_edit_table{
-	width: 300px;
-	height: 350px;
-	background-color: silver;
-	overflow: scroll;
-	table-layout: fixed;
+    width: 300px;
+    height: 350px;
+    background-color: silver;
+    overflow: scroll;
+    table-layout: fixed;
 }
 
 
-.product_show_table{
-	width: 300px;
-	height:350px;
-	background-color: orange;
-	overflow: scroll;
-}
+
 
 
 
 .clearfix::after {
-  content: "";
-  display: inline-block;
-  clear: both;
+ content: "";
+ display: inline-block;
+ clear: both;
 }
 
+.product_edit_number{
 
+    width: 40px;
+    height: 20px;
+}
+input#product_count{
+	font-size: 20px;
+	border: 1px solid #999999;
+	width: 15%;
+	height: 10%;
+	border-radius: 4px;
+	text-align: center;
+}
+textarea#product_label{
+	font-size: 100%;
+}
+input#product_status{
+	font-size: 100%;
+}
 
-
-
-/*<!-- -----------------------------------------作佐部修正--------------------------------------- -->*/
 
 
 /*-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）*/
@@ -403,71 +413,74 @@
 }
 
 
+
+
 /*箱ごとリンクはった時についた下線を消す*/
 .product_index_content a {
 	text-decoration: none;
 }
 
+
 .product_index_content {
-	width: 90%;
-	margin: 0 auto;
-	margin-top: 5%;
-	text-align: center;
-
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-align: center;
 }
 
-/*新着アイテムの文字のとこ*/
+/*/＊新着アイテムの文字のとこ＊/*/
 .product_index_content_headtitle {
-	width: 100%;
-	text-align: center;
-	text-decoration: underline;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
 }
 
-/*商品画像、商品名、値段が入るbox*/
+/*/＊商品画像、商品名、値段が入るbox＊/*/
 .product_index_middle_box {
-	background-color: white;
-	width: 300px;
-	display: inline-block;
-	vertical-align: top;
-	margin: 1% 3%;
- }
+    background-color: white;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1% 3%;
+}
 
-/*商品の画像の箱*/
+/*/＊商品の画像の箱＊/*/
 .product_index_middle_box1{
-	width: 300px;
-	height: 300px;
-	vertical-align: bottom;
-	border: 1px solid #999999;
+    width: 300px;
+    height: 300px;
+    vertical-align: bottom;
+    border: 1px solid #999999;
 }
 
-/*商品の名前と値段の箱*/
+/*/＊商品の名前と値段の箱＊/*/
 .product_index_middle_box2{
-	width: 300px;
-	height: 130px;
-	border: 1px solid #999999;
-	border-top: 0px;
+    width: 300px;
+    height: 130px;
+    border: 1px solid #999999;
+    border-top: 0px;
 }
 
-/*商品名の行の高さ*/
+/*/＊商品名の行の高さ＊/*/
 .product_index_small_box_album {
-	line-height: 50px;
+    line-height: 50px;
 }
 
-/*新しい値段の取り消し線について*/
+/*/＊新しい値段の取り消し線について＊/*/
 .product_index_small_box_line {
-	text-decoration: line-through;
-	color: red;
+    text-decoration: line-through;
+    color: red;
 }
 
-/*古い値段の文字の色*/
+/*/＊古い値段の文字の色＊/*/
 .product_index_small_box_old_price {
-	color: black;
+    color: black;
 }
 
-/*新しい値段の文字の色*/
+/*/＊新しい値段の文字の色＊/*/
 .product_index_small_box_new_price {
-	color: red;
+    color: red;
 }
+
 
 
 
@@ -476,90 +489,92 @@
 	text-decoration: none;
 }
 
+
 .product_index_content_2 {
-	width: 100%;
-	text-align: center;
-	margin-top: 5%;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
 }
 
 .product_index_middle_box_2 {
-	background-color: white;
-	width: 300px;
-	display: inline-block;
-	vertical-align: top;
-	margin: 1% 0.5%;
+    background-color: white;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1% 0.5%;
 }
 
 
 .product_index_content_3 {
-	width: 100%;
-	text-align: center;
-	margin: 5% 0;
+    width: 100%;
+    text-align: center;
+    margin: 5% 0;
 }
 
 
 
 
-/*<!-- -----------------------------------------作佐部修正ここまで--------------------------------------- -->*/
+/*/＊<!-- -----------------------------------------作佐部修正ここまで--------------------------------------- -->＊/*/
 
 
 .product_index_content2 {
-	background-color: rgb(150, 200, 240);
-	width: 1300px;
-	height: 600px;
-	margin: 0 auto;
-	margin-top: 10px;
-	padding: 0 45px;
+    background-color: rgb(150, 200, 240);
+    width: 1300px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 0 45px;
 }
 
 .product_index_content_headtitle2 {
-	background-color: pink;
-	width: 1200px;
-	height: 50px;
-	text-align: center;
+    background-color: pink;
+    width: 1200px;
+    height: 50px;
+    text-align: center;
 }
 
 .product_index_disc_box2 {
-	background-color: rgb(150, 150, 250);
-	width: 300px;
-	height: 500px;
-	float: left;
+    background-color: rgb(150, 150, 250);
+    width: 300px;
+    height: 500px;
+    float: left;
 }
 
 
 .product_index_disc_box_image2 {
-	background-color: rgb(200, 150, 250);
-	width: 250px;
-	height: 250px;
-	margin: 0 auto;
-	margin-top: 35px;
+    background-color: rgb(200, 150, 250);
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    margin-top: 35px;
 }
 
 .product_index_disc_box_album2 {
-	background-color: rgb(180, 240, 250);
-	width: 250px;
-	height: 30px;
-	margin: 0 auto;
+    background-color: rgb(180, 240, 250);
+    width: 250px;
+    height: 30px;
+    margin: 0 auto;
 
 }
 
 .product_index_disc_box_price2 {
-	background-color: rgb(200, 200, 250);
-	width: 250px;
-	height: 30px;
-	margin: 0 auto;
+    background-color: rgb(200, 200, 250);
+    width: 250px;
+    height: 30px;
+    margin: 0 auto;
 }
 
 .products_index_column {
 
-/*アドバンストモードの検索カラムを指定できないので、不要なものを非表示にするためのコード*/
+/*/＊アドバンストモードの検索カラムを指定できないので、不要なものを非表示にするためのコード＊/*/
 
-$is: 1,2,3,4,5,6,10,11,12,13,14,15;/*$isに何番目を指定するかいれる*/
-/*つまり１,2,5,8,10,11,12番目のカラムを消そうとしてる*/
+$is: 1,2,3,4,5,6,10,11,12,13,14,15;
+/*$isに何番目を指定するかいれる*/
+/*/＊つまり１,2,5,8,10,11,12番目のカラムを消そうとしてる＊/*/
 
 @each $i in $is {
-	option:nth-of-type(#{$i}) { display: none }
+    option:nth-of-type(#{$i}) { display: none }
 }
 }
-/*&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する*/
-
+/*/＊&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する＊/
+/＊&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する＊/*/
