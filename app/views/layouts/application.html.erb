@@ -52,10 +52,10 @@
             <!-- ここ以下がログアウト時のみ -->
           <% else %>
             <li class="products_index_header_item">
-              <%= link_to "新規登録", new_user_registration_path,class: 'products_index_header_login' %>
+              <%= link_to "新規登録", new_user_registration_path,:style=>"color: #222222; text-decoration:none; font-size:14px" %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to " ログイン", new_user_session_path,class: 'products_index_header_signin' %>
+              <%= link_to " ログイン", new_user_session_path,:style=>"color: #222222; text-decoration:none; font-size:14px" %>
           <% end %>
             </li>
         </ul>
