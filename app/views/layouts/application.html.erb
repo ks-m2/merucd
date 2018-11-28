@@ -16,14 +16,13 @@
 <!-- ここからヘッダー -->
 
     <header>
-      <%= link_to "MeruCD", products_path, class: 'products_index_header_title' %>
       <nav class="products_index_header clearfix">
-
-        <ul class="products_index_header_itembox">
-            <li　class="products_index_header_item">
+      <a href="/"><img src="assets/logo3.png" alt="logo" class= "products_index_header_title"></a>
+      
             <!-- 検索機能-->
-              <div class="products_index_search">
-                <%= search_form_for @q, html: {class:'products_index_column'}, url: search_path do |f|%>
+            <div class="products_index_search">
+              <div class="products_index_search_box">
+                <%= search_form_for @q, html: {class: 'products_index_column'}, url: search_path do |f|%>
                   <%= f.condition_fields do |c| %>
 <!-- ここで検索するカラムを指定できる。しかし、カラムを任意のものに絞り込むのは無理そう -->
                     <%= c.attribute_fields do |a| %>
@@ -38,7 +37,8 @@
                   <%= f.submit '検索' %>
                 <% end %>
               </div>
-            </li>
+            </div>
+            <ul class="products_index_header_itembox">
             <!-- ここはログイン時のみ -->
           <% if user_signed_in? %>
             <li class="products_index_header_item">
@@ -58,6 +58,7 @@
             <li class="products_index_header_item">
               <%= link_to " ログイン", new_user_session_path,class: 'products_index_header_signin' %>
           <% end %>
+            </li>
         </ul>
       </nav>
     </header>

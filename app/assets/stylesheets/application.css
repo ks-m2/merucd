@@ -29,17 +29,16 @@ body {
 }
 
 header {
-	background-color: rgb(200, 250, 220);
+	background-color: white;
 	width: 100%;
-	height: 70px;
-	margin: 0 auto;
+	height: 100px;
+
 }
 
 footer {
 	background-color: rgb(200, 250, 220);
 	width: 100%;
 	height: 70px;
-	margin: 0 auto;
 }
 
 
@@ -50,36 +49,38 @@ footer {
 }
 
 .products_index_header_title {
-	background-color: rgb(150, 250, 170);
-	width: 150px;
-	height: 50px;
-	font-size: 26px;
+	width:  100px;
+	height: 100px;
+	vertical-align: top;
+	object-fit: fill;
+	text-decoration: none;
+	margin-left: 500px;
 	float: left;
 }
 
 .products_index_header_itembox {
-	background-color: rgb(130, 240, 150);
 	width: 800px;
 	height: 50px;
 	text-align: center;
-	margin-left: 300px;
+	margin-left: 300px
 }
 
 .products_index_header_item {
-	background-color: rgb(100, 230, 130);
 	width: 100px;
 	height: 50px;
 	display: inline-block;
 }
 
 .products_index_search {
-	background-color: rgb(100, 230, 130);
 	width: 400px;
 	height: 50px;
-	float: left;
+	margin-left: 400px;
 }
 
-
+.products_index_search_box {
+	width: 100%;
+	height: 100%;
+}
 
 .products_index_footer {
     display: inline-block;
