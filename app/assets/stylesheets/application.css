@@ -36,9 +36,9 @@ header {
 }
 
 footer {
-	background-color: rgb(200, 250, 220);
+	background-color: #212121;
 	width: 100%;
-	height: 70px;
+	height: 100px;
 }
 
 
@@ -46,6 +46,7 @@ footer {
     display: inline-block;
     list-style: none;
     line-height: 50px;
+    width: 100%;
 }
 
 .products_index_header_title {
@@ -59,27 +60,24 @@ footer {
 }
 
 .products_index_header_itembox {
-	width: 800px;
-	height: 50px;
-	text-align: center;
-	margin-left: 300px
+	height: 30px;
 }
 
 .products_index_header_item {
 	width: 100px;
-	height: 50px;
+	height: 30px;
 	display: inline-block;
 }
 
 .products_index_search {
-	width: 400px;
-	height: 50px;
-	margin-left: 400px;
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 10px;
 }
 
 .products_index_search_box {
 	width: 100%;
-	height: 100%;
 }
 
 .products_index_footer {
@@ -91,16 +89,14 @@ footer {
 }
 
 .products_index_footer_itembox {
-	background-color: rgb(130, 240, 150);
 	width: 300px;
 	height: 50px;
 	text-align: center;
-	margin-left: 850px;
+	margin-left: 1000px;
 
 }
 
 .products_index_footer_item {
-	background-color: rgb(100, 230, 130);
 	width: 150px;
 	height: 50px;
 	display: inline-block;
@@ -112,7 +108,8 @@ footer {
 	height: 50px;
 	position: relative;
 	top: -32px;
-	right: -1200px;
+	right: -1300px;
+	color: white;
 }
 
 /*新規登録画面*/

@@ -14,7 +14,6 @@
     <p class="alert"><%= alert %></p>
 
 <!-- ここからヘッダー -->
-
     <header>
       <nav class="products_index_header clearfix">
       <a href="/"><img src="assets/logo3.png" alt="logo" class= "products_index_header_title"></a>
@@ -37,18 +36,18 @@
                   <%= f.submit '検索' %>
                 <% end %>
               </div>
-            </div>
+
             <ul class="products_index_header_itembox">
             <!-- ここはログイン時のみ -->
           <% if user_signed_in? %>
             <li class="products_index_header_item">
-              <%= link_to current_user.name, user_path(current_user.id),class: 'products_index_header_username' %>
+              <%= link_to current_user.name, user_path(current_user.id), :style=>"color: #222222; text-decoration:none; font-size:14px "  %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to "カートへ", carts_path, class: 'products_index_header_cart' %>
+              <%= link_to "カートへ", carts_path, :style=>"color: #222222; text-decoration:none; font-size:14px"  %>
             </li>
             <li class="products_index_header_item">
-              <%= link_to "ログアウト", destroy_user_session_path, class: 'products_index_header_logout', method: :delete  %>
+              <%= link_to "ログアウト", destroy_user_session_path, :style=>"color: #222222; text-decoration:none; font-size:14px", method: :delete  %>
             </li>
             <!-- ここ以下がログアウト時のみ -->
           <% else %>
@@ -60,24 +59,22 @@
           <% end %>
             </li>
         </ul>
+        </div>
       </nav>
     </header>
-
-
-
     <%= yield %>
 <!-- ここからフッター -->
     <footer>
       <nav class="products_index_footer">
         <ul class="products_index_footer_itembox">
             <li class="products_index_footer_item">
-              <%= link_to "お問い合わせ", new_mail_path,class: 'products_index_footer_mail' %>
+              <%= link_to "お問い合わせ", new_mail_path,:style=>"color:white; text-decoration:none;" %>
             </li>
             <li class="products_index_footer_item">
-              <%= link_to "このサイトについて", homes_about_path,class: 'products_index_footer_about' %>
+              <%= link_to "このサイトについて", homes_about_path,:style=>"color:white; text-decoration:none;" %>
             </li>
         </ul>
-              <span class="products_index_footer_c">ks-㎡</span>
+              <span class="products_index_footer_c">©︎ks-㎡</span>
       </nav>
     </footer>
   </body>
