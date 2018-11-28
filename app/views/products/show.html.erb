@@ -1,32 +1,17 @@
 <%= @cart_product.errors.full_messages.each do |message| %>
-<%= message %>
+ <%= message %>
 <% end %>
-<div class="product_show_big_box">
-  <h1 id="ppp">商品詳細画面</h1>
-	<div class="product_show_artist">
-		<div class="product_show_artist_left">
-			<h1>アーティスト名：</h1>
-		</div>
-		<div class="product_show_artist_right">
+
+<div class="product_show_box">
+	<div class="product_show_middle">
+		<div class="product_show_album">
 			<%= @product.artist %>
 		</div>
-	</div>
-	<div class="product_show_album">
-		<div class="product_show_alubm_left">
-			<h1>CD/ALBUM名：</h1>
+		<div class="product_show_image">
+			<%= attachment_image_tag @product, :image ,:size => "300x300" %>
 		</div>
-		<div class="product_show_album_right">
-			<%= @product.album %>
-		</div>
-	</div>
-
-	<div class="product_show_image_name">
-		<div class="product_show_margin">
-			<div class="product_show_image">
-				<h1><%= attachment_image_tag @product, :image ,:size => "300x300" %></h1>
-			</div>
-			<div class="product_show_name">
-				<table class="product_show_table" border="1">
+		<div class="product_show_table2">
+				<table class="product_show_table3" border="1">
 					<caption></caption>
 					<thead>
 						<tr>
@@ -36,15 +21,6 @@
 						</tr>
 						<tr>
 							<td>在庫数</td><td><%= @product.count %>個</td>
-						</tr>
-						<tr>
-							<td>値段</td>
-							<td><% if @product.new_price == nil %>
-									 <%= @product.price %>円
-								<% else %>
-									 <%= @product.new_price %>円
-								<% end %>
-							</td>
 						</tr>
 						<tr>
 							<td>レーベル</td><td><%= @product.label %></td>
@@ -60,62 +36,50 @@
 					</tbody>
 				</table>
 
-			</div>
 		</div>
-	</div>
-							<!-- エラー実験 -->
-
-
-
-	<div class="product_show_song_index">
-		<div class="product_show_margin">
-			<div class="product_show_song">
-				<h1>曲目</h1>
+		<div class="product_show_song">
+			<h1>曲目</h1>
 				<% @product.discs.each do |disc| %>
 					<% disc.songs.each do |song| %>
-						<%= song.title %><br>
+						・<%= song.title %><br>
 					<% end %>
 				<% end %>
-			</div>
-			<div class="product_show_introduction">
-				<div class="product_show_scroll">
-					<h1>CDの説明</h1>
-					<%= @product.introduction %>
-				</div>
+		</div>
+		<div class="product_show_price">
+			<% if @product.new_price == nil %>
+				¥<%= @product.price %>円
+			<% else %>
+				¥<%= @product.new_price %>円
+			<% end %>
+		</div>
+		<div class="product_show_introduction">
+			・<%= @product.introduction %>
+		</div>
+		<div class="product_show_chat">
+			<div class="product_show_table">
+				<table class="product_show_table">
+					<div class="product_show_chatt">
+						<thead>
+							<% @product.product_comments.each do |product_comment| %>
+								<tr>
+									<th width="150px"><%= product_comment.user.name %></th>
+									<th width="150px"><%= product_comment.created_at.strftime('%Y/%m/%d') %></th>
+									<th width="700px"><%= product_comment.content %></th>
+									<% if product_comment.user.id == current_user.id %>
+									<th width="70px"><%= link_to "削除", product_comment_path(product_comment.id) ,method: :delete %></span></th>
+									<% end %>
+								</tr>
+							<% end %>
+						</thead>
+					</div>
+				</table>
 			</div>
 		</div>
-	</div>
-
-	<div class="product_show_comment_cart">
-		<div class="product_show_margin">
-			<div class="product_show_comment">
-				<div class="product_show_table">
-					<table class="product_show_table" border="1">
-						<caption>chat space</caption>
-							<thead>
-							</thead>
-							<tbody>
-								<% @product.product_comments.each do |product_comment| %>
-									<tr>
-										<td><%= product_comment.user.name %></td>
-										<td><%= product_comment.created_at.strftime('%Y/%m/%d') %></td>
-									</tr>
-									<tr>
-										<td><%= product_comment.content %></td>
-									</tr>
-									<% if product_comment.user.id == current_user.id %>
-									<tr>
-										<td><%= link_to "削除", product_comment_path(product_comment.id) ,method: :delete %></span></td>
-									</tr>
-									<% end %>
-								<% end %>
-							</tbody>
-					</table>
-				</div>
 					<%= form_for(@product_comment,url: product_comments_path(product_id: @product.id)) do |f| %>
-					<%= f.text_area :content %>
-					<%= f.submit "送信する" %>
+					<%= f.text_area :content ,:size => "150x8" ,placeholder:"200文字以内"%><br>
+					<%= f.submit "コメントする" ,:class=>"bottan" %>
 					<% end %>
+
 				</div>
 
 			<div class="product_show_cart">
@@ -131,10 +95,7 @@
 						<%= link_to "商品を削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
 					<% else %>
 					<% end %>
-				 <% else %>
-				<% end %>
 				</div>
-			</div>
-		</div>
 	</div>
 </div>
+
