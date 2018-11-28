@@ -112,7 +112,7 @@
 	padding-top: 3%;
 }
 /*------carts_showの右------*/
-.carts_show_right{
+.carts_show_right_box{
 	background-color: #FFFF66;
 	width: 40%;
 	height: 1000px;
@@ -122,8 +122,37 @@
 	text-align: center;
 }
 .cart_show_portal{
-	
 }
+
+.cart_show_right_box_td {
+	width: 20%;
+	vertical-align: top;
+}
+
+.cart_show_right_box_td_child2 {
+	width: 20%;
+	vertical-align: top;
+	padding: 5% 0;
+}
+
+.cart_show_right_box_td2 {
+	vertical-align: top;
+}
+
+.cart_show_right_box_td2_child2{
+	vertical-align: top;
+	padding: 5% 0;
+}
+
+.cart_show_right_box_td3_child2 {
+	padding: 5% 0;
+}
+
+.cart_show_right_box_btn_box{
+	margin-top: 5%;
+	text-align: center;
+}
+
 input[type="text"]{
 	width: 300px;
 	height: 40px;
@@ -133,4 +162,14 @@ input[type="submit"]{
 	width: 100px;
 	height: 100px;
 }
+
+
+
+
+
+
+
+
+
+
 

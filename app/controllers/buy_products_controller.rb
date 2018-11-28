@@ -1,49 +1,68 @@
 class BuyProductsController < ApplicationController
-	before_action :buy_user,only:[:update]
+
   def update
+    # 現在のユーザーのbuyを指定
+    @buy = Buy.new(user_id: current_user.id)
 
+    # 空のデリバリーを生成し、ストロングパラメータで撮ってきたデータを入れる。またネストしたbuyモデルのidとpaymentも入る
+    @delivery = Delivery.new(delivery_params)
+    # 空のデリバリーのuser_idカラムに現在のユーザーidを入れる
+    @delivery.user_id = current_user.id
+    # 空のデリバリーを強制的に保存
+    @delivery.save(validate: false)
+
+    @current_buy = Buy.find_by(user_id: current_user.id)
+
+    # 空のインスタンス変数を作成
     @buyproduct = BuyProduct.new
-    @cart = Cart.find_by(user_id:params[:id]) #---cartindexの購入画面へ進むのlinkによるパラメータの受け渡し　get---#
-    @cartproducts = CartProduct.where(cart_id: @cart.id) #---カートのユーザidが当てはまるものを複数取得---#
-    @buy = Buy.find_by(user_id:params[:id])
+    # 現在のユーザーのカートを指定
+    @cart = Cart.find_by(user_id: current_user.id)
 
-    @cartproducts.each do |cartprodut|
+    # カートプロダクトの中から現在のユーザーのカートを持ってくる。
+    @cartproducts = CartProduct.where(cart_id: @cart.id)
+
+    # 持ってきた現在のユーザーのカートをcartproductの変数に入れる
+    @cartproducts.each do |cartproduct|
+      # 空の@buyproductのproduct_idカラムに持ってきた現在のユーザーのカートのproduct_idを入れる
       @buyproduct.product_id = cartproduct.product_id
-
-
-      @buyproduct.buy_id = @buy.id
-
+      # 空の@buyproductのbuy_ idカラムに持現在のユーザーのbuy_idを入れる。
+      @buyproduct.buy_id = @current_buy.id
+      # 空の@buyproductのcountカラムに現在のカートプロダクトの数を入れる
       @buyproduct.count = cartproduct.count
 
+      # 空のbuyproductに購入時点の価格を入れる
       if cartproduct.product.new_price == nil
         @buyproduct.price = cartproduct.product.price
       else
         @buyproduct.price = cartroduct.product.new_price
       end
-      @buyproduct.save   #---購入履歴のセーブ---#
-
-      @cartproducts.destroy #---カートの中身削除---#
+      @buyproduct.save
     end
-      # ---delivery--- #
-      @delivery = Delivery.new(delivery_params) #---配送先のセーブ---#
-      @user = User.find(params[:id])
-      @delibery.user_id = @user.id
-      @delivery.save
+
+      @cart.destroy
 
       redirect_to products_path
-
   end
 
   def destroy
   end
+
   private
+
   	def buy_user
-		if Buy.where(user_id: current_user.id).exists?
-		else
-			@buy = Buy.new(user_id: current_user.id)
-			@buy.save
-		end
+
+    end
+
     def delivery_params
-      params.require(:delivery).permit(:name,:portal,:state,:street,:address,:tel)
-	end
+      params[:delivery][:buys_attributes]["0"]["user_id"] = current_user.id
+      params.require(:delivery).permit(:name,:postal,:state,:street,:address,:tel, buys_attributes: [:id, :payment])
+	  end
+
 end
+
+
+
+
+
+
+
