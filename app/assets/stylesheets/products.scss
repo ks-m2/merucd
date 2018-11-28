@@ -221,14 +221,13 @@
     font-size: 64px;
     font-weight: bold;
     text-align: center;
-
-
 }
-.product_edit_price_edit{
+s.product_edit_price_edit{
 	font-size: 80%;
 	width: 30%;
 	border-radius: 7px solid #999999;
 }
+
 
 .product_show_gocart{
 	width: 100%;
@@ -244,7 +243,7 @@
 	font-size: 16px;
 	font-weight: bold;
 	overflow: scroll;
-	word-break : break-all;
+	word-break: break-all;
 
 }
 .product_show_chat{
@@ -430,7 +429,7 @@ input#product_status{
 .slides img{
   background-size: contain;
   width: auto;
-  height: 300px;
+  height: 370px;
 }
 
 
@@ -597,5 +596,3 @@ $is: 1,2,3,4,5,6,10,11,12,13,14,15;
     option:nth-of-type(#{$i}) { display: none }
 }
 }
-/*/＊&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する＊/
-/＊&iに&isの中のものをひとつずついれて、指定要素の指定番目に{}を実行する＊/*/
