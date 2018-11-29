@@ -25,11 +25,13 @@ class CartsController < ApplicationController
   end
 
   def show
-    @a = Cart.find_by(user_id: current_user)
-    @cartproducts = CartProduct.where(cart_id: @a.id)
-  	# @product = Product.find(params[:id])
-  	# @delivery = Delivery.new
+    @cart = Cart.find_by(user_id: current_user)
+    @cartproducts = CartProduct.where(cart_id: @cart.id)
+
     @buyproduct = BuyProduct.new
+    @delivery = Delivery.new
+    @delivery.buys.new
+    
 
     @total_price = 0
     @cartproducts.each do |cartproduct|

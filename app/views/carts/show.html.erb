@@ -1,5 +1,7 @@
-
+<!-- カートのshowの箱（支払方法等を選択する） -->
 <div class="carts_show_carts">
+
+
 	<div class="carts_show_left">
 		<h2>購入画面</h2>
 
@@ -20,7 +22,7 @@
 				</tr>
 				<tr>
 					<td>注文数</td>
-					<td><%= cartproduct.count %></td> 
+					<td><%= cartproduct.count %></td>
 					<!-- 出品数の数になっていたので変更 -->
 				</tr>
 				<tr>
@@ -30,16 +32,85 @@
 			</table>
 		</div>
 		<% end %>
-		<span class="">
-			<h1>合計金額</h1>
-			<h1>¥<%= @total_price %></h1>
-		</span>
-
-
-
 	</div>
-	<div class="carts_show_right">
-		<h2>支払い方法</h2>
-		
+
+
+
+
+	<!-- 支払い方法、送付先、合計金額、購入ボするボタンの箱 -->
+	<div class="carts_show_right_box">
+		<%= form_for(@delivery, url: buy_product_path(@cart.id), html: {method: "patch"}) do |f| %>
+
+			<!-- 支払い方法、送付先、合計金額のテーブル -->
+			<table class="cart_show_right_box_table">
+				<!-- テーブルの1行目 -->
+				<tr class="cart_show_right_box_tr">
+					<!-- テーブルの左側の列 -->
+					<td class="cart_show_right_box_td">支払方法
+					</td>
+					<!-- テーブル　：　の列 -->
+					<td class="cart_show_right_box_td2">：
+					</td>
+					<!-- テーブル右側の列 -->
+					<td class="cart_show_right_box_td3">
+						<%= f.fields_for :buys do |buy|%>
+							<%= buy.label :payment, "支払方法" %><br>
+							<%= buy.select :payment, Buy.payments.keys.to_a, {} %>
+						<% end %>
+					</td>
+				</tr>
+
+				<tr class="cart_show_right_box_tr">
+					<!-- テーブルの左側の列 -->
+					<td class="cart_show_right_box_td_child2">送付先
+					</td>
+					<td class="cart_show_right_box_td2_child2">：
+					</td>
+					<td class="cart_show_right_box_td3_child2">
+						<%= f.label :name, "送付先氏名" %><br>
+						<%= f.text_field :name %><br>
+
+						<%= f.label :postal, "郵便番号" %><br>
+						<%= f.text_field :postal %><br>
+
+						<%= f.label :state, "都道府県" %><br>
+						<%= f.text_field :state %><br>
+
+						<%= f.label :street, "市区町村" %><br>
+						<%= f.text_field :street %><br>
+
+						<%= f.label :adress, "番地" %><br>
+						<%= f.text_field :address %><br>
+
+						<%= f.label :tel, "電話番号" %><br>
+						<%= f.text_field :tel %>
+					</td>
+				</tr>
+
+				<tr class="cart_show_right_box_tr">
+					<!-- テーブルの左側の列 -->
+					<td class="cart_show_right_box_td">合計
+					</td>
+					<td class="cart_show_right_box_td2">：
+					</td>
+					<td class="cart_show_right_box_td3"><%= @total_price %>
+					</td>
+				</tr>
+			</table>
+			<!-- 支払い方法、送付先、合計金額のテーブルfin -->
+
+			<!-- 購入ボタンの箱 -->
+			<div class="cart_show_right_box_btn_box">
+				<%= f.submit "購入を決定する" %>
+			</div>
+		<% end %>
 	</div>
+	<!-- 支払い方法、送付先、合計金額の箱fin -->
+
+
 </div>
+<!-- カートのshowの箱（支払方法等を選択する）fin -->
+
+
+
+
