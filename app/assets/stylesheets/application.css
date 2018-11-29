@@ -126,7 +126,11 @@ footer {
 }
 
 /*新規登録画面*/
-
+.sign_in_field{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
+}
 
 .sign-in{
 
