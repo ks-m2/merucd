@@ -5,7 +5,11 @@
 	padding: 20px 0 20px 0;
 	border-top: groove 3px rgb(230,230,250);
 	border-bottom: groove 3px rgb(230,230,250);
-	/*width: 70%;*/
+	width: 80%;
+	margin:0 auto;
+	background-color: white;
+	border:1px solid #999999
+
 }
 .cart_index_cd_all{
 	height: 50%;
@@ -40,9 +44,13 @@
 .cart_index_cd_price_total{
 	border-style: inset;
 	position: relative;
-	top: -330px;
-	left: 1100px;
+	width: 80%;
+	margin:0 auto;
+	border:1px solid #999999;
+	background-color: white;
+
 }
+
 
 /*fixme 今は位置固定にしてるけど本当は追従ボタンにしたい*/
 /*..cart_index_cd_price_total{*/
