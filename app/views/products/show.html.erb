@@ -55,7 +55,7 @@
                         </tbody>
                     </table>
                     <div class="product_show_gocart">
-                        <% if @product.user.id != current_user.id %>
+ <!--                        <% if @product.user.id != current_user.id %>
                         <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                         <%=f.number_field :count, :size => "10x8",placeholder:"個数"%><br>
                         <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md cart_btn" do %>
@@ -63,7 +63,7 @@
                         <% end %>
                         <% else %>
                         <% end %>
-                        <% end %>
+                        <% end %> -->
 
                         <div>
                             <% if current_user != nil %>
