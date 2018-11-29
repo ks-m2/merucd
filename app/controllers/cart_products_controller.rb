@@ -11,6 +11,19 @@ class CartProductsController < ApplicationController
     @product = Product.find(params[:id])
     @current_product = CartProduct.find_by(product_id: params[:id])
 
+    # 保存エラーが起きてrenderで飛ばすとき用
+    @product_comment = ProductComment.new
+
+    # 保存エラーが起きてrenderで飛ばすとき用
+    @count_array = []
+    @product.count.times do |quantitiy|
+      if quantitiy < @product.count
+        @count_array << [quantitiy+1,quantitiy+1]
+      else
+        break
+      end
+    end
+
     if CartProduct.where(product_id: params[:id]).exists?
       if @product.count <= @current_product.count
         flash[:notice] = "在庫がありません"
@@ -18,6 +31,7 @@ class CartProductsController < ApplicationController
       elsif @product.count > @current_product.count
         @current_product.count = @current_product.count + @cart_product.count
         if @current_product.save
+          redirect_to products_path
         else
           render "product/show"
         end
@@ -27,14 +41,12 @@ class CartProductsController < ApplicationController
       @cart_product.cart_id = @cart.id
       @cart_product.product_id = @product.id
       if @cart_product.save
+        redirect_to products_path
       else
         @cart_product.errors.full_messages
-        # 保存エラーが起きてrenderで飛ばすとき用
-        @product_comment = ProductComment.new
         render "products/show"
       end
     end
-    redirect_to products_path
   end
 
 
