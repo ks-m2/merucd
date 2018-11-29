@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
     @kpops = @kpops2.order(created_at: "DESC")
     @worlds2 = Product.where(genre: '洋楽')
     @worlds = @worlds2.order(created_at: "DESC")
-
   end
 
   def show
@@ -52,7 +51,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
+    @product.update
     redirect_to product_path(@product.id)
   end
 
@@ -64,11 +63,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-
-    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price,
-                                    discs_attributes: [:id, :number, :_destroy,
-                                    songs_attributes: [:id, :title, :_destroy]])
+    params.require(:product).permit(:artist,:album,:title,:image,:label,:genre,:status,:introduction,:count,:price,:new_price,discs_attributes: [:id, :number, :_destroy,songs_attributes: [:id, :title, :_destroy]])
   end
-
 
 end

@@ -14,6 +14,7 @@ class CartsController < ApplicationController
   def index
     @cart = Cart.find_by(user_id: current_user)
     @cart_products = CartProduct.where(cart_id: @cart.id)
+    @cart_product = CartProduct.new
 
     @total_price = 0
     @total_count = 0
@@ -22,6 +23,21 @@ class CartsController < ApplicationController
 
       @total_count += cartproduct.count #---合計個数---#
     end
+  end
+
+  def create
+    @cart = Cart.find(params[:cart_id])
+
+    @current_cart_products = @cart.cart_products
+
+    @current_cart_products.each do |current_cart_product|
+      name = current_cart_product.id.to_s + "_count"
+      current_cart_product.count = params[name]
+      current_cart_product.save
+    end
+
+    redirect_to cart_path(@cart.id)
+
   end
 
   def show
@@ -34,10 +50,8 @@ class CartsController < ApplicationController
 
     @total_price = 0
     @cartproducts.each do |cartproduct|
-    @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
+      @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
     end
-
   end
-
 
 end
