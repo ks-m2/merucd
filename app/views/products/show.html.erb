@@ -93,7 +93,7 @@
                                     <th width="150px"><%= product_comment.created_at.strftime('%Y/%m/%d') %></th>
                                     <th width="700px"><%= product_comment.content %>
                                     <% if product_comment.user.id == current_user.id %>
-                                    <%= link_to "", product_comment_path(product_comment.id) ,method: :delete, class: "far fa-trash-alt my-gray" %></th><
+                                    <%= link_to "", product_comment_path(product_comment.id) ,method: :delete, class: "far fa-trash-alt my-gray" %></th>
                                     <% end %>
                                 </tr>
                             <% end %>
@@ -108,7 +108,7 @@
                     <% end %>
                 <div class="product_show_gocart">
                     <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
-                    <%=f.number_field :count, :size => "10x8",placeholder:"個数"%>
+                    <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
                     <%=f.submit "カートに入れる" %>
                     <% end %>
                 </div>

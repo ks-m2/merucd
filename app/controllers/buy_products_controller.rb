@@ -1,9 +1,6 @@
 class BuyProductsController < ApplicationController
 
   def update
-    # 現在のユーザーのbuyを指定
-    @buy = Buy.new(user_id: current_user.id)
-
     # 空のデリバリーを生成し、ストロングパラメータで撮ってきたデータを入れる。またネストしたbuyモデルのidとpaymentも入る
     @delivery = Delivery.new(delivery_params)
     # 空のデリバリーのuser_idカラムに現在のユーザーidを入れる
@@ -11,7 +8,7 @@ class BuyProductsController < ApplicationController
     # 空のデリバリーを強制的に保存
     @delivery.save(validate: false)
 
-    @current_buy = Buy.find_by(user_id: current_user.id)
+    @current_buy = Buy.where(user_id: current_user.id).last
 
     # 空のインスタンス変数を作成
     @buyproduct = BuyProduct.new
@@ -57,13 +54,9 @@ class BuyProductsController < ApplicationController
 
   private
 
-  	def buy_user
-      
-    end
-
     def delivery_params
-      params[:delivery][:buys_attributes]["0"]["user_id"] = current_user.id
-      params.require(:delivery).permit(:name,:postal,:state,:street,:address,:tel, buys_attributes: [:id, :payment])
+      # params[:delivery][:buys_attributes]["0"]["user_id"] = current_user.id
+      params.require(:delivery).permit(:name,:postal,:state,:street,:address,:tel, buys_attributes: [:id, :payment, :user_id])
 	  end
 end
 
