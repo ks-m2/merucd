@@ -6,7 +6,7 @@
                 <h3>CD名<%= f.text_field :artist , class: "product_edit_album_name"  %></h3>
             </div>
             <div class="product_edit_image">
-                <%= attachment_image_tag @product, :image ,:size => "300x300" %>
+                <%= attachment_image_tag @product, :image ,:size => "300x300",fallback: "no_image.jpg",class: "product_edit_image_border" %>
             </div>
             <div class="product_edit_table2">
                     <table class="product_edit_table3" border="1">
@@ -42,9 +42,9 @@
             </div>
             <div class="product_edit_price">
                 <% if @product.new_price == nil %>
-                    ¥<%= f.number_field :price, class: "product_edit_price_edit" %>円
+                    ¥<%= f.number_field :price, class: "product_edit_price_edit" %>
                 <% else %>
-                    ¥<%= f.number_field :new_price  %>円
+                    ¥<%= f.number_field :new_price  %>
                 <% end %>
             </div>
             <div class="product_edit_introduction">

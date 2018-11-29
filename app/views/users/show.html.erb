@@ -20,10 +20,10 @@
 				</div>
 				<% if @user == current_user %>
 					<div>
-						<h2><%= link_to "購入履歴", buy_path(@user.id)%></h2>
+						<h2><%= link_to "購入履歴", buy_path(@user.id),class: "fas fa-history" %></h2>
 					</div>
 					<div>
-						<h2><%= link_to "編集", edit_user_path(@user.id) %></h2>
+						<h2><%= link_to "編集", edit_user_path(@user.id),class: "fas fa-user-edit" %></h2>
 					</div>
 					<div>
 						<h3><%= link_to "退会", user_path(@user.id), method: :delete, "data-confirm" => "本当に退会しますか？" %></h3>
@@ -38,7 +38,7 @@
 				<% @user.products.each do |product|%>
 				<div class="users_show_shows">
 					<%= link_to product_path(product.id),class: "users_show_shows_link" do %>
-					<%= attachment_image_tag product, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image" %>
+					<%= attachment_image_tag product, :image, :fill,400,400, fallback: 'no_image.jpg', class: "users_show_image" %>
 						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので400,400にしました--- -->
 					<% end %>
 					<table border="2", class="users_show_box">
@@ -72,7 +72,7 @@
 				<div class="users_show_chats_table">
 						<% @talk1.each do |talk| %>
 						<div class="user_show_talks">
-							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_image_cicle" %></div>
+							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_chat_image_cicle" %></div>
 							<div class="user_show_talk_name" width="150px"><h5><%= talk.user.name  %></h5></div>
 							<div class="user_show_talk_content" width="200px"><%= talk.content %>
 							<% if talk.user_id == current_user.id %>

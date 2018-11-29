@@ -18,8 +18,15 @@
 
 body {
 	background-color: rgb(245, 245, 245);
+	font-family: 'Lucida Grande',
+ 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+ Meiryo, メイリオ, sans-serif;
+	color: #222222;
 }
-
+/*リンクにマウスを持って行ったら赤く表示するやつ*/
+a:hover{
+	color: red;
+}
 
 /*ここからヘッダーとフッター*/
 .clearfix::after {
