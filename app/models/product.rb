@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 	 	ロック: 6, 演歌: 7, エレクトロニック: 8, クラシック: 9, メタル: 10}
 	 # enum genre: {aaa: 0, abb: 1, ccc: 3}
 	 enum status: {新品: 0, 未使用に近い: 1, 目立った傷汚れなし: 2, 傷汚れあり: 3, 状態が悪い: 4}
+	 enum delivery_status: {配送準備中: 0, 配送中: 1, 出荷済み: 2}
 
 
 	 validates :artist, presence:true

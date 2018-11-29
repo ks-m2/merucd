@@ -1,3 +1,4 @@
+
 <div class="cart_index_cd">
 	<% @cart_products.each do |cart_product| %>
 	<div class="cart_index_cd_all clearfix">
@@ -16,6 +17,7 @@
 				</td>
 				</tr>
 			<tr>
+
 				<th>CD名</th>
 				<td>
 					<%=link_to cart_product.product.album, product_path(cart_product.product.id) %>
@@ -58,6 +60,7 @@
 				<%= link_to'カートから削除', cart_product_path(cart_product.id), method: :delete %>
 			</div>
 	</div>
+
 	<hr>
 	<% end %>
 </div>
@@ -76,4 +79,5 @@
 			</tr>
 		</table>
 	</div>
+
 

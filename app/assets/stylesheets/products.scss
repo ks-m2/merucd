@@ -30,13 +30,82 @@
     height:200px;
 }
 
-/*/＊cocoonで作成できるディスクの箱＊/*/
-.products_new_disc_form {
+/*ディスクを追加ボタンの位置*/
+.product_add_disc_btn_position{
+    width: 94%;
+    text-align: right;
+}
 
+/*ディスク追加ボタン*/
+.product_add_disc_btn{
+    background-color: #00aced;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 1%;
+}
+
+/*ディスクを追加ボタンを押すと生成されるフォーム*/
+.disc_cocoon_form {
+    width: 100%;
     background-color: white;
-    width: 95%;
-    margin: 2% 0%;
-    border: 1px solid #999999;
+    border: solid 1px #666666;
+    margin: 1% 0;
+}
+
+/*ディスク削除ボタンの位置*/
+.disc_fields_remove_disc_btn_position {
+    margin: 1% 0;
+}
+
+/*ディスク削除ボタン*/
+.disc_fields_remove_disc_btn {
+    background-color: #db4a39;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 1%;
+}
+
+/*曲追加ボタンの位置*/
+.desic_fields_add_songs_btn_psition {
+    text-align: left;
+    margin-bottom: 1%;
+}
+
+/*曲追加ボタン*/
+.disc_fields_add_songs_btn {
+    background-color: #5ae628;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 1%;
+}
+
+/*曲を削除ボタンの位置*/
+.song_fields_remove_song_btn_position {
+    width: 73%;
+    text-align: right;
+}
+
+/*曲の削除ボタン*/
+.song_fields_remove_song_btn {
+    background-color: #db4a39;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 1%;
+}
+
+/*曲のフォーム*/
+.song_fields_form {
+    margin: 1% 0;
+}
+
+
+/*商品編集画面のディスク追加ボタンの位置*/
+.product_edit_add_disc_btn_position {
+    text-align: right;
 }
 
 /*/＊---------------------------------------------------------------詳細ページ＊/*/
@@ -119,7 +188,9 @@
 }
 
 .product_show_etc,.product_edit_etc{
-    width: 80%;
+
+    width: 95%;
+
     margin:0 auto;
     padding-bottom: 50px;
 }
@@ -160,12 +231,11 @@
     display: inline-block;
 }
 
-.product_show_comment_image{
-
+.bottan{
+    width: 100px;
+    height: 100px;
 }
-.product_show_comment_name{
 
-}
 .product_show_comment_content{
     background: #d7ebfe;
     width: 500px;
@@ -285,6 +355,7 @@ textarea#product_comment_content{
     transform: translateY(3px);
   }
  }
+
 /*--------------------------------------------------------------fin-詳細ページ*/
 
 /*/＊-------------------------------------------編集ページ---＊/*/
@@ -451,6 +522,18 @@ input#product_album,input#product_price,{
   background-size: contain;
   width: auto;
   height: 370px;
+}
+
+
+/*売り切れ時の表示*/
+.product_index_sold_out{
+    height: 430px;
+    width: 300px;
+    line-height: 430px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    opacity: 0.6;
 }
 
 /*箱ごとリンクはった時についた下線を消す*/

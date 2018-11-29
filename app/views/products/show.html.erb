@@ -2,6 +2,14 @@
  <%= message %>
 <% end %>
 
+<% if flash[:notice] %>
+	<div class="products_show_flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+
+
 <div class="product_show_box">
         <!-- 草野デザイン修正 -->
     <div class="product_show_middle">
@@ -47,7 +55,7 @@
                         </tbody>
                     </table>
                     <div class="product_show_gocart">
-                        <% if @product.user.id != current_user.id %>
+ <!--                        <% if @product.user.id != current_user.id %>
                         <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                         <%=f.number_field :count, :size => "10x8",placeholder:"個数"%><br>
                         <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md cart_btn" do %>
@@ -55,7 +63,7 @@
                         <% end %>
                         <% else %>
                         <% end %>
-                        <% end %>
+                        <% end %> -->
 
                         <div>
                             <% if current_user != nil %>
@@ -114,6 +122,7 @@
                                      </div>
                                 </div>
                             </div>
+
                             <% end %>
                         </div>
                      <% end %>
@@ -124,10 +133,17 @@
                     <%= form_for(@product_comment,url: product_comments_path(product_id: @product.id)) do |f| %>
 
                     <%= f.text_area :content ,:size => "150x8" ,placeholder:"200文字以内"%><br>
-                    <%= button_tag :type => "submit", :class =>" cart_btn" do %>
-                      コメントする
+
+                    <%= f.submit "コメントする" ,:class=>"bottan" %>
                     <% end %>
-                <% end %>
+                <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
+                    <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+                    <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
+                    <%=f.submit "カートに入れる" %>
+                     <% else %>
+                    <% end %>
+                    <% end %>
         </div>
     </div>
 </div>

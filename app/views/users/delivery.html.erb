@@ -1,0 +1,39 @@
+<h1>配送状況</h1>
+
+<div class="users_delivery_status_box">
+	<%= form_tag("/delivery/#{current_user.id}", method: :post) do %>
+		<table>
+			<tr>
+				<th>アーティスト名</th>
+				<th>アルバム名</th>
+				<th>レーベル名</th>
+				<th>値段</th>
+				<th>注文数</th>
+				<th>配送状況</th>
+			</tr>
+				<% @buys.each do |buy| %>
+					<% buy.buy_products.each do |buy_product| %>
+						<tr>
+							<!-- アーティスト名 -->
+							<td><%= buy_product.product.artist %></td>
+							<!-- アルバム名 -->
+							<td><%= buy_product.product.album %></td>
+							<!-- レーベル -->
+							<td><%= buy_product.product.album %></td>
+							<!-- 値段 -->
+							<td><%= buy_product.price %></td>
+							<!-- 注文数 -->
+							<td><%= buy_product.count %></td>
+							<!-- 配送状況 -->
+							<% buy_product_name = buy_product.id.to_s + "_delivery_status" %>
+							<td><%= select_tag buy_product_name, options_for_select([["配送準備中", "配送準備中"],["配送中", "配送中"],["出荷済み", "出荷済み"]], selected: buy_product.delivery_status) %></td>
+						</tr>
+					<% end %>
+				<% end %>
+
+		</table>
+	<div>
+		<%= submit_tag '配送状況を保存' %>
+	</div>
+	<% end %>
+</div>

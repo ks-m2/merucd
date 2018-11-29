@@ -9,6 +9,7 @@
 		<div class="users_show_left">
 			<h1>プロフィール</h1>
 			<div class="users_show_account">
+
 				<div>
 					<%= attachment_image_tag @user, :image, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image_cicle" %>
 				</div>
@@ -20,7 +21,20 @@
 				</div>
 				<% if @user == current_user %>
 					<div>
-						<h2><%= link_to "購入履歴", buy_path(@user.id),class: "fas fa-history" %></h2>
+							<% @buys.each do |buy| %>
+
+								<% if buy.buy_products.where(delivery_status: "配送準備中").exists? %>
+									<h5>発送が完了していない商品があります！</h5>
+									<% break %>
+								<% end %>
+							<% end %>
+						<h2>
+							<%= link_to '商品発送状況', "/delivery" %>
+						</h2>
+					</div>
+					<div>
+						<h2><%= link_to "購入履歴", buy_path(@user.id)%></h2>
+
 					</div>
 					<div>
 						<h2><%= link_to "編集", edit_user_path(@user.id),class: "fas fa-user-edit" %></h2>
@@ -39,7 +53,9 @@
 				<div class="users_show_shows">
 					<%= link_to product_path(product.id),class: "users_show_shows_link" do %>
 
+
 					<%= attachment_image_tag product, :image ,:size => "210x210", fallback: 'no_image.jpg', class: "users_show_image" %>
+
 
 						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので400,400にしました--- -->
 					<% end %>
