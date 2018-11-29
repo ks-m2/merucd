@@ -8,24 +8,7 @@
 	</div>
 <% end %>
 
-<div class="product_show_big_box">
-  <h1 id="ppp">商品詳細画面</h1>
-	<div class="product_show_artist">
-		<div class="product_show_artist_left">
-			<h1>アーティスト名：</h1>
-		</div>
-		<div class="product_show_artist_right">
-			<%= @product.artist %>
-		</div>
-	</div>
-	<div class="product_show_album">
-		<div class="product_show_alubm_left">
-			<h1>CD/ALBUM名：</h1>
-		</div>
-		<div class="product_show_album_right">
-			<%= @product.album %>
-		</div>
-	</div>
+
 
 <div class="product_show_box">
         <!-- 草野デザイン修正 -->
@@ -154,12 +137,13 @@
                     <%= f.submit "コメントする" ,:class=>"bottan" %>
                     <% end %>
                 <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
                     <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                     <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
                     <%=f.submit "カートに入れる" %>
-
+                     <% else %>
                     <% end %>
-                <% end %>
+                    <% end %>
         </div>
     </div>
 </div>
