@@ -1,37 +1,40 @@
 
 
 .cart_index_cd{
-	margin-top: 30px;
-	padding: 20px 0 20px 0;
-	border-top: groove 3px rgb(230,230,250);
-	border-bottom: groove 3px rgb(230,230,250);
 	width: 80%;
-	margin:0 auto;
-	background-color: white;
-	border:1px solid #999999
+	margin: 50px auto;
+	padding: 20px 0 20px 0;
+    background-color: white;
+    border : double 4px rgb(230, 230, 230) ;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 2px #B3B3B3;
 
 }
+
 .cart_index_cd_all{
-	height: 50%;
+	width: 80%;
+	margin: 0 auto;
 }
+
 /*---カート画面のcss少しコメントアウトして、少し見やすくしてます---*/
 .cart_index_cd_img{
-	/*width: 300px;
-	height: 300px;
-	margin: 0 10px 0 100px;
-	background-color:red;
-	float:left;*/
-	display: inline-block;
+	border: 1px solid #D8D8D8;
+	margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
 }
 
 .cart_index_cd_detail{
-	/*border-style: groove;
-	float:left;
-	margin-right: 10px;
-	height: 300px;
-	width: 450px;
-	background-color:green;*/
-	display: inline-block;
+    width: 53%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.cart_index_cd_detail td {
+	padding: 8px;
+    text-align: left;
 }
 
 .cart_index_cd_price{
