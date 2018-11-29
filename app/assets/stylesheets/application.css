@@ -67,6 +67,7 @@ footer {
 	width: 100px;
 	height: 30px;
 	display: inline-block;
+	vertical-align: top;
 }
 
 .products_index_search {

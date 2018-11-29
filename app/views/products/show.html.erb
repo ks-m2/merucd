@@ -7,7 +7,7 @@
     <div class="product_show_middle">
 
         <div class="product_show_album">
-            <%= @product.artist %>
+            <%= @product.album %>
         </div>
         <div class="product_show_image">
             <%= attachment_image_tag @product, :image ,:size => "300x300" %>
@@ -21,6 +21,9 @@
                                 <%= @product.user.name%></td>
                                 <% end %>
                         </tr>
+                         </tr>
+                        	<td>アーティスト名</td><td><%= @product.artist %></td>
+                        </tr>
                         <tr>
                             <td>在庫数</td><td><%= @product.count %>個</td>
                         </tr>
@@ -32,7 +35,7 @@
                         </tr>
                         <tr>
                             <td>状態</td><td><%= @product.status %></td>
-                        </tr>
+              			<tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -78,14 +81,26 @@
             </div>
         </div>
                     <%= form_for(@product_comment,url: product_comments_path(product_id: @product.id)) do |f| %>
-                    <%= f.text_area :content ,:size => "150x8" ,placeholder:"200文字以内"%><br>
+                    <%= f.text_area :content ,:size => "150x8" ,placeholder:"商品に対するコメントを残せます"%><br>
                     <%= f.submit "コメントする" ,:class=>"bottan" %>
                     <% end %>
+
                 <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
                     <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                     <%=f.number_field :count, :size => "10x8",placeholder:"個数"%>
                     <%=f.submit "カートに入れる" %>
+                    <% else %>
+                    <% end %>
                     <% end %>
                 </div>
+            				 <% if current_user != nil %>
+				 	<% if @product.user.id == current_user.id %>
+				 		<%= link_to "商品を編集する", edit_product_path(@product.id)%>
+						<%= link_to "商品を削除する", product_path(@product.id),method: :delete, "data-confirm" => "本当に削除しますか？"%>
+					<% else %>
+					<% end %>
+				 <% else %>
+				<% end %>
     </div>
 </div>
