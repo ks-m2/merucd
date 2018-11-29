@@ -48,11 +48,10 @@
 
             </div>
             <div class="product_edit_price">
-                <% if @product.new_price == nil %>
+          
                     ¥<%= f.number_field :price, class: "product_edit_price_edit" %>
-                <% else %>
-                    ¥<%= f.number_field :new_price  %>
-                <% end %>
+             
+
             </div>
             <div class="product_edit_introduction">
                 <%= f.text_area :introduction ,:size =>"47x30", class: "product_edit_introduction_text" %>

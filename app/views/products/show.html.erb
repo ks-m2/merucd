@@ -55,6 +55,15 @@
                         </tbody>
                     </table>
                     <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
+                    <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+                    <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
+                    <%=f.submit "カートに入れる" %>
+                      <% else %>
+                        <% end %>
+                    <% end %>
+                </div>
+                    <!-- <div class="product_show_gocart">
                         <% if @product.user.id != current_user.id %>
                         <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                         <%=f.number_field :count, :size => "10x8",placeholder:"個数"%><br>
@@ -65,7 +74,10 @@
                         <% end %>
                         <% end %>
 
-                        <div>
+                        <div> -->
+                            <!-- 在庫数以上を選べなくする都合上一旦カット -->
+
+
                             <% if current_user != nil %>
                             <% if @product.user.id == current_user.id %>
                             <h5><%= link_to "編集する", edit_product_path(@product.id),:style=>"color: #222222; text-decoration:none "%>
@@ -137,11 +149,13 @@
                     <%= f.submit "コメントする" ,:class=>"bottan" %>
                     <% end %>
                 <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
                     <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                     <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
                     <%=f.submit "カートに入れる" %>
-
+                      <% else %>
+                        <% end %>
                     <% end %>
-        </div>
+                </div>
     </div>
 </div>

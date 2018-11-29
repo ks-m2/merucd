@@ -1,8 +1,6 @@
 <div class="cart_index_cd clearfix">
 
 
-        	<%= attachment_image_tag cart_product.product, :image, :size => "300x300",fallback: 'no_image.jpg'%>
-
 
 		<% @cart_products.each do |cart_product| %>
 			<div class="cart_index_cd_all">
@@ -41,11 +39,11 @@
 			<tr>
 				<th>単価</th><!-- あとでlinktoにさしかえ -->
 				<td>
-<!-- 					<% if cart_product.price.new_price == nil %>
-                	¥<%= cart_product.price %>
+			<% if cart_product.product.new_price == nil %>
+                	¥<%= cart_product.product.price %>
             		<% else %>
                 	¥<%= cart_product.new_price %>
-            		<% end %> -->
+            		<% end %>
             	</td>
 			</tr>
 			<tr>
