@@ -1,9 +1,6 @@
 <div class="product_index_content_2">
 	<h1 class="product_index_content_headtitle">検索結果一覧</h1>
-	<h3>
-	<%= page_entries_info @products %> 
-	<!-- ↑この記載で「全何件中何件」を表示させる（デフォルト英語） -->
-	</h3>
+
         <% @result.each do |product| %>
 
         	<!-- 画像と商品名と値段の箱 -->
@@ -12,7 +9,6 @@
 				<a class="fancybox"><%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %></a>
 
 				<!-- 商品名と値段の箱 -->
-				<div class="product_index_middle_box1">
 					<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">

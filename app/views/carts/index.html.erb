@@ -4,7 +4,7 @@
 		<div class="cart_index_cd_img clearfix">
 			<%=link_to product_path(cart_product.product.id) do %>
 
-        	<%= attachment_image_tag cart_product.product, :image, :fill, 300, 300 ,fallback: 'no_image.jpg'%>
+        	<%= attachment_image_tag cart_product.product, :image, :size => "300x300",fallback: 'no_image.jpg'%>
 
         	<% end %>
         </div>
@@ -37,7 +37,13 @@
 		<table class="cart_index_cd_price">
 			<tr>
 				<th>単価</th><!-- あとでlinktoにさしかえ -->
-				<td><%= cart_product.product.price %></td>
+				<td>
+<!-- 					<% if cart_product.price.new_price == nil %>
+                	¥<%= cart_product.price %>
+            		<% else %>
+                	¥<%= cart_product.new_price %>
+            		<% end %> -->
+            	</td>
 			</tr>
 			<tr>
 				<th>数量</th>
@@ -52,6 +58,7 @@
 			<tr>
 				<th>
 				<%= link_to'カートから削除', cart_product_path(cart_product.id), method: :delete %>
+				</th>
 			</tr>
 		</table>
 	</div>
