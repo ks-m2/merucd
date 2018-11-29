@@ -137,10 +137,12 @@
                     <%= f.submit "コメントする" ,:class=>"bottan" %>
                     <% end %>
                 <div class="product_show_gocart">
+                    <% if @product.user.id != current_user.id %>
                     <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
                     <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
                     <%=f.submit "カートに入れる" %>
-
+                     <% else %>
+                    <% end %>
                     <% end %>
         </div>
     </div>
