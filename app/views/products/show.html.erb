@@ -2,6 +2,31 @@
  <%= message %>
 <% end %>
 
+<% if flash[:notice] %>
+	<div class="products_show_flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class="product_show_big_box">
+  <h1 id="ppp">商品詳細画面</h1>
+	<div class="product_show_artist">
+		<div class="product_show_artist_left">
+			<h1>アーティスト名：</h1>
+		</div>
+		<div class="product_show_artist_right">
+			<%= @product.artist %>
+		</div>
+	</div>
+	<div class="product_show_album">
+		<div class="product_show_alubm_left">
+			<h1>CD/ALBUM名：</h1>
+		</div>
+		<div class="product_show_album_right">
+			<%= @product.album %>
+		</div>
+	</div>
+
 <div class="product_show_box">
         <!-- 草野デザイン修正 -->
     <div class="product_show_middle">
@@ -114,6 +139,7 @@
                                      </div>
                                 </div>
                             </div>
+
                             <% end %>
                         </div>
                      <% end %>
@@ -124,8 +150,14 @@
                     <%= form_for(@product_comment,url: product_comments_path(product_id: @product.id)) do |f| %>
 
                     <%= f.text_area :content ,:size => "150x8" ,placeholder:"200文字以内"%><br>
-                    <%= button_tag :type => "submit", :class =>" cart_btn" do %>
-                      コメントする
+
+                    <%= f.submit "コメントする" ,:class=>"bottan" %>
+                    <% end %>
+                <div class="product_show_gocart">
+                    <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+                    <%=f.select :count, @count_array, :size => "10x8",placeholder:"個数"%>
+                    <%=f.submit "カートに入れる" %>
+
                     <% end %>
                 <% end %>
         </div>

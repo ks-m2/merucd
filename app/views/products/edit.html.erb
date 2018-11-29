@@ -37,11 +37,15 @@
             </div>
             <div class="product_edit_song">
                 <h1>曲目</h1>
-                    <% @product.discs.each do |disc| %>
-					<% disc.songs.each do |song| %>
-                            ・<%= song.title %><br>
-                        <% end %>
+                    <div class="product_edit_add_disc_btn_position">
+                        <%= link_to_add_association 'さらにディスクを追加', f, :discs, data: {association_insertion_method: 'append'}, class:"product_add_disc_btn" %>
+                    </div>
+                    <div>
+                    <%= f.fields_for :discs do |disc| %>
+                        <%= render 'disc_fields', f: disc %>
                     <% end %>
+                    </div>
+
             </div>
             <div class="product_edit_price">
                 <% if @product.new_price == nil %>

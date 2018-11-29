@@ -27,34 +27,39 @@ $(window).load(function() {
 
 		<strong class="product_index_content_title">  　新着アイテム　</strong><br>
         <% @products.each do |product| %>
-	        	<!-- 画像と商品名と値段の箱 -->
-	        <div class="product_index_middle_box">
+        	<!-- 画像と商品名と値段の箱 -->
+        	<div class="product_index_middle_box">
+	    		<!-- 売り切れ時の表示 -->
+	    			<% if product.count == 0 %>
+	    				<div class ="product_index_sold_out">SOLD OUT</div>
+	    			<% end %>
 
 				<a class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
-				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
-				<!-- 商品名と値段の箱 -->
-				<%=link_to product_path(product.id) do %>
-				<div class="product_index_middle_box2">
+			<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
+			<!-- 商品名と値段の箱 -->
+			<%=link_to product_path(product.id) do %>
+			<div class="product_index_middle_box2">
 
 
-						<h2 class="product_index_small_box_album">
-							<%= truncate(product.artist, length: 8 ) %> /
-							<%= truncate(product.album, length: 8 ) %>
+
+					<h2 class="product_index_small_box_album">
+						<%= truncate(product.artist, length: 8 ) %> /
+						<%= truncate(product.album, length: 8 ) %>
+					</h2>
+
+					<% if product.new_price == nil %>
+						<h2>￥ <%= product.price %>
 						</h2>
-
-						<% if product.new_price == nil %>
-							<h2>￥ <%= product.price %>
-							</h2>
-						<% else %>
-							<span class="product_index_small_box_line">
-							<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
-							</span>
-							<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
-						<% end %>
-				</div>
-				<!-- 商品名と値段の箱fin -->
+					<% else %>
+						<span class="product_index_small_box_line">
+						<h2 class="product_index_small_box_old_price">￥ <%= product.price %></h2>
+						</span>
+						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
+					<% end %>
 			</div>
-			<!-- 画像と商品名と値段の箱fin -->
+			<!-- 商品名と値段の箱fin -->
+		</div>
+		<!-- 画像と商品名と値段の箱fin -->
         <% end %>
 		<% end %>
 		<div class="more_btn">もっと見る <i class="fa fa-chevron-down" aria-hidden="true"></i></div>

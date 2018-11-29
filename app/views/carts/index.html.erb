@@ -1,21 +1,24 @@
 <div class="cart_index_cd clearfix">
-	<% @cart_products.each do |cart_product| %>
-	<div class="cart_index_cd_all">
-		<div class="cart_index_cd_img clearfix">
-			<%=link_to product_path(cart_product.product.id) do %>
+
 
         	<%= attachment_image_tag cart_product.product, :image, :size => "300x300",fallback: 'no_image.jpg'%>
 
-        	<% end %>
-        </div>
-        <table rules="all" class="cart_index_cd_detail">
-			<tr>
-				<th>アーティスト</th>
-				<td width="300" align="center">
-					<%=link_to cart_product.product.artist, product_path(cart_product.product.id) %>
-				</td>
-				</tr>
-			<tr>
+
+		<% @cart_products.each do |cart_product| %>
+			<div class="cart_index_cd_all">
+				<div class="cart_index_cd_img clearfix">
+					<%=link_to product_path(cart_product.product.id) do %>
+	        			<%= attachment_image_tag cart_product.product, :image, :fill, 300, 300 %>
+	        		<% end %>
+	        	</div>
+	        	<table rules="all" class="cart_index_cd_detail">
+					<tr>
+						<th>アーティスト</th>
+						<td width="300" align="center">
+							<%=link_to cart_product.product.artist, product_path(cart_product.product.id) %>
+						</td>
+					</tr>
+					<tr>
 				<th>CD名</th>
 				<td align="center">
 					<%=link_to cart_product.product.album, product_path(cart_product.product.id) %>
@@ -62,17 +65,11 @@
 			</tr>
 		</table>
 	</div>
+				<tr>
+					<th><%= submit_tag 'レジに進む' %></th>
+				</tr>
+			</table>
+		</div>
 	<% end %>
+	<!-- form_tag fin -->
 </div>
-	<div>
-		<table class="cart_index_cd_price_total">
-			<tr>
-				<th>合計点数</th>
-				<th><h2><%= @total_count %>枚</h2></th>
-				<th>合計金額</th>
-				<th><h2>¥<%= @total_price %></h2></th>
-				<th><%= link_to "レジに進む" ,cart_path(@cart) %></th>
-			</tr>
-		</table>
-	</div>
-

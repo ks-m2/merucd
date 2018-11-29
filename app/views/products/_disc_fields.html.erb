@@ -1,12 +1,14 @@
-<div class="products_new_disc_form">
+<div class="nested-fields disc_cocoon_form">
+	<div class="disc_fields_remove_disc_btn_position">
+		<%= link_to_remove_association "ディスクを削除", f, class: "disc_fields_remove_disc_btn" %>
+	</div>
+	<div>
+		<%= f.fields_for :songs do |song| %>
+			<%= render 'song_fields', f: song %>
+		<% end %>
 
-	<h4>ディスクの曲名</h4>
-	<div class="nested-fields">
-			<%= f.fields_for :songs do |f| %>
-				<%= render 'song_fields', f: song %>
-			<% end %>
-
-			<%= link_to_add_association '曲名を追加する', f, :songs %>
-
+		<div class="desic_fields_add_songs_btn_psition">
+			<%= link_to_add_association "曲名を追加", f, :songs, data: {association_insertion_method: 'append'}, class: "disc_fields_add_songs_btn" %>
+		</div>
 	</div>
 </div>
