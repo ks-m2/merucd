@@ -10,7 +10,7 @@
 			<h1>プロフィール</h1>
 			<div class="users_show_account">
 				<div>
-					<%= attachment_image_tag @user, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image_cicle" %>
+					<%= attachment_image_tag @user, :image, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image_cicle" %>
 				</div>
 				<div class="users_show_name">
 					<h1><%= @user.name %></h1>
@@ -38,7 +38,7 @@
 				<% @user.products.each do |product|%>
 				<div class="users_show_shows">
 					<%= link_to product_path(product.id),class: "users_show_shows_link" do %>
-					<%= attachment_image_tag product, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image" %>
+					<%= attachment_image_tag product, :image, format: 'jpeg' ,fallback: 'no_image.jpg', class: "users_show_image" %>
 						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので400,400にしました--- -->
 					<% end %>
 					<table border="2", class="users_show_box">
@@ -72,7 +72,7 @@
 				<div class="users_show_chats_table">
 						<% @talk1.each do |talk| %>
 						<div class="user_show_talks">
-							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_image_cicle" %></div>
+							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image,fallback: 'no_image.jpg', class: "users_show_image_cicle" %></div>
 							<div class="user_show_talk_name" width="150px"><h5><%= talk.user.name  %></h5></div>
 							<div class="user_show_talk_content" width="200px"><%= talk.content %>
 							<% if talk.user_id == current_user.id %>
