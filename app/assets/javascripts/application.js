@@ -21,3 +21,11 @@
 //= require cocoon
 //= require fancybox
 //= require jquery.flexslider
+
+$(window).on('cocoon:before-insert', function(e, insert){
+	console.log('insert')
+})
+
+$(window).on('cocoon:before-remove', function(e, insert){
+	console.log('remove')
+})
