@@ -311,6 +311,16 @@ input#product_status{
   height: 370px;
 }
 
+/*売り切れ時の表示*/
+.product_index_sold_out{
+    height: 430px;
+    width: 300px;
+    line-height: 430px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    opacity: 0.6;
+}
 
 
 
