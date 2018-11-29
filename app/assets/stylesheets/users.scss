@@ -34,6 +34,7 @@
 	width: 30%;
 	height: 1000px;
 	float: left;
+	padding: 10px;
 }
 .users_show_image_cicle{
 	border-radius: 400px;
@@ -59,19 +60,26 @@
 .users_show_center{
 	background-color: #FFF;
 	width: 40%;
-	height: 1000px;
+	height: 995px;
 	float: left;
 	overflow: scroll;
+	padding: 5px 10px 5px 10px;
+	margin: 5px auto;
 }
 .users_show_shows{
 	/*background-color: #FFFF66;*/
 	height: 240px;
 	width: 100%;
-	margin-top: 5%;
-	border-top: 1px solid;
-	border-bottom: 1px solid;
 	overflow: hidden;
+	padding: 5px 15px;
 }
+
+.users_show_shows hr{
+	margin: 0 auto;
+	border-bottom: 1px solid rgb(245, 245, 245);
+    box-shadow: 0 1px 0 rgba(255,255,255,1);
+}
+
 .users_show_shows_link{
 	text-decoration: none;
 }
@@ -90,8 +98,22 @@
 .users_show_box{
 	height: 80%;
 	width: 55%;
+    border: 1px solid #D8D8D8;
 	word-break: break-all;
 	/*文字が増えた際、はみ出してしまうため*/
+}
+
+.users_show_box th{
+	width: 45%;
+    text-align: left;
+    padding: 7px;
+    font-weight: 400;
+    background: rgb(245, 245, 245);
+}
+
+.users_show_box td{
+	text-align: left;
+	padding: 7px;
 }
 /*------users_show　右------*/
 .users_show_right{
@@ -99,10 +121,16 @@
 	width: 25%;
 	height: 1000px;
 	display: inline-block;
+	padding: 10px;
 }
 .users_show_chats_box{
 	width: 90%;
 	margin: 0 45px;
+}
+
+.users_show_chats_table{
+	padding: 10px;
+	background:repeating-linear-gradient(-30deg, rgb(250, 250, 250) 0, rgb(250, 250, 250) 10px, rgb(245, 245, 245) 10px, rgb(245, 245, 245) 20px);
 }
 .user_show_talks{
 	width: 10%;
@@ -110,27 +138,19 @@
 }
 .users_show_chat_image_cicle{
 	border-radius: 400px;
-	width: 70%;
 	border: 1px solid #999999;
 }
 .user_show_talk_image,.user_show_talk_name,.user_show_talk_contents{
 	display: inline-block;
 }
-
-.user_show_talk_image{
-
-}
-.user_show_talk_name{
-
-}
 .user_show_talk_content{
 	background: #d7ebfe;
-	width: 200px;
+	width: 300px;
 	margin-bottom: 20px;
 	margin-left: 20px;
 	border-radius: 12px;
 	text-align: left; 
-	padding: 10px;
+	padding: 15px;
 	word-break: break-word;
 }
 .user_show_talk_destroy{
@@ -138,16 +158,6 @@
 
 }
 
-.users_show_chats_comments{
-	/*width: 90%;
-	height: 500px;
-	background-color: #fff;
-	border-radius: 10px;
-	border: solid 3px #6091d3;
-	margin: auto;
-	margin-bottom: 30px;
-	overflow: scroll;*/
-}
 .users_show_chats_table{
 	overflow: scroll;
 	height:650px;
@@ -159,9 +169,61 @@
 .users_show_chats_send{
 	margin: 20px
 }
-textarea#talk_content{
-	border: 1px solid #999999;
+
+/*ふきだし*/
+
+.user_show_balloon {
+margin-bottom: 2em;
+position: relative;
 }
+
+.user_show_balloon:before,.user_show_balloon:after {
+clear: both;
+content: "";
+display: block;
+}
+
+.user_show_talk_content {
+position: relative;
+padding: 10px;
+border: 1px solid;
+border-radius: 10px;
+max-width: -webkit-calc(100% - 120px);
+max-width: calc(100% - 120px);
+display: inline-block;
+border-color: #aaa;
+}
+.user_show_talk_content {
+border-color: #aaa;
+float: left;
+}
+
+
+.user_show_balloon p {
+margin: 0 0 20px;
+}
+.user_show_balloon p:last-child {
+margin-bottom: 0;
+}
+/* 三角部分 */
+.user_show_talk_content:before {
+position: absolute;
+content: '';
+border: 10px solid transparent;
+border-right: 10px solid #aaa;
+top: 15px;
+left: -20px;
+}
+.user_show_talk_content:after {
+position: absolute;
+content: '';
+border: 10px solid transparent;
+border-right: 10px solid #d7ebfe;
+top: 15px;
+left: -19px;
+}
+
+/*ふきだしここまで*/
 /*------users_show_edit　左------*/
 .users_edit_left{
 	/*background-color: #99FF99;*/

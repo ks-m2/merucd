@@ -8,12 +8,24 @@
     border : double 4px rgb(230, 230, 230) ;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 2px #B3B3B3;
-
+    position: relative;
 }
 
 .cart_index_cd_all{
 	width: 80%;
+	margin: 15px auto;
+}
+
+.cart_index_cd hr{
+	width: 80%;
 	margin: 0 auto;
+	border-bottom: 1px solid rgb(245, 245, 245);
+    box-shadow: 0 1px 0 rgba(255,255,255,1);
+}
+
+.cart_index_cd hr:last-child{
+	border-bottom: none;
+    box-shadow: none;
 }
 
 /*---カート画面のcss少しコメントアウトして、少し見やすくしてます---*/
@@ -23,14 +35,24 @@
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    float: left;
 }
 
 .cart_index_cd_detail{
-    width: 53%;
+    width: 60%;
     display: inline-block;
     vertical-align: top;
     margin-left: 5px;
+
 }
+
+.cart_index_cd_detail th {
+	width: 35%;
+    text-align: left;
+    font-weight: 400;
+    background: rgb(245, 245, 245);
+}
+
 
 .cart_index_cd_detail td {
 	padding: 8px;
@@ -42,26 +64,30 @@
 	display: inline-block;
 }
 
+.cart_index_cd_price_small{
+    font-size: 26px;
+    font-weight: bold;
+	display: inline-block;}
 
 
 .cart_index_cd_price_total{
-	border-style: inset;
 	position: relative;
 	width: 80%;
-	margin:0 auto;
-	border:1px solid #999999;
+	margin:10px auto;
 	background-color: white;
+	border : double 4px rgb(230, 230, 230) ;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 4px 2px #B3B3B3;
 
 }
 
+.cart_index_cd_price_total th{
+	font-size:26px;
+}
 
-/*fixme 今は位置固定にしてるけど本当は追従ボタンにしたい*/
-/*..cart_index_cd_price_total{*/
-  /*position: -webkit-sticky;*/
-  /*position: sticky; #これでできるらしいけどうまくいかない*/
-  /*top: 10px;*/
-  /*right: -1000px;*/
-/*}*/
+
+
 
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
@@ -79,22 +105,29 @@
 }
 /*------carts_showの全体------*/
 .carts_show_carts{
-	background-color: #fff;
-	width:80%;
-	margin: 0 auto;
-	margin-top: 3%;
+    width: 80%;
+    margin : 50px auto;
+    background-color: white;
+    border : double 4px rgb(230, 230, 230) ;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 2px #B3B3B3;
 }
 /*------carts_showの左------*/
 .carts_show_left{
-	/*background-color: #99FF99;*/
+	padding: 15px;
 	width: 60%;
 	height: 1000px;
 	float: left;
 }
+
+.carts_show_left h2{
+	margin-left: 30px;
+}
+
 .carts_show_buys {
 	height: 240px;
 	background-color: #FFF;
-	width: 80%;
+	width: 75%;
 	margin: 0 auto;
 	margin-top: 5%;
 	border-top: 1px solid #949494;
@@ -112,7 +145,7 @@
 }
 .carts_show_buys_box{
 	display: inline-block;
-	margin-top: 30px;
+	margin: 30px 10px;
 	text-align: center;
 	height: 70%;
 	width: 50%;
@@ -132,6 +165,7 @@
 	width: 40%;
 	height: 1000px;
 	display: inline-block;
+	padding: 15px;
 }
 .carts_show_send{
 	text-align: center;
@@ -167,19 +201,19 @@
 	
 
 }
+
 .cart_show_right_box_btn_box{
-	margin-top: 5%;
-	text-align: center;
+	margin-left: 100px;
 }
-.cart_show_right_box_btn_box_submit{
-	width: 100%;
-	/*font-size: 15px;*/
-	border:1px solid #55acee;
-	background-color: #55acee;
-	border-radius: 20px;
-	color: white;
-	outline: 0;
+.cart_show_right_box_btn_box i{
+	padding: 5px;
 }
+
+.total_price{
+	font-size: 26px;
+	font-weight: bold;
+}
+
 
 input[type="text"]{
 	width: 300px;

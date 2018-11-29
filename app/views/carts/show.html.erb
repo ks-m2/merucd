@@ -89,11 +89,11 @@
 
 				<tr class="cart_show_right_box_tr">
 					<!-- テーブルの左側の列 -->
-					<td class="cart_show_right_box_td">合計
+					<td class="cart_show_right_box_td total_price">合計
 					</td>
-					<td class="cart_show_right_box_td2">：
+					<td class="cart_show_right_box_td2 total_price">：
 					</td>
-					<td class="cart_show_right_box_td3">¥<%= @total_price %>
+					<td class="cart_show_right_box_td3 total_price">¥<%= @total_price %>
 					</td>
 				</tr>
 			</table>
@@ -101,8 +101,10 @@
 
 			<!-- 購入ボタンの箱 -->
 			<div class="cart_show_right_box_btn_box">
-				<%= f.submit "購入を決定する", class: "cart_show_right_box_btn_box_submit" %>
+				<%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md cart_btn" do %>
+                          <i class="fas fa-truck fa-fw fa-4x"></i><strong>　購入を決定する</strong>
 			</div>
+			<% end %>
 		<% end %>
 	</div>
 	<!-- 支払い方法、送付先、合計金額の箱fin -->

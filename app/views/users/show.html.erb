@@ -39,24 +39,24 @@
 				<div class="users_show_shows">
 					<%= link_to product_path(product.id),class: "users_show_shows_link" do %>
 
-					<%= attachment_image_tag product, :image, :fill,400,400, fallback: 'no_image.jpg', class: "users_show_image" %>
+					<%= attachment_image_tag product, :image ,:size => "210x210", fallback: 'no_image.jpg', class: "users_show_image" %>
 
 						　　　　　　　　　　　　　　　　　<!-- ---ボヤけて他ので400,400にしました--- -->
 					<% end %>
-					<table border="2", class="users_show_box">
-						<td>アーティスト名</td>
+					<table class="users_show_box bordercolor="#E6E6E6" rules="all"">
+						<th>アーティスト名</td>
 						<td><%= product.artist %></td>
 					</tr>
 					<tr>
-						<td>CD/ALBUM名</td>
+						<th>CD/ALBUM名</td>
 						<td><%= product.album %></td>
 					</tr>
 					<tr>
-						<td>在庫数</td>
+						<th>在庫数</td>
 						<td><%= product.count %>枚</td>
 					</tr>
 					<tr>
-						<td>値段</td>
+						<th>値段</td>
 						<td><%= product.price %>円/枚</td>
 					</table>
 					<% if @user == current_user %>
@@ -64,6 +64,7 @@
 					<span><%= link_to "削除", product_path(product.id), method: :delete,"data-confirm" => "本当に削除しますか?"  %></span>
 					<% end %>
 				</div>
+				<hr>
 				<% end %>
 			</div>
 		</div>
@@ -75,13 +76,17 @@
 						<% @talk1.each do |talk| %>
 						<div class="user_show_talks">
 
-							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image, :fill, 100, 100,fallback: 'no_image.jpg', class: "users_show_chat_image_cicle" %></div>
-
+							<div class="user_show_talk_image", width="150px"><%= attachment_image_tag talk.user, :image,:size => "40x40",fallback: 'no_image.jpg', class: "users_show_chat_image_cicle" %></div>
+ 							<div class="product_show_comment_date">
+                                <h6><%= talk.created_at.strftime('%Y/%m/%d') %></h6>
+                            </div>
 							<div class="user_show_talk_name" width="150px"><h5><%= talk.user.name  %></h5></div>
-							<div class="user_show_talk_content" width="200px"><%= talk.content %>
+							<div class="product_show_balloon">
+							<div class="user_show_talk_content"><%= talk.content %>
 							<% if talk.user_id == current_user.id %>
 								<div class="user_show_talk_destroy">
 									<p><%= link_to "", talk_path(talk.id), method: :delete, class: "far fa-trash-alt my-gray", "data-confirm" => "本当に削除しますか?"%></p></div>
+							</div>
 							<% end %>
 							</div>
 
@@ -91,7 +96,9 @@
 				<div class="users_show_chats_send">
 					<%= form_for(@talk,url: talks_path(user_id: @user.id)) do |f| %>
 					<%= f.text_area :content, :size => "50x10",placeholder:"文字以内" %>
-					<%= f.submit "送信" %>
+                    <%= button_tag :type => "submit", :class =>" cart_btn" do %>
+                      コメントする
+                    <% end %>
 					<% end %>
 				</div>
 			</div>
