@@ -4,15 +4,16 @@
 	<%= page_entries_info @products %> 
 	<!-- ↑この記載で「全何件中何件」を表示させる（デフォルト英語） -->
 	</h3>
-        <% @result.first(4).each do |product| %>
+        <% @result.each do |product| %>
 
         	<!-- 画像と商品名と値段の箱 -->
         	<div class="product_index_middle_box_2">
 
-				<%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %>
+				<a class="fancybox"><%= attachment_image_tag product, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"product_index_middle_box1" %></a>
 
 				<!-- 商品名と値段の箱 -->
-				<div class="product_index_middle_box2">
+				<div class="product_index_middle_box1">
+					<div class="product_index_middle_box2">
 
 					<h2 class="product_index_small_box_album">
 						<%=link_to product.album, product_path(product.id) %>
@@ -27,7 +28,7 @@
 						</span>
 						<h2 class="product_index_small_box_new_price">￥ <%= product.new_price %></h2>
 					<% end %>
-
+					</div>
 				</div>
 				<!-- 商品名と値段の箱fin -->
 
@@ -36,6 +37,23 @@
 
         <% end %>
 </div>
+<!-- --------画像ポップアップここから------------------ -->
+<script>
+$(document).ready(function() {
+// $("a.fancybox").click(function() {
+// 	console.log($(this).find($('img')).attr('src'));
+// })
+  $('a.fancybox').click(function() {
+  	// $(document).on('click', 'a.fancybox', function() {
+  	// console.log('tttt');
+  	$(this).parent().prepend('<a class="fancybox"><img class="attachment product image product_index_middle_box1 fallback" src="'+$(this).find($('img')).attr('src')+'" width="300" height="300"></a>');
+  })
+  $("a.fancybox").fancybox();
+
+});
+
+</script>
+<!-- --------画像ポップアップまで------------------ -->
 <%= paginate @products %>
 
 </div>

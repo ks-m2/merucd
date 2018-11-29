@@ -58,14 +58,13 @@ class BuyProductsController < ApplicationController
   private
 
   	def buy_user
-
+      
     end
 
     def delivery_params
       params[:delivery][:buys_attributes]["0"]["user_id"] = current_user.id
       params.require(:delivery).permit(:name,:postal,:state,:street,:address,:tel, buys_attributes: [:id, :payment])
 	  end
-
 end
 
 

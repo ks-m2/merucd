@@ -73,4 +73,4 @@ gem 'cancan'
 gem 'cocoon'
 gem 'jquery-rails'
 gem 'fancybox2-rails'
-
+gem 'flexslider'
