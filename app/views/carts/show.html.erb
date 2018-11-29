@@ -8,26 +8,26 @@
 		<% @cartproducts.each do |cartproduct| %>
 		<div class="carts_show_buys">
 			<div class="carts_show_buys_image">
-				<%= attachment_image_tag cartproduct.product, :image, :fill, 100, 100, format: 'jpeg' ,fallback: 'no_image.jpg', class: "carts_show_buys_image" %>
+				<%= attachment_image_tag cartproduct.product, :image, :fill, 400, 400, format: 'jpeg' ,fallback: 'no_image.jpg', class: "carts_show_buys_image" %>
 				<!-- ---ボヤけて他ので100,100にしました--- -->
 			</div>
-			<table class="carts_show_buys_box">
+			<table border= "1", class="carts_show_buys_box">
 				<tr>
-					<td>アーティスト名</td>
-					<td><%= cartproduct.product.artist %></td>
+					<td class="cart_show_product_table">アーティスト名</td>
+					<td class="cart_show_product_table"><%= cartproduct.product.artist %></td>
 				</tr>
 				<tr>
-					<td>CD名</td>
-					<td><%= cartproduct.product.album %></td>
+					<td class="cart_show_product_table">CD名</td>
+					<td class="cart_show_product_table"><%= cartproduct.product.album %></td>
 				</tr>
 				<tr>
-					<td>注文数</td>
-					<td><%= cartproduct.count %></td>
+					<td class="cart_show_product_table">注文数</td>
+					<td class="cart_show_product_table"><%= cartproduct.count %></td>
 					<!-- 出品数の数になっていたので変更 -->
 				</tr>
 				<tr>
-					<td>値段</td>
-					<td><%= cartproduct.product.price %></td>
+					<td class="cart_show_product_table">値段</td>
+					<td class="cart_show_product_table"><%= cartproduct.product.price %></td>
 				</tr>
 			</table>
 		</div>
@@ -69,22 +69,22 @@
 					</td>
 					<td class="cart_show_right_box_td3_child2">
 						<%= f.label :name, "送付先氏名" %><br>
-						<%= f.text_field :name %><br>
+						<%= f.text_field :name,class: "cart_show_right_textfield" %><br>
 
 						<%= f.label :postal, "郵便番号" %><br>
-						<%= f.text_field :postal %><br>
+						<%= f.text_field :postal,class: "cart_show_right_textfield" %><br>
 
 						<%= f.label :state, "都道府県" %><br>
-						<%= f.text_field :state %><br>
+						<%= f.text_field :state,class: "cart_show_right_textfield" %><br>
 
 						<%= f.label :street, "市区町村" %><br>
-						<%= f.text_field :street %><br>
+						<%= f.text_field :street,class: "cart_show_right_textfield" %><br>
 
 						<%= f.label :adress, "番地" %><br>
-						<%= f.text_field :address %><br>
+						<%= f.text_field :address,class: "cart_show_right_textfield" %><br>
 
 						<%= f.label :tel, "電話番号" %><br>
-						<%= f.text_field :tel %>
+						<%= f.text_field :tel,class: "cart_show_right_textfield" %>
 					</td>
 				</tr>
 
@@ -94,7 +94,7 @@
 					</td>
 					<td class="cart_show_right_box_td2">：
 					</td>
-					<td class="cart_show_right_box_td3"><%= @total_price %>
+					<td class="cart_show_right_box_td3">¥<%= @total_price %>
 					</td>
 				</tr>
 			</table>
@@ -102,7 +102,7 @@
 
 			<!-- 購入ボタンの箱 -->
 			<div class="cart_show_right_box_btn_box">
-				<%= f.submit "購入を決定する" %>
+				<%= f.submit "購入を決定する", class: "cart_show_right_box_btn_box_submit" %>
 			</div>
 		<% end %>
 	</div>

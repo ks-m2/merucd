@@ -1,4 +1,5 @@
 <div class="cart_index_cd clearfix">
+
 	<%= form_tag(carts_path(cart_id: @cart.id), method: :post) do %>
 
 		<% @cart_products.each do |cart_product| %>
@@ -47,7 +48,6 @@
 								<% @number << [number+1, number+1] %>
 							<% end %>
 							<% cart_product_name = cart_product.id.to_s + "_count"%>
-
 							<%= select_tag cart_product_name, options_for_select(@number, selected: cart_product.count) %>
 						</td>
 					</tr>
