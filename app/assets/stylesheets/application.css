@@ -38,7 +38,7 @@ a:hover{
 header {
 	background-color: white;
 	width: 100%;
-    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16);
 }
 
 footer {

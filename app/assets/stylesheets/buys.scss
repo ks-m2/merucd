@@ -48,45 +48,7 @@
 	cursor: zoom-in;
 }
 
-/*お届け先の吹き出し*/
-.buys_show_small_box1_td2_ballon {
-	display: none;
-	position: absolute;
-	top: 185px;
-	left: 550px;
-	border: solid 1px #555;
-	border-radius: 10px;
-	background-color: white;
-	color: #222222;
-	padding: 1px 30px;
-}
 
-/*吹き出しの白三角の部分*/
-.buys_show_small_box1_td2_ballon:before {
-	content: "";
-	position: absolute;
-	top: -23px;
-	left: 10px;
-	border: 12px solid transparent;
-	border-bottom: 12px solid white;
-	z-index: 2;
-}
-
-/*吹き出しの灰色三角の部分*/
-.buys_show_small_box1_td2_ballon:after {
-	content: "";
-	position: absolute;
-	top: -24px;
-	left: 10px;
-	border: 12px solid transparent;
-	border-bottom: 12px solid #555;
-	z-index: 1;
-}
-
-/*文字にカーソルを持ってくと吹き出しが表示されるように設定*/
-.buys_show_small_box1_td2_text:hover + .buys_show_small_box1_td2_ballon {
-	display: block;
-}
 
 
 /*右側のテーブル*/
