@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @talk1 = Talk.where(room_id: @room.id)
     # @p = Room.find_by(id: params[:id])  #---インスタンス変数@pにRoomモデルのuser_idをユーザのURLから探してきている---#
     # @talk1 = Talk.where(room_id: @p.id)
+    @buys = Buy.where(user_id: current_user.id)
   end
 
   def edit
@@ -34,6 +35,21 @@ class UsersController < ApplicationController
     redirect_to new_user_registration_path
   end
 
+  def delivery
+    @buys = Buy.where(user_id: current_user.id)
+  end
+
+  def delivery_create
+    @buy = Buy.where(user_id: current_user.id)
+    @buy.each do |buy|
+      buy.buy_products.each do |buy_product|
+        name = buy_product.id.to_s + "_delivery_status"
+        buy_product.delivery_status = params[name]
+        buy_product.save
+      end
+    end
+    redirect_to user_path(current_user.id)
+  end
 
   private
   def user_params
