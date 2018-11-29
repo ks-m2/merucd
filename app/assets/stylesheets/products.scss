@@ -48,7 +48,7 @@
 
 }
 
-.product_show_album{
+.product_show_album,.product_edit_album{
     width: 100%;
     height: 50px;
     display: inline-block;
@@ -58,7 +58,7 @@
     margin-bottom: 50px;
 }
 
-.product_show_middle{
+.product_show_middle,.product_edit_middle{
     width: 80%;
     margin : 0 auto;
     background-color: white;
@@ -68,49 +68,64 @@
     box-shadow: 0px 0px 4px 2px #B3B3B3;
 }
 
+.product_show_small,.product_edit_small{
+    margin-bottom: 20px;
+    margin:10px auto;
+    width: 83%
+}
+
+
 .product_show_image{
-    width: 50%;
-    height:300px;
+    width: 302px;
+    height:302px;
+    margin-right: 5px;
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    border: 1px solid #D8D8D8;
 }
 
 
 .product_show_table2{
-    width: 49%;
+    width: 53%;
     height:300px;
     display: inline-block;
     vertical-align: top;
+    margin-left: 5px;
 }
 
-.product_show_table3{
+.product_show_table3,.product_edit_table3{
     width: 100%;
     text-align: center;
     border: 1px solid #D8D8D8;
 }
 
 .product_show_table3 td{
-    padding: 10px;
+    padding: 8px;
+    text-align: left;
 }
 
 
 
 .product_show_table4{
-    width: 25%;
+    width: 35%;
     text-align: left;
     font-weight: 400;
     background: rgb(245, 245, 245);
 }
 
-.product_show_etc{
+.product_show_song,.product_edit_song{
+    margin-bottom: 20px;
+}
+
+.product_show_etc,.product_edit_etc{
     width: 80%;
     margin:0 auto;
     padding-bottom: 50px;
 }
 
 
-.product_show_price{
+.product_show_price,.product_edit_price{
     width: 100%;
     height: 100px;
     display: inline-block;
@@ -161,7 +176,7 @@
     padding: 10px;
     word-break: break-word;
 }
-.product_show_comment_destroy:hover{
+.product_show_comment_destroy{
     text-align: right;
 
 }
@@ -245,6 +260,7 @@ textarea#product_comment_content{
 .cart_btn, .cart_btn:link, .cart_btn:visited {
   height: auto;
   padding:7px;
+  margin-top: 6px;
   background-color: #55acee;
    border: none;
    border-radius: 3px;
@@ -280,34 +296,26 @@ textarea#product_comment_content{
     margin: 0 auto;
 }
 
-.product_edit_album{
-    width: 100%;
-    height: 50px;
-    display: inline-block;
-    text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-}
-
 .product_edit_album_name{
 	font-size: 35px;
 	text-align: center;
 	border: 1px solid #999999;
 }
 
-.product_edit_middle{
+/*.product_edit_middle{
     width: 80%;
     margin : 0 auto;
     background-color: #fff;
-}
+}*/
 
 .product_edit_image{
-    width: 50%;
-    height:300px;
+    width: 302px;
+    height:302px;
     /*background-color: blue;*/
     display: inline-block;
     vertical-align: top;
     text-align: center;
+    border: 1px solid #D8D8D8;
 }
 .product_edit_image_border{
 	border:1px solid #999999;
@@ -319,20 +327,30 @@ textarea#product_comment_content{
     height:300px;
     display: inline-block;
     vertical-align: top;
-
-}
-.product_edit_song{
-    border:1px solid #999999;
+    margin-left: 5px;
 }
 
-.product_edit_table3{
+
+/*.product_edit_table3{
     width: 100%;
     text-align: center;
     font-size: 25px;
+}*/
+
+.product_edit_table3 td{
+    padding: 8px;
+    text-align: left;
+}
+
+.product_edit_table4{
+    width: 35%;
+    text-align: left;
+    font-weight: 400;
+    background: rgb(245, 245, 245);
 }
 
 
-.product_edit_price{
+/*.product_edit_price{
     width: 100%;
     height: 100px;
     background-color: gainsboro;
@@ -340,7 +358,7 @@ textarea#product_comment_content{
     font-size: 64px;
     font-weight: bold;
     text-align: center;
-}
+}*/
 s.product_edit_price_edit{
 	font-size: 80%;
 	width: 30%;
@@ -348,11 +366,9 @@ s.product_edit_price_edit{
 }
 
 
-select#product_genre{
-	font-size: 20px;
-}
-select#product_status{
-	font-size: 20px;
+select#product_genre,select#product_status{
+	font-size: 15px;
+    width: 200px;
 }
 
 .product_edit_price_edit{
@@ -407,7 +423,7 @@ select#product_status{
 }
 
 input#product_count{
-	font-size: 20px;
+	font-size: 15px;
 	border: 1px solid #999999;
 	width: 15%;
 	height: 10%;
@@ -423,6 +439,11 @@ input#product_status{
 	font-size: 100%;
 }
 
+input#product_album,input#product_price,{
+    vertical-align: middle;
+    margin-left: 5px;
+    text-align: center;
+}
 
 
 /*-----------------------------------ここからindexの新着アイテム（３つ並んでるとこ）*/
@@ -445,11 +466,13 @@ input#product_status{
 }
 
 /*/＊新着アイテムの文字のとこ＊/*/
-.product_index_content_headtitle {
+.product_index_content_title {
+    font-size: 36px;
+    vertical-align: bottom;
+    margin-bottom: 15px;
     width: 100%;
     text-align: center;
-    text-decoration: underline;
-    
+    background: linear-gradient(transparent 90%, #55acee 0%);
 }
 
 /*/＊商品画像、商品名、値段が入るbox＊/*/
@@ -543,12 +566,6 @@ input#product_status{
     padding: 0 45px;
 }
 
-.product_index_content_headtitle2 {
-    background-color: pink;
-    width: 1200px;
-    height: 50px;
-    text-align: center;
-}
 
 .product_index_disc_box2 {
     background-color: rgb(150, 150, 250);

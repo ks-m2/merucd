@@ -6,69 +6,70 @@
         <!-- 草野デザイン修正 -->
     <div class="product_show_middle">
         <div class="product_show_etc">
+            <div class="product_show_small">
 
-        <div class="product_show_album">
+            <div class="product_show_album">
 
-            <h1><%= @product.album %>/<%= @product.artist %></h1>
+                <h1><%= @product.album %>/<%= @product.artist %></h1>
 
-        </div>
-        <div class="product_show_image">
-            <%= attachment_image_tag @product, :image ,:size => "300x300" %>
-        </div>
-        <div class="product_show_table2">
-                <table class="product_show_table3 bordercolor="#E6E6E6" rules="all" >
-                    <caption></caption>
-                    <thead>
-                         </thead>
-                        <tr>
-                            <td class="product_show_table4">出品者</td><td><%= link_to user_path(@product.user.id) do |f| %>
-                                <%= @product.user.name%></td>
-                                <% end %>
-                        </tr>
-                         </tr>
-                        	<td>アーティスト名</td><td><%= @product.artist %></td>
-                        </tr>
-                        <tr>
-                            <td class="product_show_table4">在庫数</td><td><%= @product.count %>個</td>
-                        </tr>
-                        <tr>
-                            <td class="product_show_table4">レーベル</td><td><%= @product.label %></td>
-                        </tr>
-                        <tr>
-                            <td class="product_show_table4">ジャンル </td><td><%= @product.genre_i18n %></td>
-                        </tr>
-                        <tr>
+            </div>
+            <div class="product_show_image">
+                <%= attachment_image_tag @product, :image ,:size => "300x300",fallback: 'no_image.jpg' %>
+            </div>
+            <div class="product_show_table2">
+                    <table class="product_show_table3 bordercolor="#E6E6E6" rules="all" >
+                        <caption></caption>
+                        <thead>
+                             </thead>
+                            <tr>
+                                <td class="product_show_table4">出品者</td><td><%= link_to user_path(@product.user.id),:style =>"text-decoration:none" do |f| %>
+                                    <%= @product.user.name%></td>
+                                    <% end %>
+                            </tr>
+                             </tr>
+                            	<td class="product_show_table4">アーティスト名</td><td><%= @product.artist %></td>
+                            </tr>
+                            <tr>
+                                <td class="product_show_table4">在庫数</td><td><%= @product.count %>個</td>
+                            </tr>
+                            <tr>
+                                <td class="product_show_table4">レーベル</td><td><%= @product.label %></td>
+                            </tr>
+                            <tr>
+                                <td class="product_show_table4">ジャンル </td><td><%= @product.genre_i18n %></td>
+                            </tr>
+                            <tr>
 
-                            <td class="product_show_table4">状態</td><td><%= @product.status %></td>
-                        </tr>
+                                <td class="product_show_table4">状態</td><td><%= @product.status %></td>
+                            </tr>
 
-                    <tbody>
-                    </tbody>
-                </table>
-                <div class="product_show_gocart">
-                    <% if @product.user.id != current_user.id %>
-                    <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
-                    <%=f.number_field :count, :size => "10x8",placeholder:"個数"%><br>
-                    <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md cart_btn" do %>
-                      <i class="fas fa-cart-plus fa-fw fa-2x"></i>カートへ
-                    <% end %>
-                    <% else %>
-                    <% end %>
-                    <% end %>
-
-                    <div>
-                        <% if current_user != nil %>
-                        <% if @product.user.id == current_user.id %>
-                        <h5><%= link_to "編集する", edit_product_path(@product.id),:style=>"color: #222222; text-decoration:none "%>
-                        <%= link_to "削除する", product_path(@product.id),:style=>"color: #222222; text-decoration:none ", method: :delete, "data-confirm" => "本当に削除しますか？"%></h5>
-                        <% else %>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="product_show_gocart">
+                        <% if @product.user.id != current_user.id %>
+                        <%=form_for(@cart_product, url:cart_product_path(@product.id), html:{method: :patch}) do |f| %>
+                        <%=f.number_field :count, :size => "10x8",placeholder:"個数"%><br>
+                        <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md cart_btn" do %>
+                          <i class="fas fa-cart-plus fa-fw fa-2x"></i>カートへ
                         <% end %>
                         <% else %>
                         <% end %>
+                        <% end %>
+
+                        <div>
+                            <% if current_user != nil %>
+                            <% if @product.user.id == current_user.id %>
+                            <h5><%= link_to "編集する", edit_product_path(@product.id),:style=>"color: #222222; text-decoration:none "%>
+                            <%= link_to "削除する", product_path(@product.id),:style=>"color: #222222; text-decoration:none ", method: :delete, "data-confirm" => "本当に削除しますか？"%></h5>
+                            <% else %>
+                            <% end %>
+                            <% else %>
+                            <% end %>
+                        </div>
                     </div>
-                </div>
+            </div>
         </div>
-
         <div class="product_show_song">
             <h1>曲目</h1>
                 <% @product.discs.each do |disc| %>
@@ -128,6 +129,5 @@
                     <% end %>
                 <% end %>
         </div>
-
     </div>
 </div>
