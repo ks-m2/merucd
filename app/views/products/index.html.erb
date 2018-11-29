@@ -322,7 +322,7 @@ tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
         
         //最初はmoreボタン表示にし、
         $(this).find('.more_btn').show();//thisに入ってるのは.product_index_middle_box
-        $(this).find('#close_btn').hide();
+        $(this).find('.close_btn').hide();
         //10行目まで表示
 
         listContents.each(function(i, e){
@@ -346,10 +346,10 @@ tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
             Num = 3;//「閉じる」がクリックされた後、表示させるアイテムの数
             gtNum = Num-1;
             $('.more_btn').hide();
-            $('#close_btn').show();
+            $('.close_btn').show();
             
             //「閉じる」がクリックされたら、
-            $('#close_btn').click(function(){
+            $('.close_btn').click(function(){
 			$(this).parent().find(".product_index_middle_box:gt("+gtNum+")").slideUp();//11行目以>降は非表示にし、
                 //thisに入ってるのは#close_btn 
                 $(this).hide();//閉じるボタンを非表示 
