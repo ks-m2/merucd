@@ -45,7 +45,7 @@
     width: 80%;
     padding-top: 50px;
     margin: 0 auto;
-    font-family: serif;
+
 }
 
 .product_show_album{
@@ -299,7 +299,6 @@ textarea#product_comment_content{
     width: 80%;
     margin : 0 auto;
     background-color: #fff;
-    font-family: serif;
 }
 
 .product_edit_image{
@@ -310,6 +309,9 @@ textarea#product_comment_content{
     vertical-align: top;
     text-align: center;
 }
+.product_edit_image_border{
+	border:1px solid #999999;
+}
 
 
 .product_edit_table2{
@@ -318,6 +320,9 @@ textarea#product_comment_content{
     display: inline-block;
     vertical-align: top;
 
+}
+.product_edit_song{
+    border:1px solid #999999;
 }
 
 .product_edit_table3{
