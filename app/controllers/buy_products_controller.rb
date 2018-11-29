@@ -37,6 +37,14 @@ class BuyProductsController < ApplicationController
         @buyproduct.price = cartroduct.product.new_price
       end
       @buyproduct.save
+
+      # cartproductに入っているproductを出す
+      @product = Product.find(cartproduct.product_id)
+      # 数をへらす
+      @product.count = @product.count - cartproduct.count
+
+      @product.save
+
     end
 
       @cart.destroy

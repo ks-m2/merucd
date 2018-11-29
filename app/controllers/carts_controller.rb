@@ -31,11 +31,10 @@ class CartsController < ApplicationController
     @buyproduct = BuyProduct.new
     @delivery = Delivery.new
     @delivery.buys.new
-    
 
     @total_price = 0
     @cartproducts.each do |cartproduct|
-      @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
+    @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
     end
 
   end

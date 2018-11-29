@@ -1,6 +1,12 @@
 <%= @cart_product.errors.full_messages.each do |message| %>
 <%= message %>
 <% end %>
+<% if flash[:notice] %>
+	<div class="products_show_flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
 <div class="product_show_big_box">
   <h1 id="ppp">商品詳細画面</h1>
 	<div class="product_show_artist">
