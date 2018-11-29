@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_040117) do
+ActiveRecord::Schema.define(version: 2018_11_29_205047) do
 
   create_table "buy_products", force: :cascade do |t|
     t.integer "count"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_040117) do
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "delivery_status"
   end
 
   create_table "buys", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_040117) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "delivery_status"
   end
 
   create_table "cart_products", force: :cascade do |t|
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_040117) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.integer "new_price"
+    t.integer "delivery_status"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -140,8 +143,8 @@ ActiveRecord::Schema.define(version: 2018_11_28_040117) do
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "postal"
     t.boolean "admin"
+    t.string "postal"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

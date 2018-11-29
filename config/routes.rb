@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   resources :admins, only: [:index, :show]
   get 'search' => 'searches#search', as: "search"
   get "/homes/about" => "homes#about"
+  get '/delivery' => 'users#delivery'
+  post '/delivery/:id' => 'users#delivery_create'
   root to: 'products#index'
 end

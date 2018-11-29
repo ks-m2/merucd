@@ -30,6 +30,8 @@ class BuyProductsController < ApplicationController
         # 空の@buyproductのcountカラムに現在のカートプロダクトの数を入れる
         @buyproduct.count = cartproduct.count
 
+        @buyproduct.delivery_status = "配送準備中"
+
         # 空のbuyproductに購入時点の価格を入れる
         if cartproduct.product.new_price == nil
           @buyproduct.price = cartproduct.product.price
