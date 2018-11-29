@@ -28,9 +28,9 @@ $(window).load(function() {
 	<h1 class="product_index_content_headtitle">新着アイテム</h1>
         <% @products.each do |product| %>
 	        	<!-- 画像と商品名と値段の箱 -->
-	        	<div class="product_index_middle_box">
+	        <div class="product_index_middle_box">
 
-					<a class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
+				<a class="fancybox"><%= attachment_image_tag product, :image, :size => "300x300", fallback: "no_image.jpg", class: "product_index_middle_box1" %></a>
 				<!-- :fill, 300, 300でなく　sizeで表記したらうまくいきました。。 -->
 				<!-- 商品名と値段の箱 -->
 				<%=link_to product_path(product.id) do %>
@@ -58,14 +58,14 @@ $(window).load(function() {
         <% end %>
 		<% end %>
 		<div class="more_btn">もっと見る <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-  <div id="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+  <div class="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 </div>
 
 <!-- 新着アイテム全体の箱fin -->
 
 
 <!-- j-popアイテム全体の箱 -->
-<div class="product_index_content_2">
+<div class="product_index_content">
 	<h1 class="product_index_content_headtitle">J-POP</h1>
 
         <% @jpops.first(4).each do |jpop| %>
@@ -105,14 +105,14 @@ $(window).load(function() {
         <% end %>
 		<% end %>
 	<div class="more_btn">もっと見る <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-  <div id="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+  <div class="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 </div>
 <!-- j-popアイテム全体の箱fin -->
 
 
 
 <!-- 洋楽アイテム全体の箱 -->
-<div class="product_index_content_2">
+<div class="product_index_content">
 	<h1 class="product_index_content_headtitle">洋楽</h1>
 
         <% @worlds.first(4).each do |world| %>
@@ -153,13 +153,13 @@ $(window).load(function() {
         <% end %>
 		<% end %>
 		<div class="more_btn">もっと見る <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-  <div id="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+  <div class="close_btn">表示数を戻す <i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 </div>
 <!-- 洋楽アイテム全体の箱fin -->
 
 
 <!-- K-POPアイテム全体の箱 -->
-<div class="product_index_content_3">
+<div class="product_index_content">
 	<h1 class="product_index_content_headtitle">K-POP</h1>
 
         <% @kpops.first(4).each do |kpop| %>    
@@ -309,74 +309,29 @@ tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
 
 <body>
 
-<!-- ------------------元の記述（11/28 AM）----------------------------- -->
-<!-- <script>
-  //liの個数を取得しておく
- 	
-
-	$(".product_index_middle_box").each(function(index){ //何番め以降を非表示にするために関数で指定が必要
-		//最初に表示させるアイテムの数
-		console.log(index);
-		var listContents = $(".product_index_middle_box").length;
- 			console.log(listContents);
-		var Num = 3;
-
-		//最初はmoreボタン表示にし、
-		$(this).find('#more_btn').show();//thisに入ってるのは.product_index_middle_box
-		$(this).find('#close_btn').hide();
-		//10行目まで表示
-
-		if(index >= Num){//上で定義したNum = 3以降の画像を指定
-		$(this).hide();//隠す
-		}
-
-		//moreボタンがクリックされた時
-		$('#more_btn').click(function(){
-			//Numに+3ずつしていく = 3行ずつ追加する
-			Num +=3;
-			$(this).parent().find(".product_index_middle_box:lt("+Num+")").slideDown();
-			//:lt = ("")より前までを指定（.product_index_middle_boxの中で３＋３＝６より前までを指定）
-			//thisに入ってるのは#more_btn
-
-			//liの個数よりNumが多い時、
-			if(listContents <= Num){
-			Num = 3;//「閉じる」がクリックされた後、表示させるアイテムの数
-			gtNum = Num-1;
-			$('#more_btn').hide();
-			$('#close_btn').show();
-
-			//「閉じる」がクリックされたら、
-			$('#close_btn').click(function(){
-
-				$(this).parent().find(".product_index_middle_box:gt("+gtNum+")").slideUp();//11行目以降は非表示にし、
-				//thisに入ってるのは#close_btn
-				$(this).hide();//閉じるボタンを非表示
-				$('#more_btn').show();//moreボタン表示に
-		    });
-	    }
-	 });
-  });
-</script> -->
-<!-- ------------------元の記述ここまで（11/28 AM）----------------------------- -->
 <script>
 //liの個数を取得しておく
     $(document).on('click', '.more_btn', function() {
-      var listContents = $(this).parent().find($('.product_index_middle_box')).length;
-      console.log(listContents);
-    }
-    
-    $(this).parent().find($('.product_index_middle_box')).each(function(index){ //何番め以降を非表示にするために関数で指定が必要
-        //最初に表示させるアイテムの数
+      
+    })
+    console.log(this);
+    $(".product_index_content").each(function(){ //何番め以降を非表示にするために関数で指定が必要
+		var listContents = $(this).find($('.product_index_middle_box'));
+      	//最初に表示させるアイテムの数
         var Num = 3;
         
         //最初はmoreボタン表示にし、
         $(this).find('.more_btn').show();//thisに入ってるのは.product_index_middle_box
         $(this).find('#close_btn').hide();
         //10行目まで表示
+
+        listContents.each(function(i, e){
+	        if(i >= Num){//上で定義したNum = 3以降の画像を指定
+	        	// e == listcontents[i]
+	        	$(e).hide();//隠す
+	        }        	
+        })
         
-        if(index >= Num){//上で定義したNum = 3以降の画像を指定
-        $(this).hide();//隠す
-        }
         
         //moreボタンがクリックされた時
         $('.more_btn').click(function(){ 
@@ -387,7 +342,7 @@ tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
             //thisに入ってるのは#more_btn
             
             //liの個数よりNumが多い時、
-            if(listContents <= Num){
+            if(listContents.length <= Num){
             Num = 3;//「閉じる」がクリックされた後、表示させるアイテムの数
             gtNum = Num-1;
             $('.more_btn').hide();
@@ -395,7 +350,7 @@ tmr_funcBtn = setTimeout( function(){ funcBtn.className = "" }, 500 );
             
             //「閉じる」がクリックされたら、
             $('#close_btn').click(function(){
-$(this).parent().find(".product_index_middle_box:gt("+gtNum+")").slideUp();//11行目以>降は非表示にし、
+			$(this).parent().find(".product_index_middle_box:gt("+gtNum+")").slideUp();//11行目以>降は非表示にし、
                 //thisに入ってるのは#close_btn 
                 $(this).hide();//閉じるボタンを非表示 
                 $('.more_btn').show();//moreボタン表示に
