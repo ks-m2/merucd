@@ -18,8 +18,15 @@
 
 body {
 	background-color: rgb(245, 245, 245);
+	font-family: 'Lucida Grande',
+ 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+ Meiryo, メイリオ, sans-serif;
+	color: #222222;
 }
-
+/*リンクにマウスを持って行ったら赤く表示するやつ*/
+a:hover{
+	color: red;
+}
 
 /*ここからヘッダーとフッター*/
 .clearfix::after {
@@ -31,6 +38,7 @@ body {
 header {
 	background-color: white;
 	width: 100%;
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16);
 }
 
 footer {
@@ -43,18 +51,24 @@ footer {
 .products_index_header {
     display: inline-block;
     list-style: none;
-    line-height: 50px;
+    line-height: 40px;
     width: 100%;
 }
 
 .products_index_header_title {
-	width:  100px;
-	height: 100px;
 	vertical-align: top;
 	object-fit: fill;
 	text-decoration: none;
 	margin-left: 500px;
 	float: left;
+}
+
+.products_index_header_logo{
+	width: 150px;
+	height: 70px;
+	max-width: 100%;
+	max-height: 100%;
+	margin-top: 10px;
 }
 
 .products_index_header_itembox {
@@ -65,6 +79,7 @@ footer {
 	width: 100px;
 	height: 30px;
 	display: inline-block;
+	vertical-align: top;
 }
 
 .products_index_search {
@@ -111,7 +126,11 @@ footer {
 }
 
 /*新規登録画面*/
-
+.sign_in_field{
+	width: 300px;
+	height: 40px;
+	font-size: 20px;
+}
 
 .sign-in{
 

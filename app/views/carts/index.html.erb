@@ -1,82 +1,83 @@
-<div class="cart_index_cd clearfix">
-	<%= form_tag(carts_path(cart_id: @cart.id), method: :post) do %>
 
-		<% @cart_products.each do |cart_product| %>
-			<div class="cart_index_cd_all">
-				<div class="cart_index_cd_img clearfix">
-					<%=link_to product_path(cart_product.product.id) do %>
-	        			<%= attachment_image_tag cart_product.product, :image, :fill, 300, 300 %>
-	        		<% end %>
-	        	</div>
-	        	<table rules="all" class="cart_index_cd_detail">
-					<tr>
-						<th>アーティスト</th>
-						<td width="300" align="center">
-							<%=link_to cart_product.product.artist, product_path(cart_product.product.id) %>
-						</td>
-					</tr>
-					<tr>
-						<th>CD名</th>
-						<td align="center">
-							<%=link_to cart_product.product.album, product_path(cart_product.product.id) %>
-						</td>
-					</tr>
-					<tr>
-						<th>注文数</th>
-						<td align="center">
-							<%=cart_product.count %>
-						</td>
-					</tr>
-					<tr>
-						<th>出品者</th>
-						<td align="center">
-						<%=cart_product.product.user.name %>
-						</td>
-					</tr>
-				</table>
-				<table class="cart_index_cd_price">
-					<tr>
-						<th>単価</th>
-						<td><%= cart_product.product.price %></td>
-					</tr>
-					<tr>
-						<th>数量</th>
-						<td>
-							<% @number = [] %>
-							<% cart_product.product.count.times do |number| %>
-								<% @number << [number+1, number+1] %>
-							<% end %>
-							<% cart_product_name = cart_product.id.to_s + "_count"%>
+<div class="cart_index_cd">
+	<% @cart_products.each do |cart_product| %>
+	<div class="cart_index_cd_all clearfix">
+		<div class="cart_index_cd_img clearfix">
+			<%=link_to product_path(cart_product.product.id) do %>
 
-							<%= select_tag cart_product_name, options_for_select(@number, selected: cart_product.count) %>
-						</td>
-					</tr>
-				</table>
-				<table class="cart_index_cd_price">
-					<tr>
-						<th>小計</th>
-						<td>¥<%= cart_product.product.price * cart_product.count %></td>
-					</tr>
-					<tr>
-						<td><%= link_to'カートから削除', cart_product_path(cart_product.id), method: :delete %></td>
-					</tr>
-				</table>
-			</div>
-		<% end %>
-		<!-- each fin -->
+        	<%= attachment_image_tag cart_product.product, :image, :size => "300x300",fallback: 'no_image.jpg'%>
+
+        	<% end %>
+        </div>
+        <table rules="all" class="cart_index_cd_detail">
+			<tr>
+				<th>アーティスト</th>
+				<td>
+					<%=link_to cart_product.product.artist, product_path(cart_product.product.id) %>
+				</td>
+				</tr>
+			<tr>
+
+				<th>CD名</th>
+				<td>
+					<%=link_to cart_product.product.album, product_path(cart_product.product.id) %>
+				</td>
+			</tr>
+			<tr>
+				<th>注文数</th>
+				<td>
+					<%=cart_product.count %>
+				</td>
+			</tr>
+			<tr>
+				<th>出品者</th>
+				<td>
+					<%=cart_product.product.user.name %>
+				</td>
+			</tr>
+		</table>
 		<div>
-			<table class="cart_index_cd_price_total">
+			<table class="cart_index_cd_price">
 				<tr>
-					<th>合計点数</th>
-					<th><h2><%= @total_count %>枚</h2></th>
-					<th>合計金額</th>
-					<th><h2>¥<%= @total_price %></h2></th>
+					<th>単価</th><!-- あとでlinktoにさしかえ -->
+					<td>
+	                	¥<%= cart_product.product.price %>
+	            	</td>
 				</tr>
 				<tr>
-					<th><%= submit_tag 'レジに進む' %></th>
+					<th>数量</th>
+					<td></td><!-- あとでlinktoにさしかえ -->
+				</tr>
+			</table><br>
+			<table class="cart_index_cd_price_small">
+				<tr>
+					<th>小計</td>
+					<td>¥<%= cart_product.product.price * cart_product.count %></td><!-- あとでlinktoにさしかえ -->
 				</tr>
 			</table>
 		</div>
+			<div>
+				<%= link_to'カートから削除', cart_product_path(cart_product.id), method: :delete %>
+			</div>
+	</div>
+
+	<hr>
 	<% end %>
-	<!-- form_tag fin -->
 </div>
+	<div class="cart_index_cd_price_total_all">
+		<table class="cart_index_cd_price_total">
+			<tr>
+				<th>合計点数</th>
+				<th><h2><%= @total_count %>枚</h2></th>
+				<th>合計金額</th>
+				<th><h2>¥<%= @total_price %></h2></th>
+				<th>
+				<%= link_to(cart_path(@cart), class: 'cart_btn',:style =>"text-decoration:none")  do %>
+  				<i class="fas fa-money-bill-alt"></i>レジに進む
+				<% end %>
+				</th>
+			</tr>
+		</table>
+	</div>
+
+

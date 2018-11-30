@@ -19,9 +19,8 @@ class CartsController < ApplicationController
     @total_price = 0
     @total_count = 0
     @cart_products.each do |cartproduct|
-      @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
-
-      @total_count += cartproduct.count #---合計個数---#
+    @total_price += cartproduct.product.price * cartproduct.count #---合計金額---#
+    @total_count += cartproduct.count #---合計個数---#
     end
   end
 

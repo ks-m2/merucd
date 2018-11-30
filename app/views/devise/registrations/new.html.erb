@@ -19,7 +19,7 @@
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: "sign_in_field" %>
     </div>
 
     <div class="field">
@@ -27,18 +27,18 @@
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: "sign_in_field"  %>
     </div>
 
 
     <div class="field">
       <%= f.label :パスワード（確認） %><br />
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation , class: "sign_in_field" %>
     </div>
 
     <div class="field">
       <%= f.label :郵便番号 %>(7桁)<br />
-      <%= f.number_field :postal %>
+      <%= f.number_field :postal , class: "sign_in_field" %>
     </div>
 
     <div class="field">
@@ -58,7 +58,7 @@
 
     <div class="field">
       <%= f.label :電話番号%>（10or11桁）<br />
-      <%= f.number_field :tel %>
+      <%= f.number_field :tel, class: "sign_in_field"  %>
     </div>
 
     <div class="actions">

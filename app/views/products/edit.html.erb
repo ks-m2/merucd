@@ -1,36 +1,39 @@
 
 <div class="product_edit_box">
     <div class="product_edit_middle">
-        <%= form_for(@product) do |f|%>
-            <div class="product_edit_album">
-                <h3>CD名<%= f.text_field :artist , class: "product_edit_album_name"  %></h3>
-            </div>
-            <div class="product_edit_image">
-                <%= attachment_image_tag @product, :image ,:size => "300x300" %>
-            </div>
-            <div class="product_edit_table2">
-                    <table class="product_edit_table3" border="1">
-                        <caption></caption>
-                        <thead>
-                            <tr>
-                                <td>出品者</td><td><%= link_to user_path(@product.user.id) do |f| %>
-                                    <%= @product.user.name%></td>
-                                    <% end %>
-                            </tr>
-                            <tr>
-                                <td>在庫数</td><td><%=f.number_field :count, class: "product_edit_number" %>個</td>
-                            </tr>
-                            <tr>
-                                <td>レーベル</td><td><%= f.text_area :label %></td>
-                            </tr>
-                            <tr>
-                                <td>ジャンル </td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
-                            </tr>
-                            <tr>
-                                <td>状態</td><td><%= f.select :status,Product.statuses.keys.to_a, {} %></td>
-                            </tr>
-                        </thead>
-                    </table>
+        <div class="product_edit_etc">
+            <div class="product_edit_small">
+            <%= form_for(@product) do |f|%>
+                <div class="product_edit_album">
+                    <h2>CD名<%= f.text_field :album, class: "product_edit_album_name"  %></h2>
+                </div>
+                <div class="product_edit_image">
+                    <%= attachment_image_tag @product, :image ,:size => "300x300",fallback: "no_image.jpg",class: "product_edit_image_border" %>
+                </div>
+                <div class="product_edit_table2">
+                        <table class="product_edit_table3 bordercolor="#E6E6E6" rules="all" >
+                            <caption></caption>
+                            <thead>
+                                <tr>
+                                    <td class="product_edit_table4">出品者</td><td><%= link_to user_path(@product.user.id),:style =>"text-decoration:none;" do |f| %>
+                                        <%= @product.user.name%></td>
+                                        <% end %>
+                                </tr>
+                                <tr>
+                                    <td class="product_edit_table4">在庫数</td><td><%=f.number_field :count, class: "product_edit_number" %>個</td>
+                                </tr>
+                                <tr>
+                                    <td class="product_edit_table4">レーベル</td><td><%= f.text_area :label %></td>
+                                </tr>
+                                <tr>
+                                    <td class="product_edit_table4">ジャンル </td><td><%= f.select :genre,Product.genres.keys.to_a, {} %></td>
+                                </tr>
+                                <tr>
+                                    <td class="product_edit_table4">状態</td><td><%= f.select :status,Product.statuses.keys.to_a, {} %></td>
+                                </tr>
+                            </thead>
+                        </table>
+                </div>
             </div>
             <div class="product_edit_song">
                 <h1>曲目</h1>
@@ -46,17 +49,19 @@
             </div>
             <div class="product_edit_price">
                 <% if @product.new_price == nil %>
-                    ¥<%= f.number_field :price, class: "product_edit_price_edit" %>円
+                    ¥<%= f.number_field :price, class: "product_edit_price_edit" %>
                 <% else %>
-                    ¥<%= f.number_field :new_price  %>円
+                    ¥<%= f.number_field :new_price  %>
                 <% end %>
             </div>
             <div class="product_edit_introduction">
                 <%= f.text_area :introduction ,:size =>"47x30", class: "product_edit_introduction_text" %>
             </div>
-            <%= f.submit "変更を保存" %>
+            <%= button_tag :type => "submit", :class =>" cart_btn" do %>
+                      変更を保存
         <% end %>
-
+        <% end %>
+        </div>
     </div>
 
 </div>
